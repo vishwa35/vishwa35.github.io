@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vishwa Shah</title>
+    <link>http://example.org/</link>
+    <description>Recent content on Vishwa Shah</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Jun 2018 01:10:30 -0700</lastBuildDate>
+    
+	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>http://example.org/about/</link>
+      <pubDate>Wed, 06 Jun 2018 01:10:30 -0700</pubDate>
+      
+      <guid>http://example.org/about/</guid>
+      <description>Computer Science major at Georgia Tech, graduating in December 2019
+A driven, goal oriented computer scientist with a strong interest in data science and product development. I&amp;rsquo;m particularly intruiged by applications of machine learning in automating driving and optimizing transportation at large. I derive excitement from working on products that have tangible impacts on the quality of people&amp;rsquo;s lives, enabling them to focus their time on the more important interactions.</description>
+    </item>
+    
+    <item>
+      <title>Resume</title>
+      <link>http://example.org/resume/</link>
+      <pubDate>Wed, 06 Jun 2018 01:10:30 -0700</pubDate>
+      
+      <guid>http://example.org/resume/</guid>
+      <description>Download PDF
+Education Georgia Institute of Technology Aug 2016 – Dec 2019 | Atlanta, GA
+ B.S. in Computer Science (Intelligence and Information Internetworks), Honors Program GPA: 3.68 Affiliations: Alpha Kappa Psi (Business Fraternity), Ramblin’ Raas (Nationally Competitive Dance Team) Relevant Coursework: Machine Learning, Robotics and Perception, Algorithms, Intro to Artificial Intelligence, Intro to Computer Systems and Networks, Computer Organization and Programming, Probability and Statistics, Discrete Math, Linear Algebra, Multivariable Calculus, Data Structures/Algorithms  Experience Software Engineering Intern | Redfin, Owner Engagement May 2018 - Aug 2018 | Seattle, WA</description>
+    </item>
+    
+    <item>
+      <title>@vpfbot</title>
+      <link>http://example.org/projects/vpfbot/</link>
+      <pubDate>Wed, 06 Jun 2018 01:03:29 -0700</pubDate>
+      
+      <guid>http://example.org/projects/vpfbot/</guid>
+      <description>Scheduled Messages constructing a weekly update message based on a Google Sheet CSPON Updates: [a week ago] - [yesterday]
+Sales Closed - HELL YEA! Congrats! - Company | @director | Date
+Wins - YAY! Good news :) Remember to see these all the way through! - Company | @director | Date
+Losses - It happens. Please remember to fill out insights from this contact in the sheet. Onwards! - Company | @director | Date</description>
+    </item>
+    
+  </channel>
+</rss>
