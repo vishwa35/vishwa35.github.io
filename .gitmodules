@@ -1,0 +1,4 @@
+[submodule "public"]
+	path = public
+	url = https://github.com/vishwa35/vishwa35.github.io.git
+	branch = master
