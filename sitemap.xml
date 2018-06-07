@@ -3,38 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/about/</loc>
+    <loc>http://vishwa35.github.io/about/</loc>
     <lastmod>2018-06-06T01:10:30-07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/resume/</loc>
+    <loc>http://vishwa35.github.io/resume/</loc>
     <lastmod>2018-06-06T01:10:30-07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/projects/vpfbot/</loc>
+    <loc>http://vishwa35.github.io/projects/vpfbot/</loc>
     <lastmod>2018-06-06T01:03:29-07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>http://vishwa35.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/projects/</loc>
+    <loc>http://vishwa35.github.io/projects/</loc>
     <lastmod>2018-06-06T01:03:29-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>http://vishwa35.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>http://vishwa35.github.io/</loc>
     <lastmod>2018-06-06T01:10:30-07:00</lastmod>
     <priority>0</priority>
   </url>
