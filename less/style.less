@@ -8,22 +8,22 @@
 *,
 *:after,
 *:before {
-	box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html {
-	box-sizing: border-box;
-	font-size: 62.5%;
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 body {
   display:flex;
   color: @fg-color;
   background-color: @bg-color;
-	font-family: 'Fira Mono', monospace;
-	font-size: 1.6em;
-	font-weight: 400;
-	letter-spacing: 0.0625em;
+  font-family: 'Fira Mono', monospace;
+  font-size: 1.6em;
+  font-weight: 400;
+  letter-spacing: 0.0625em;
   line-height: 1.8em;
   @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     font-size: 1.4em;
@@ -126,7 +126,7 @@ code {
 
 blockquote {
   border-left: 2px solid @darker-bg-color;
-  padding-left: 1.6rem;
+  padding-left: 0.8rem;
   font-style: italic;
 }
 
@@ -348,4 +348,12 @@ img {
 
 .float-left {
   float: left;
+}
+
+div .projbox {
+    border-radius: 25px;
+    border: 2px solid @darker-fg-color;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
 }
