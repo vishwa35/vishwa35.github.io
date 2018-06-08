@@ -351,9 +351,37 @@ img {
 }
 
 div .projbox {
-    border-radius: 25px;
-    border: 2px solid @darker-fg-color;
-    padding: 20px;
-    width: 200px;
-    height: 150px;
+  flex: 1;
+  border-radius: 30px;
+  border-width: 2px;
+  border-color: @darker-fg-color;
+  border-style: solid;
+  height: 300;
+  width: 30%;
+  float: left;
+  margin: 10px;
+}
+div .projbox:hover {
+  border-width: 2px;
+  border-color: #000;
+  background-color: @darker-fg-color;
+  h3 {
+    color: @bg-color;
+  }
+  p {
+    color: @bg-color;
+  }
+  a {
+    color: @bg-color;
+  }
+}
+div .projbox .projtitle {
+  margin: 10px 20px 10px 20px;
+}
+div .projbox .projprev {
+  margin: 10px 20px 10px 20px;
+}
+
+div .row {
+  display: flex;
 }
