@@ -13,3 +13,9 @@ I'm particularly intruiged by applications of machine learning in automating dri
 ##### What Else Do I Do?
 
 `Hiking` `Photography` `Investing`
+
+##### Contact Me
+
+I'd love to talk about tech, open source, or internship opportunities.
+
+Find me on **[LinkedIn](https://www.linkedin.com/in/vishwa35/)** or email me at **vishwashah [at] gatech [dot] edu**.

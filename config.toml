@@ -1,6 +1,7 @@
 baseURL = "https://vishwa35.github.io/"
 languageCode = "en-us"
 title = "Vishwa Shah"
+googleAnalytics = "UA-57527171-3"
 
 theme = "coder" # set the theme
 
