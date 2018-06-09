@@ -3,8 +3,9 @@ title: "Projects"
 date: 2018-06-06T01:10:30-07:00
 draft: false
 ---
+<div class="container-fluid">
 <div class="row">
-  <div class="projbox" role="button" onclick="location.href='https://github.com/vishwa35/vpfbot';">
+  <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12 projbox" role="button" onclick="location.href='https://github.com/vishwa35/vpfbot';">
     <div class=projtitle>
       <h3>@vpfbot (slackbot)</h3>
     </div>
@@ -14,7 +15,7 @@ draft: false
     </div>
   </div>
 
-  <div class="projbox" role="button" onclick="location.href='https://github.com/vishwa35/charles';">
+  <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12 projbox" role="button" onclick="location.href='https://github.com/vishwa35/charles';">
     <div class=projtitle>
       <h3>charles</h3>
     </div>
@@ -24,7 +25,7 @@ draft: false
     </div>
   </div>
 
-  <div class="projbox" role="button" onclick="location.href='https://github.com/facebook/osquery/pull/3539';">
+  <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12 projbox" role="button" onclick="location.href='https://github.com/facebook/osquery/pull/3539';">
     <div class=projtitle>
       <h3>osquery</h3>
     </div>
@@ -33,9 +34,8 @@ draft: false
       <p>Open source contribution</p>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="projbox" role="button" onclick="location.href='https://github.com/vishwa35/rasmadness';">
+
+  <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12 projbox" role="button" onclick="location.href='https://github.com/vishwa35/rasmadness';">
     <div class=projtitle>
       <h3>RASMadness</h3>
     </div>
@@ -45,7 +45,7 @@ draft: false
     </div>
   </div>
 
-  <div class="projbox" role="button" onclick="location.href='https://github.com/vishwa35/jain-alexa';">
+  <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12 projbox" role="button" onclick="location.href='https://github.com/vishwa35/jain-alexa';">
     <div class=projtitle>
       <h3>Alexa Skill</h3>
     </div>
@@ -55,7 +55,7 @@ draft: false
     </div>
   </div>
 
-  <div class="projbox" role="button" onclick="location.href='https://github.com/vishwa35/waterwhere';">
+  <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12 projbox" role="button" onclick="location.href='https://github.com/vishwa35/waterwhere';">
     <div class=projtitle>
       <h3>WaterWhere</h3>
     </div>
@@ -64,4 +64,5 @@ draft: false
       <p>CS 2340 Project: An Android app to crowdsource records of the cleanliness of water by location</p>
     </div>
   </div>
+</div>
 </div>
