@@ -2269,6 +2269,9 @@ div .projbox {
   border-style: solid;
   float: left;
   margin: 10px;
+  .tag {
+    font-weight: 400;
+  }
 }
 div .projbox:hover {
   border-width: 2px;
@@ -2282,6 +2285,15 @@ div .projbox:hover {
   }
   a {
     color: @bg-color;
+  }
+  .tag {
+    color: @link-color;
+    background-color: @bg-color;
+    font-weight: 400;
+  }
+  .tag:hover {
+    color: @link-color;
+    background-color: @darker-bg-color;
   }
 }
 div .projbox .projtitle {
