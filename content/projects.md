@@ -12,6 +12,18 @@ draft: false
     <hr>
     <div class=projprev>
       <p>Slackbot built to streamline processes I encouter as Vice President of Finance for <a href="https://gtakpsi.com"> gtakpsi</a>.</p>
+      <a class="tag">Python</a> <a class="tag">Slack API</a> <a class="tag">Heroku</a>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12 projbox" role="button" onclick="location.href='https://github.com/udpatil/StreetLens';">
+    <div class=projtitle>
+      <h3>StreetLens</h3>
+    </div>
+    <hr>
+    <div class=projprev>
+      <p>Traces the route of Google Maps Directions via HoloLens | HoloHack 2016</p>
+      <a class="tag">Google Maps API</a> <a class="tag">Google Places API</a> <a class="tag">C#</a> <a class="tag">Unity</a> <a class="tag">HoloLens</a>
     </div>
   </div>
 
@@ -22,6 +34,7 @@ draft: false
     <hr>
     <div class=projprev>
       <p>HackGT 2018 Project: comparative analysis of tweets and reddit threads</p>
+      <a class="tag">Python</a> <a class="tag">Flask</a> <a class="tag">Data Science</a>
     </div>
   </div>
 
@@ -31,7 +44,8 @@ draft: false
     </div>
     <hr>
     <div class=projprev>
-      <p>Open source contribution</p>
+      <p>Fixing an int truncation error</p>
+      <a class="tag">Open Source</a> <a class="tag">C++</a>
     </div>
   </div>
 
@@ -42,6 +56,7 @@ draft: false
     <hr>
     <div class=projprev>
       <p>Portal built for "fantasy"-like predictions game for the South Asian Raas Dance Circuit</p>
+      <a class="tag">Ruby on Rails</a> <a class="tag">JavaScript</a> <a class="tag">Heroku</a>
     </div>
   </div>
 
@@ -52,6 +67,7 @@ draft: false
     <hr>
     <div class=projprev>
       <p>Basic Alexa Skill built for the Jain community that reads quotes from Twitter and greets with a religious greeting.</p>
+      <a class="tag">Python</a> <a class="tag">Flask</a> <a class="tag">Alexa</a>
     </div>
   </div>
 
@@ -62,6 +78,7 @@ draft: false
     <hr>
     <div class=projprev>
       <p>CS 2340 Project: An Android app to crowdsource records of the cleanliness of water by location</p>
+      <a class="tag">Java</a> <a class="tag">Android</a>
     </div>
   </div>
 </div>

@@ -2269,6 +2269,9 @@ div .projbox {
   border-style: solid;
   float: left;
   margin: 10px;
+  .tag {
+    font-weight: 400;
+  }
 }
 div .projbox:hover {
   border-width: 2px;
@@ -2283,10 +2286,31 @@ div .projbox:hover {
   a {
     color: @bg-color;
   }
+  .tag {
+    color: @link-color;
+    background-color: @bg-color;
+    font-weight: 400;
+  }
+  .tag:hover {
+    color: @link-color;
+    background-color: @darker-bg-color;
+  }
 }
 div .projbox .projtitle {
   margin: 10px 20px 10px 20px;
 }
 div .projbox .projprev {
   margin: 10px 20px 10px 20px;
+}
+.tag {
+  background-color: @darker-fg-color;
+  color: @bg-color;
+  padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+  text-decoration: none !important;
+  font-size: 1em;
+  font-family: monospace;
+}
+.tag:hover {
+  background-color: @bg-color;
+  color: @link-color
 }

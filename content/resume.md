@@ -106,10 +106,10 @@ draft: false
 
 ### Skills
 
-**Programming**: `Java` `Python` `Ruby` `SQL` `C++` `C#` `Javascript` `MongoDB`
+**Programming**: <a class=tag>Java</a> <a class=tag>Python</a> <a class=tag>Ruby</a> <a class=tag>SQL</a> <a class=tag>C++</a> <a class=tag>C#</a> <a class=tag>JavaScript</a> <a class=tag>MongoDB</a>
 
-**Languages**: `Spanish (intermediate)` `Hindi (fluent)` `Gujarati (native)` `English (native)`
+**Languages**: <a class=tag>Spanish (intermediate)</a> <a class=tag>Hindi (fluent)</a> <a class=tag>Gujarati (native)</a> <a class=tag>English (native)</a>
 
-**Software**: `Android Studio` `IntelliJ` `Eclipse` `Adobe Photoshop` `Adobe Illustrator` `Adobe InDesign`
+**Software**: <a class=tag>Android Studio</a> <a class=tag>IntelliJ</a> <a class=tag>Eclipse</a> <a class=tag>Adobe Photoshop</a> <a class=tag>Adobe Illustrator</a> <a class=tag>Adobe InDesign</a>
 
-**Communication**: `Presentation` `Public Speaking` `Research Paper` `Communication Design`
+**Communication**: <a class=tag>Presentation</a> <a class=tag>Public Speaking</a> <a class=tag>Research Paper</a> <a class=tag>Communication Design</a>
