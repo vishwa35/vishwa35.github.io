@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vishwa Shah</title>
-    <link>https://vishwa35.github.io/</link>
+    <link>https://vishwashah.me/</link>
     <description>Recent content on Vishwa Shah</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 06 Jun 2018 01:10:30 -0700</lastBuildDate>
     
-	<atom:link href="https://vishwa35.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vishwashah.me/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>https://vishwa35.github.io/about/</link>
+      <link>https://vishwashah.me/about/</link>
       <pubDate>Wed, 06 Jun 2018 01:10:30 -0700</pubDate>
       
-      <guid>https://vishwa35.github.io/about/</guid>
+      <guid>https://vishwashah.me/about/</guid>
       <description>BS Computer Science, Georgia Tech December 2019 Interested in full-time/new grad roles I&amp;rsquo;m particularly intruiged by work in transportation optimization, productivity, and financial openness.
 I derive excitement from working on products that have tangible impacts on the quality of people&amp;rsquo;s lives, enabling them to focus their time on the more important interactions.
 I also enjoy tackling technical problems bounded by the constraints of a system, and enabling processes to scale and function without a hitch.</description>
@@ -24,10 +24,10 @@ I also enjoy tackling technical problems bounded by the constraints of a system,
     
     <item>
       <title>Projects</title>
-      <link>https://vishwa35.github.io/projects/</link>
+      <link>https://vishwashah.me/projects/</link>
       <pubDate>Wed, 06 Jun 2018 01:10:30 -0700</pubDate>
       
-      <guid>https://vishwa35.github.io/projects/</guid>
+      <guid>https://vishwashah.me/projects/</guid>
       <description>@vpfbot (slackbot)   Slackbot built to streamline processes I encounter as Vice President of Finance for gtakpsi.
 Python Slack API Heroku   StreetLens   Traces the route of Google Maps Directions via HoloLens | HoloHack 2016
 Google Maps API Google Places API C# Unity HoloLens  
@@ -38,10 +38,10 @@ osquery   Fixing an int truncation error</description>
     
     <item>
       <title>Resume</title>
-      <link>https://vishwa35.github.io/resume/</link>
+      <link>https://vishwashah.me/resume/</link>
       <pubDate>Wed, 06 Jun 2018 01:10:30 -0700</pubDate>
       
-      <guid>https://vishwa35.github.io/resume/</guid>
+      <guid>https://vishwashah.me/resume/</guid>
       <description>Download PDF
 Education Georgia Institute of Technology Aug 2016 – Dec 2019 | Atlanta, GA
  B.S. in Computer Science (Intelligence and Information Internetworks), Honors Program GPA: 3.68 Affiliations: Alpha Kappa Psi (Business Fraternity), Ramblin’ Raas (Nationally Competitive Dance Team) Relevant Coursework: Machine Learning, Robotics and Perception, Algorithms, Intro to Artificial Intelligence, Intro to Computer Systems and Networks, Computer Organization and Programming, Probability and Statistics, Discrete Math, Linear Algebra, Multivariable Calculus, Data Structures/Algorithms  Experience Forward Deployed Software Engineering Intern | Palantir May 2019 - Aug 2019 | London, UK</description>
