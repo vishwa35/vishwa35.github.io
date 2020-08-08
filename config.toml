@@ -1,4 +1,4 @@
-baseURL = "https://vishwa35.github.io/"
+baseURL = "https://vishwashah.me/"
 languageCode = "en-us"
 title = "Vishwa Shah"
 googleAnalytics = "UA-57527171-3"
@@ -7,7 +7,7 @@ theme = "coder" # set the theme
 
 [params] # theme parameters
     author = "Vishwa Shah" # author's name
-    info = "Software Engineer & Aspiring Data Scientist" # author's job title or info
+    info = "Georgia Tech '19" # author's job title or info
     description = "Vishwa Shah's personal website" # site description
     keywords = "blog,developer,personal,student" # site keywords
 
