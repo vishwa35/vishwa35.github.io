@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github on Vishwa Shah</title>
+    <link>https://vishwashah.me/tags/github/</link>
+    <description>Recent content in github on Vishwa Shah</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2020</copyright>
+    <lastBuildDate>Sun, 06 Jan 2019 20:29:51 +0000</lastBuildDate>
+    
+	<atom:link href="https://vishwashah.me/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to build a basic slackbot: a  beginner’s guide</title>
+      <link>https://vishwashah.me/blog/medium/2019-01-06_how-to-build-a-basic-slackbot-a-beginners-guide/</link>
+      <pubDate>Sun, 06 Jan 2019 20:29:51 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/2019-01-06_how-to-build-a-basic-slackbot-a-beginners-guide/</guid>
+      <description>Let’s try and automate something [in python] Photo by Rock’n Roll Monkey on Unsplash
+Update: code and tutorial updated on June 28 to reflect Slack API changes
+Slackbots: Why use them? Before we get into the tutorial part of this post, let’s take a look at why this can be a worthy project and tool.
+Slack is an increasingly popular tool for team-wide communication. It’s grown to include plugins for other widely used project management tools, like JIRA, Google Drive, and the likes.</description>
+    </item>
+    
+  </channel>
+</rss>

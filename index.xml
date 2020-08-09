@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vishwa Shah</title>
@@ -6,20 +6,95 @@
     <description>Recent content on Vishwa Shah</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Jun 2018 01:10:30 -0700</lastBuildDate>
+    <copyright>© 2020</copyright>
+    <lastBuildDate>Wed, 28 Aug 2019 00:13:52 +0000</lastBuildDate>
     
 	<atom:link href="https://vishwashah.me/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>About</title>
-      <link>https://vishwashah.me/about/</link>
-      <pubDate>Wed, 06 Jun 2018 01:10:30 -0700</pubDate>
+      <title>Working across the pond</title>
+      <link>https://vishwashah.me/blog/medium/2019-08-28_working-across-the-pond/</link>
+      <pubDate>Wed, 28 Aug 2019 00:13:52 +0000</pubDate>
       
-      <guid>https://vishwashah.me/about/</guid>
-      <description>BS Computer Science, Georgia Tech December 2019 Interested in full-time/new grad roles I&amp;rsquo;m particularly intruiged by work in transportation optimization, productivity, and financial openness.
-I derive excitement from working on products that have tangible impacts on the quality of people&amp;rsquo;s lives, enabling them to focus their time on the more important interactions.
-I also enjoy tackling technical problems bounded by the constraints of a system, and enabling processes to scale and function without a hitch.</description>
+      <guid>https://vishwashah.me/blog/medium/2019-08-28_working-across-the-pond/</guid>
+      <description>This summer was filled with unknowns.
+London, a city I knew no one in, on a continent in which I’d never left an airport. Palantir, where I’d intern as a forward deployed software engineer — I knew it’d be something different, but not exactly how.
+These unknowns led to quite a bit of discovery. I was able to reflect on my place in the world and interface with people of all kinds of backgrounds and attitudes on life, careers, and politics.</description>
+    </item>
+    
+    <item>
+      <title>Graduating? Me? Not yet.</title>
+      <link>https://vishwashah.me/blog/medium/2019-08-28_graduating-me-not-yet./</link>
+      <pubDate>Wed, 28 Aug 2019 00:07:56 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/2019-08-28_graduating-me-not-yet./</guid>
+      <description>Last August I realized I would graduate in May — earlier than expected. I wasn’t mentally prepared; I didn’t know what I wanted to pursue career-wise. So I figured, another internship? I learned a ton this winter while at Lyft. My work was primarily related to data pipelines, and with the mentorship from Dan Fan and Ikramul Haq (and great feedback culture!) I strengthened my ability to evaluate technical design decisions, communicate across teams, and build solid services.</description>
+    </item>
+    
+    <item>
+      <title>Using Habits to Hack Your Life</title>
+      <link>https://vishwashah.me/blog/medium/2019-03-26_using-habits-to-hack-your-life/</link>
+      <pubDate>Tue, 26 Mar 2019 15:47:23 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/2019-03-26_using-habits-to-hack-your-life/</guid>
+      <description>How to actually accomplish your New Year’s resolutions and keep the cycle of self-improvement churning. Every morning as I leave for work, I grab my keys off the same place on the counter, stuff my feet into my boots, and lock the door.
+Then I walk down two flights of stairs, and ask myself — did I lock the door?
+For the first 3 weeks or so, I’d go back up and check.</description>
+    </item>
+    
+    <item>
+      <title>How to build a basic slackbot: a  beginner’s guide</title>
+      <link>https://vishwashah.me/blog/medium/2019-01-06_how-to-build-a-basic-slackbot-a-beginners-guide/</link>
+      <pubDate>Sun, 06 Jan 2019 20:29:51 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/2019-01-06_how-to-build-a-basic-slackbot-a-beginners-guide/</guid>
+      <description>Let’s try and automate something [in python] Photo by Rock’n Roll Monkey on Unsplash
+Update: code and tutorial updated on June 28 to reflect Slack API changes
+Slackbots: Why use them? Before we get into the tutorial part of this post, let’s take a look at why this can be a worthy project and tool.
+Slack is an increasingly popular tool for team-wide communication. It’s grown to include plugins for other widely used project management tools, like JIRA, Google Drive, and the likes.</description>
+    </item>
+    
+    <item>
+      <title>Interning at Redfin</title>
+      <link>https://vishwashah.me/blog/medium/2018-10-05_interning-at-redfin/</link>
+      <pubDate>Fri, 05 Oct 2018 15:01:03 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/2018-10-05_interning-at-redfin/</guid>
+      <description>Engaging homeowners without really knowing what it’s like to be one Nine months ago, I got on a call with my future manager to talk about the scope of the team and understand if it’d be a good fit. Owner Engagement focuses on making Redfin resourceful for homeowners in an effort to retain their interest and ultimately convert owners to sellers.
+Having in the past worked on engineering infrastructure, I was excited to diversify and work on the product side of a company — I wanted the fulfillment of knowing users were directly impacted by my work.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with Investing</title>
+      <link>https://vishwashah.me/blog/medium/2018-09-11_getting-started-with-investing/</link>
+      <pubDate>Tue, 11 Sep 2018 23:19:23 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/2018-09-11_getting-started-with-investing/</guid>
+      <description>growing that internship money You’ve been watching those direct deposits come in — maybe spending lots of it on rent, recreation, and the likes. Maybe tuition or housing this Fall. If you have the bandwidth to save some of it, however, your bank balance has been rising. How do you make the most of it? Invest.
+What Does It Mean to Invest? According to investopedia.com (a great resource!):
+ Investing is the act of committing money or capital to an endeavor (a business, project, real estate, etc.</description>
+    </item>
+    
+    <item>
+      <title>Anekantvad, defined (me)</title>
+      <link>https://vishwashah.me/blog/medium/2018-08-03_anekantvad-defined-me/</link>
+      <pubDate>Fri, 03 Aug 2018 13:01:01 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/2018-08-03_anekantvad-defined-me/</guid>
+      <description>Taking the time to understand the “third” core tenet of Jainism At #YJA18, Nikita T. Mitchell gave a wonderful keynote.
+ Your faith is rooted in compassion. Shine that light.
+ While sharing her story, she asked us to reflect on and share a defining moment for our faith. For me, I thought back to the couple distinctive turning points in how I approached Jainism and where I concentrated my efforts: my journey in understanding Anekantvad.</description>
+    </item>
+    
+    <item>
+      <title>Forming a new Fund</title>
+      <link>https://vishwashah.me/blog/medium/2018-06-12_forming-a-new-fund/</link>
+      <pubDate>Tue, 12 Jun 2018 16:59:34 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/2018-06-12_forming-a-new-fund/</guid>
+      <description>supporting individual growth and exploration Inception As with most ideas, there were some building block experiences to this idea.
+The Basis Back in January, I watched a friend’s Snapchat story in awe as he posted videos from CES 2018 (a major consumer electronics conference). Later that day, as I took my usual mental break and went to the Student Center to chat with some bros, CES came up in conversation.</description>
     </item>
     
     <item>
@@ -30,10 +105,8 @@ I also enjoy tackling technical problems bounded by the constraints of a system,
       <guid>https://vishwashah.me/projects/</guid>
       <description>@vpfbot (slackbot)   Slackbot built to streamline processes I encounter as Vice President of Finance for gtakpsi.
 Python Slack API Heroku   StreetLens   Traces the route of Google Maps Directions via HoloLens | HoloHack 2016
-Google Maps API Google Places API C# Unity HoloLens  
-charles   HackGT 2018 Project: comparative analysis of tweets and reddit threads
-Python Flask Data Science  
-osquery   Fixing an int truncation error</description>
+Google Maps API Google Places API C# Unity HoloLens   charles   HackGT 2018 Project: comparative analysis of tweets and reddit threads
+Python Flask Data Science   osquery   Fixing an int truncation error</description>
     </item>
     
     <item>
@@ -42,9 +115,40 @@ osquery   Fixing an int truncation error</description>
       <pubDate>Wed, 06 Jun 2018 01:10:30 -0700</pubDate>
       
       <guid>https://vishwashah.me/resume/</guid>
-      <description>Download PDF
-Education Georgia Institute of Technology Aug 2016 – Dec 2019 | Atlanta, GA
- B.S. in Computer Science (Intelligence and Information Internetworks), Honors Program GPA: 3.68 Affiliations: Alpha Kappa Psi (Business Fraternity), Ramblin’ Raas (Nationally Competitive Dance Team) Relevant Coursework: Machine Learning, Robotics and Perception, Algorithms, Intro to Artificial Intelligence, Intro to Computer Systems and Networks, Computer Organization and Programming, Probability and Statistics, Discrete Math, Linear Algebra, Multivariable Calculus, Data Structures/Algorithms  Experience Software Engineer | Palantir June 2020 - Present | New York, NY</description>
+      <description>Download PDF Education  Georgia Institute of Technology Aug 2016 – Dec 2019 | Atlanta, GA
+ B.S. in Computer Science, concentrations in Intelligence and Information Internetworks &amp;ndash; GPA: 3.68 Affiliations: Alpha Kappa Psi (Business Fraternity), Ramblin’ Raas (Nationally Competitive Dance Team) Relevant Coursework: Machine Learning, Robotics and Perception, Algorithms, Intro to Artificial Intelligence, Intro to Computer Systems and Networks, Computer Organization and Programming, Probability and Statistics, Discrete Math, Linear Algebra, Multivariable Calculus, Data Structures/Algorithms  Experience  Palantir Software Engineer June 2020 - Present | New York, NY</description>
+    </item>
+    
+    <item>
+      <title>Debugging a series of miscalculations in osquery</title>
+      <link>https://vishwashah.me/blog/medium/2017-08-18_debugging-a-series-of-miscalculations-in-osquery/</link>
+      <pubDate>Fri, 18 Aug 2017 18:59:37 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/2017-08-18_debugging-a-series-of-miscalculations-in-osquery/</guid>
+      <description>Heads up, we’ve moved! If you’d like to continue keeping up with the latest technical content from Square please visit us at our new home https://developer.squareup.com/blog
+ What is osquery? osquery is an an open source tool by Facebook that provides a SQL interface for system information.
+Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.</description>
+    </item>
+    
+    <item>
+      <title>CMU Pre-College: A Valuable Experience</title>
+      <link>https://vishwashah.me/blog/medium/2015-08-28_cmu-precollege-a-valuable-experience/</link>
+      <pubDate>Fri, 28 Aug 2015 00:55:12 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/2015-08-28_cmu-precollege-a-valuable-experience/</guid>
+      <description>Both a work of art I created in Printmaking class as well as a commentary on my motto for life.
+I’m writing this 3 weeks after the end of the program, because I’ve been extremely busy since it ended. And I need to write this for my CAS reflection anyway.
+Taking art and design classes was a relatively new experience; I didn’t have this kind of opportunity before, and I never really considered it a priority.</description>
+    </item>
+    
+    <item>
+      <title>A New* Worldview — Through Service</title>
+      <link>https://vishwashah.me/blog/medium/2015-06-12_new-worldview-through-service/</link>
+      <pubDate>Fri, 12 Jun 2015 23:56:44 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/2015-06-12_new-worldview-through-service/</guid>
+      <description>DominiCANT Believe It’s Over *The title of this should&#39;ve been a Nhu Worldview, because of the puns made on this trip, but for it to make sense to others, I opted to keep it like it is.
+I just returned from a trip to the Dominican Republic. I&#39;ve changed as a person through the experience, gaining a new perspective on the world and its people. I went with the Ryan Nece Foundation (@powerofgiving) as a part of the Student Service Program, and I am so thankful that I got this opportunity.</description>
     </item>
     
   </channel>

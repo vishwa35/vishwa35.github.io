@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Vishwa Shah</title>
@@ -6,9 +6,65 @@
     <description>Recent content in Tags on Vishwa Shah</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>© 2020</copyright>
+    <lastBuildDate>Sun, 06 Jan 2019 20:29:51 +0000</lastBuildDate>
     
 	<atom:link href="https://vishwashah.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>api</title>
+      <link>https://vishwashah.me/tags/api/</link>
+      <pubDate>Sun, 06 Jan 2019 20:29:51 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bot</title>
+      <link>https://vishwashah.me/tags/bot/</link>
+      <pubDate>Sun, 06 Jan 2019 20:29:51 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/tags/bot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://vishwashah.me/tags/github/</link>
+      <pubDate>Sun, 06 Jan 2019 20:29:51 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hack</title>
+      <link>https://vishwashah.me/tags/hack/</link>
+      <pubDate>Sun, 06 Jan 2019 20:29:51 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/tags/hack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://vishwashah.me/tags/programming/</link>
+      <pubDate>Sun, 06 Jan 2019 20:29:51 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>slack</title>
+      <link>https://vishwashah.me/tags/slack/</link>
+      <pubDate>Sun, 06 Jan 2019 20:29:51 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/tags/slack/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

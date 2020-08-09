@@ -1,10 +1,90 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://vishwashah.me/about/</loc>
-    <lastmod>2018-06-06T01:10:30-07:00</lastmod>
+    <loc>https://vishwashah.me/</loc>
+    <lastmod>2020-08-08T18:01:08-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/blog/</loc>
+    <lastmod>2020-08-08T18:01:08-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/blog/medium/2019-08-28_working-across-the-pond/</loc>
+    <lastmod>2020-08-08T18:01:08-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/blog/medium/2019-08-28_graduating-me-not-yet./</loc>
+    <lastmod>2020-08-08T18:01:08-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/blog/medium/2019-03-26_using-habits-to-hack-your-life/</loc>
+    <lastmod>2020-08-08T18:01:06-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/tags/api/</loc>
+    <lastmod>2020-08-08T18:01:05-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/tags/bot/</loc>
+    <lastmod>2020-08-08T18:01:05-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/tags/github/</loc>
+    <lastmod>2020-08-08T18:01:05-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/tags/hack/</loc>
+    <lastmod>2020-08-08T18:01:05-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/blog/medium/2019-01-06_how-to-build-a-basic-slackbot-a-beginners-guide/</loc>
+    <lastmod>2020-08-08T18:01:05-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/tags/programming/</loc>
+    <lastmod>2020-08-08T18:01:05-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/tags/slack/</loc>
+    <lastmod>2020-08-08T18:01:05-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/tags/</loc>
+    <lastmod>2020-08-08T18:01:05-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/blog/medium/2018-10-05_interning-at-redfin/</loc>
+    <lastmod>2020-08-08T18:01:01-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/blog/medium/2018-09-11_getting-started-with-investing/</loc>
+    <lastmod>2020-08-08T18:00:59-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/blog/medium/2018-08-03_anekantvad-defined-me/</loc>
+    <lastmod>2020-08-08T18:00:58-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/blog/medium/2018-06-12_forming-a-new-fund/</loc>
+    <lastmod>2020-08-08T18:00:56-04:00</lastmod>
   </url>
   
   <url>
@@ -18,19 +98,22 @@
   </url>
   
   <url>
+    <loc>https://vishwashah.me/blog/medium/2017-08-18_debugging-a-series-of-miscalculations-in-osquery/</loc>
+    <lastmod>2020-08-08T18:00:55-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/blog/medium/2015-08-28_cmu-precollege-a-valuable-experience/</loc>
+    <lastmod>2020-08-08T18:00:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/blog/medium/2015-06-12_new-worldview-through-service/</loc>
+    <lastmod>2020-08-08T18:00:51-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vishwashah.me/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vishwashah.me/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://vishwashah.me/</loc>
-    <lastmod>2018-06-06T01:10:30-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

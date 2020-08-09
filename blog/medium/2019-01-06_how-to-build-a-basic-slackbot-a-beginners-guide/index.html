@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    
+    
+
+    <base href="https://vishwashah.me/">
+    <title>
+  How to build a basic slackbot: a  beginner’s guide · Vishwa Shah
+</title>
+
+    <link rel="canonical" href="https://vishwashah.me/blog/medium/2019-01-06_how-to-build-a-basic-slackbot-a-beginners-guide/">
+
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="https://vishwashah.me/css/style.min.css">
+
+    
+
+    <link rel="icon" type="image/png" href="https://vishwashah.me/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vishwashah.me/images/favicon-16x16.png" sizes="16x16">
+
+    
+
+    <meta name="generator" content="Hugo 0.74.3" />
+  </head>
+
+  <body>
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://vishwashah.me/">
+      Vishwa Shah
+    </a>
+    
+    <ul class="navigation-list float-right">
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/">about</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/blog">blog</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/projects">projects</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/resume">resume</a>
+      </li>
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>How to build a basic slackbot: a  beginner’s guide</h1>
+    </header>
+
+    <h4 id="lets-try-and-automate-something-in-python">Let’s try and automate something [in python]</h4>
+<p><img src="images/1.jpeg" alt="image"></p>
+<p>Photo by <a href="https://unsplash.com/photos/R4WCbazrD1g?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Rock’n Roll Monkey</a> on <a href="https://unsplash.com/search/photos/bot?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+<p><strong><em>Update: code and tutorial updated on June 28 to reflect Slack API changes</em></strong></p>
+<h3 id="slackbots-why-use-them">Slackbots: Why use them?</h3>
+<p>Before we get into the tutorial part of this post, let’s take a look at why this can be a worthy project and tool.</p>
+<p><a href="http://slack.com">Slack</a> is an increasingly popular tool for team-wide communication. It’s grown to include plugins for other widely used project management tools, like JIRA, Google Drive, and the likes. Any slack user knows — the more you can do from within the conversation, the better.</p>
+<p>Common uses for a slackbot range from a simple notifier for when a task is complete (like a test build, or when your lunch is ready) to interactive, button-based bots that execute commands at the user’s will. You can build polling mechanisms, conversational bots, and more.</p>
+<h3 id="setting-up-a-python-programming-environment">Setting up a python programming environment</h3>
+<p><img src="images/2.gif" alt="image"></p>
+<p>If you’re a windows user and you haven’t used python before, you’ll need to <a href="https://docs.python.org/3/using/windows.html">install</a> it. Linux/Mac users: Unix comes with python!</p>
+<p>Once installed, fire up your terminal and type <code>python</code> or <code>python3</code> (if you have multiple installations) to make sure it works and is there.</p>
+<p>Also check to see you have a good text editor for code: <a href="https://www.sublimetext.com/3">sublime</a> and <a href="https://flight-manual.atom.io/getting-started/sections/installing-atom/">atom</a> are great choices.</p>
+<p>Optional: It might also be useful to work in a virtual environment — it’s good practice for when you have a lot of dependencies.</p>
+<pre><code>pip install virtualenv  
+virtualenv tutorial  
+source tutorial/bin/activate
+</code></pre>
+<p><img src="images/3.gif" alt="image"></p>
+<p>You should also fork the <a href="https://github.com/vishwa35/slackbot-tutorial">tutorial GitHub repo</a> and clone to your local machine, as we’ll be using that code as a framework for this tutorial.</p>
+<p>To do this, go to the <a href="https://github.com/vishwa35/slackbot-tutorial">repo</a> and click <code>Fork</code> on the top right. The forked repo should be <strong>&lt;yourusername&gt;/slackbot-tutorial</strong>. Hit the green <code>Clone or download</code> button on the right under the stats bar, and copy the url. Return to the terminal to clone the repository:</p>
+<pre><code>cd Desktop/  
+git clone [https://github.com/yourusername/slackbot-tutorial.git](https://github.com/vishwa35/slackbot-tutorial.git)  
+cd slackbot-tutorial/  
+sublime . (or open your text editor and open this directory)
+</code></pre>
+<h3 id="slack-apps">Slack Apps</h3>
+<p>There are two ways to go about creating your slackbot: standalone bots, or Slack apps. Apps allow a wider range of functionality going forward, and is Slack’s recommended route for creating a bot user.</p>
+<p>Go to <a href="https://api.slack.com/apps">https://api.slack.com/apps</a> and hit <code>Create New App</code> on the top right. Give it a name and pick a workspace where you can create a channel to test your bot in. You can always reconfigure your bot for another workspace later, or even post it to the Slack App Directory.</p>
+<p>I recommend making a #test channel in a workspace you create just for development purposes, or one that has relatively few users who wouldn’t mind you testing something out there.</p>
+<p><img src="images/4.png" alt="image"></p>
+<p>The first thing you’ll want to do is get the bot token. When you get to the above page, click Bots. Add some scopes; these determine what permissions your app’s bot user will have. To start, <strong><a href="https://api.slack.com/scopes/chat:write">chat:write</a> and <a href="https://api.slack.com/scopes/im:write">im:write</a></strong> are probably enough.</p>
+<p><img src="images/5.png" alt="image"></p>
+<p>Now, to actually get your tokens, you’ll want to go to <code>OAuth &amp;amp; Permissions</code> on the left sidebar.</p>
+<p>Here, you’ll be able to <code>Install the App to the Workspace</code> and generate the necessary tokens. As a rule of thumb, <strong>bot tokens</strong> start with <code>xoxb-.</code></p>
+<p>You’ll also want the <strong>signing secret</strong>, which is located under Basic Information &gt; App Credentials.</p>
+<h4 id="acting-as-your-bot">Acting as your Bot</h4>
+<p>Now you have the credentials necessary to make API calls and act as your bot. To test this out, fire up a terminal and run this (with the correct token and channel name):</p>
+<pre><code>curl -X POST \  
+     -H ';Authorization: Bearer xoxb-your-token'; \  
+     -H ';Content-type: application/json;charset=utf-8'; \  
+    --data ';{&quot;channel&quot;:&quot;#test&quot;,&quot;text&quot;:&quot;Hello, Slack!&quot;}'; \  
+https://slack.com/api/chat.postMessage
+</code></pre>
+<p>If you go to that channel in your slack workspace, you should now see a message from your bot! You just made an HTTP POST request — asked a server to post a message somewhere.</p>
+<h3 id="programming-the-bot">Programming the Bot</h3>
+<p>We want to do the above programatically. There are a few different ways you can set up a slackbot. I’ll cover the following:</p>
+<ul>
+<li>Triggered periodically (on a schedule) to say something</li>
+<li>/slash commands</li>
+</ul>
+<p>The second requires a server running, while the first does not.</p>
+<h4 id="scheduled-messages">Scheduled Messages</h4>
+<p>Let’s say you want to periodically send a message somewhere — maybe every Monday morning. Go to the text editor where you opened up <code>slackbot-tutorial</code>.</p>
+<p>You should see a file <code>scheduled.py</code>. Take a look: <code>sendMessage</code> is a function that fires off the API call to slack and posts a message. At the bottom, you’ll see the main method: what executes when you run the script. Here, you’ll see a few things to note:</p>
+<ul>
+<li><code>SLACK_BOT_TOKEN</code> is pulled from <code>os.environ[';SLACK_BOT_TOKEN';]</code> — how? Run <code>export SLACK_BOT_TOKEN=&quot;xoxb-your-token&quot;</code> in your terminal to set this variable.</li>
+<li>a scheduler is used here, and there’s an infinite loop that checks for events on the scheduler. By default here, I’ve scheduled the <code>sendMessage</code> function to be called every minute.</li>
+</ul>
+<p>To test this out, go back to the terminal where you’re in the <code>slackbot-tutorial</code> directory and run
+<code>export SLACK_BOT_TOKEN=&quot;xoxb-your-token&quot;   python scheduled.py</code></p>
+<p>You should see the log messages print. Make sure you’ve changed <code>**channel=#test**</code> in the code to your test channel name (if different) and added your bot (in the slack channel, type <code>/invite @botname</code>. Let it run for a couple minutes and watch the messages show up on Slack!</p>
+<p>This is, of course, a super basic implementation of a scheduled message sender — you can actually do this just with slackbot <code>/remind #test “Hello, Slack!” every Monday at 9am</code>.</p>
+<p>The <strong>true power</strong> here is that you can substitute in any function for <code>sendMessage</code>, leveraging the power of interfacing with external services through APIs, doing math, etc and then constructing a message to post.</p>
+<h4 id="slash-commands">Slash Commands</h4>
+<p>This one requires a little more setup — go back to your <a href="http://api.slack.com/apps">app settings</a> &gt; Slash Commands. Create a new slash command: for example, <code>/test</code>. For the request URL, you’ll need to either deploy this web server (I use Heroku), or run a local <code>ngrok</code> instance to test it. The latter will run it locally, and is best for testing. You can <code>brew install ngrok</code> or get it from <a href="https://ngrok.com/download">here</a>.</p>
+<p>In the starter code repo, look for <code>slashCommand.py</code> to start understanding this method. To start the server, run <code>python server.py</code>. The Request URL to put in Slack will be given by your <code>ngrok</code> instance and the <code>@app.route</code> in your code — it would be something like <a href="http://a8787d2fea3b.ngrok.io">http://a1234b5cde6f.ngrok.io</a>/<strong>slack/test</strong> (the bold part comes from the route defined in the code). You should be able to test the slash commands in your Slack workspace. From the tutorial code, try <code>/test</code>.</p>
+<h3 id="moving-forward">Moving Forward</h3>
+<p>Now you have a very basic slackbot that either operates on a command or runs every so often. Be creative with how you use it! Think about what else you can link this skeleton to to make it more useful.</p>
+<h4 id="other-ways-your-bot-might-respond">Other ways your bot might respond</h4>
+<ol>
+<li>Actions/responses could be triggered by mentions or certain phrases. This requires running a server and listening the messages somewhere.</li>
+<li>You bot could be conversational, and might contribute to threads. Check out some NLP to get started on having intelligible conversation! Word2Vec + TensorFlow or Keras might be a place to start. DialogFlow is also great.</li>
+<li>Link it up with some other APIs. Maybe you want to be able to interact with a Google Sheet and run some calculations. You might want to send other users a message based on some actions. Integrate <a href="https://api.slack.com/docs/message-buttons">buttons</a>. Perhaps you want to trigger messages based on something else.</li>
+</ol>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+     © 2020    ·  Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>. 
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-57527171-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

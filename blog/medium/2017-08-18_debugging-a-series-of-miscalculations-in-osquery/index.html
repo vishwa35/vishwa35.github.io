@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    
+    
+
+    <base href="https://vishwashah.me/">
+    <title>
+  Debugging a series of miscalculations in osquery · Vishwa Shah
+</title>
+
+    <link rel="canonical" href="https://vishwashah.me/blog/medium/2017-08-18_debugging-a-series-of-miscalculations-in-osquery/">
+
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="https://vishwashah.me/css/style.min.css">
+
+    
+
+    <link rel="icon" type="image/png" href="https://vishwashah.me/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vishwashah.me/images/favicon-16x16.png" sizes="16x16">
+
+    
+
+    <meta name="generator" content="Hugo 0.74.3" />
+  </head>
+
+  <body>
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://vishwashah.me/">
+      Vishwa Shah
+    </a>
+    
+    <ul class="navigation-list float-right">
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/">about</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/blog">blog</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/projects">projects</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/resume">resume</a>
+      </li>
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Debugging a series of miscalculations in osquery</h1>
+    </header>
+
+    <blockquote>
+<p>Heads up, we’ve moved! If you’d like to continue keeping up with the latest technical content from Square please visit us at our new home <a href="https://developer.squareup.com/blog">https://developer.squareup.com/blog</a></p>
+</blockquote>
+<h3 id="what-is-osqueryhttpsstackeditioosqueryio">What is <a href="https://stackedit.io/osquery.io">osquery</a>?</h3>
+<p>osquery is an an open source tool by Facebook that provides a SQL interface for system information.</p>
+<p>Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.</p>
+<h3 id="finding-the-miscalculations">Finding the miscalculations</h3>
+<h4 id="small-linux-disk-sizes">small linux disk sizes?</h4>
+<p>I’d been collecting data for about 2 weeks, when I changed the UI to showing human-readable numbers, and noticed the total disk size for a host was 0.58 GB (585871964 bytes). It seemed illogical to have a disk that small, so I looked up the actual disk size using <code>sudo fdisk -l</code> on that host, and it was 300 GB (299966445568 bytes.)</p>
+<p>It turns out <code>585871964 * 512 = 299966445568</code> yields the correct size. But what is 512, anyway?</p>
+<h4 id="what-is-block-sizehttpsenwikipediaorgwikiblock_28data_storage29">What is <a href="https://en.wikipedia.org/wiki/Block_%28data_storage%29">block size</a>?</h4>
+<p>The basic data primitive in computing storage is the byte– however, many storage devices perform I/O operations in larger units (the block size) for efficiency reasons. It’s historically 512 bytes (but it can differ) because of the physical notion of a sector on a disk.</p>
+<p>Turns out, despite the documentation stating this was returning in bytes, it was actually returning by block size; in this case 512.<br>
+I hard coded it into my code and decided to submit a patch to osquery to fix the issue and also add a column to the <code>block_devices</code> table for device <code>block_size</code>.</p>
+<h3 id="rip-more-bugs">rip more bugs</h3>
+<p>When I went to fix the Linux implementation and add the column, I saw that there was also a Darwin implementation. Curious to see if the issue was persistent, I ran it on my mac, and found that it was also inaccurate. I have a 256GB model.</p>
+<p><img src="images/1.png" alt="image"></p>
+<p>osqueryi results on my mac</p>
+<p>My SSD is 1892089856 bytes? Or <code>1892089856 * 512 = 968750006272</code>? (I wish I had almost a terabyte). Psych, it’s gotta be something else!<br>
+Took a look at the Darwin implementation, and found that it was using a bunch of IOKit stuff I had no idea about. I asked around for help, and we eventually found the Apple open source header for the method we needed to dissect. (I learned in C you can have <a href="https://en.wikipedia.org/wiki/Opaque_pointer">opaque structs with hidden definitions</a>)</p>
+<h3 id="opaque-structs-are-no-fun">opaque structs are no fun</h3>
+<p>It was difficult to figure out what it was doing at the system level, but the documentation pointed me to a dictionary <code>CFMutableDictionaryRef</code> that contained something for the key <code>Size</code>. Found some code on StackOverflow to print this dictionary, and turns out it was indeed returning the correct number. That’s when I became suspicious of a truncation error.</p>
+<p>Running <code>diskutil info -all</code> locally I found that I had<br>
+<code>Disk Size: 251.0 GB (251000193024 Bytes) (exactly 490234752 512-Byte-Units)</code></p>
+<p>The first dictionary printed, which would be <code>/dev/disk0</code>. The line with size:
+<code>17 : &amp;lt;CFString 0x7fffeb91cd20 [0x7fffeb978da0]&amp;gt;{contents = &amp;#34;Size&amp;#34;} = &amp;lt;CFNumber 0x3a70c7000037 [0x7fffeb978da0]&amp;gt;{**value** = +251000193024, **type** = kCFNumberSInt64Type}</code></p>
+<p>Immediately noticed the <code>type = kCFNumberSInt64Type</code>.</p>
+<h3 id="houston-we-have-a-truncation-error">houston, we have a truncation error</h3>
+<p>Converted it to a 32 bit int in ruby, and it confirmed that was the issue.
+<code>2.4.1 :001 &amp;gt; x = 251000193024   =&amp;gt; 251000193024   2.4.1 :002 &amp;gt; x &amp;amp; 0xffffffff   =&amp;gt; 1892089856</code></p>
+<p>I saw that there were checks for what type of <code>CFNumber</code> it was, but for some reason it wasn’t getting caught. Apparently it was hard coded it as a <code>kCFNumberIntType</code> somewhere in a series of nested method calls. I changed it to actually use the <code>CFNumberType</code> of the number.</p>
+<p>After fixing the Darwin implementation, I decided to return that in block sizes as well, to maintain consistency with the Linux implementation. Made this choice because Linux was already providing in block size, while the Darwin implementation was meaningless. Added the <code>block_size</code> column to both tables.</p>
+<p>See the <a href="https://github.com/facebook/osquery/pull/3539">PR</a> / <a href="https://github.com/facebook/osquery/issues/3538">Issue</a> on GitHub</p>
+<h3 id="tldr">tl;dr</h3>
+<ul>
+<li>Be attentive to truncation errors when handling ints</li>
+<li>Making programmers track types and silently converting often leads to type conversion errors</li>
+</ul>
+<h4 id="thanks-to-evanhttpsgithubcomeam-michaelhttpstwittercommtauraso-and-kenhttpstwittercomkwiggint-for-all-the-help-">Thanks to <a href="https://github.com/eam">Evan</a>, <a href="https://twitter.com/mtauraso">Michael</a>, and <a href="https://twitter.com/kwiggint">Ken</a> for all the help :)</h4>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+     © 2020    ·  Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>. 
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-57527171-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>
