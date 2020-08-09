@@ -1,144 +1,303 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" class="darkTheme" id="theme">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <title>Debugging a series of miscalculations in osquery | Vishwa Shah</title>
 
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Debugging a series of miscalculations in osquery" />
+  <meta name="twitter:description" content=""/>
+  <meta name="twitter:site" content="@vishifishy" />
+  <meta name="twitter:creator" content="https://twitter.com/vishifishy" />
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.720b317624e22a1cf1f4c13126533295fec036d7adaf6ce726bca2ac45b1fee5.css" integrity="sha256-cgsxdiTiKhzx9MExJlMylf7ANtetr2znJryirEWx/uU="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/vishwashah.me\/"
+      },
+      "articleSection" : "blog",
+      "name" : "Debugging a series of miscalculations in osquery",
+      "headline" : "Debugging a series of miscalculations in osquery",
+      "description" : "",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2017",
+      "datePublished": "2017-08-18 18:59:37.296 \u002b0000 UTC",
+      "dateModified" : "2017-08-18 18:59:37.296 \u002b0000 UTC",
+      "url" : "https:\/\/vishwashah.me\/blog\/medium\/2017-08-18_debugging-a-series-of-miscalculations-in-osquery\/",
+      "wordCount" : "701",
+      "keywords" : ["Blog"]
+    }
+  
+  </script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-57527171-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
     
     
-    
-
-    <base href="https://vishwashah.me/">
-    <title>
-  Debugging a series of miscalculations in osquery · Vishwa Shah
-</title>
-
-    <link rel="canonical" href="https://vishwashah.me/blog/medium/2017-08-18_debugging-a-series-of-miscalculations-in-osquery/">
-
-    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
-    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
-    <link rel="stylesheet" href="https://vishwashah.me/css/style.min.css">
-
-    
-
-    <link rel="icon" type="image/png" href="https://vishwashah.me/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://vishwashah.me/images/favicon-16x16.png" sizes="16x16">
-
-    
-
-    <meta name="generator" content="Hugo 0.74.3" />
-  </head>
-
-  <body>
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="https://vishwashah.me/">
-      Vishwa Shah
-    </a>
-    
-    <ul class="navigation-list float-right">
-      
-      <li class="navigation-item">
-        <a class="navigation-link" href="/">about</a>
+      <li>
+        <a  href="/">about</a>
       </li>
-      
-      <li class="navigation-item">
-        <a class="navigation-link" href="/blog">blog</a>
-      </li>
-      
-      <li class="navigation-item">
-        <a class="navigation-link" href="/projects">projects</a>
-      </li>
-      
-      <li class="navigation-item">
-        <a class="navigation-link" href="/resume">resume</a>
-      </li>
-      
-    </ul>
     
-  </section>
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+      <li>
+        <a  href="/projects">projects</a>
+      </li>
+    
+      <li>
+        <a  href="/resume">resume</a>
+      </li>
+    
+    <li>
+      <i class="fas fa-moon" id="dark-mode-toggle"></i>
+    </li>
+  </ul>
 </nav>
 
 
-      <div class="content">
-        
-  <section class="container page">
-  <article>
-    <header>
-      <h1>Debugging a series of miscalculations in osquery</h1>
-    </header>
+  <main>
+    
+    
 
-    <blockquote>
-<p>Heads up, we’ve moved! If you’d like to continue keeping up with the latest technical content from Square please visit us at our new home <a href="https://developer.squareup.com/blog">https://developer.squareup.com/blog</a></p>
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Debugging a series of miscalculations in osquery</h1>
+            <time datetime="2017-08-18 18:59:37.296 &#43;0000 UTC" class="post__date"
+            >Aug 18 2017</time>
+          </header>
+          <article class="post__content">
+              
+<blockquote>
+<p>Heads up, we’ve moved! If you’d like to continue keeping up with the latest technical content from Square please visit us at our new home <a href="https://developer.squareup.com/blog" target="_blank">https://developer.squareup.com/blog</a>
+</p>
 </blockquote>
-<h3 id="what-is-osqueryhttpsstackeditioosqueryio">What is <a href="https://stackedit.io/osquery.io">osquery</a>?</h3>
+<h3 id="what-is-osqueryhttpsstackeditioosqueryio">What is <a href="https://stackedit.io/osquery.io" target="_blank">osquery</a>
+?</h3>
 <p>osquery is an an open source tool by Facebook that provides a SQL interface for system information.</p>
 <p>Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.</p>
-<h3 id="finding-the-miscalculations">Finding the miscalculations</h3>
+<h3 id="finding-the-miscalculations">Finding the miscalculations<a class="anchor" href="#finding-the-miscalculations">#</a></h3>
 <h4 id="small-linux-disk-sizes">small linux disk sizes?</h4>
 <p>I’d been collecting data for about 2 weeks, when I changed the UI to showing human-readable numbers, and noticed the total disk size for a host was 0.58 GB (585871964 bytes). It seemed illogical to have a disk that small, so I looked up the actual disk size using <code>sudo fdisk -l</code> on that host, and it was 300 GB (299966445568 bytes.)</p>
 <p>It turns out <code>585871964 * 512 = 299966445568</code> yields the correct size. But what is 512, anyway?</p>
-<h4 id="what-is-block-sizehttpsenwikipediaorgwikiblock_28data_storage29">What is <a href="https://en.wikipedia.org/wiki/Block_%28data_storage%29">block size</a>?</h4>
+<h4 id="what-is-block-sizehttpsenwikipediaorgwikiblock_28data_storage29">What is <a href="https://en.wikipedia.org/wiki/Block_%28data_storage%29" target="_blank">block size</a>
+?</h4>
 <p>The basic data primitive in computing storage is the byte– however, many storage devices perform I/O operations in larger units (the block size) for efficiency reasons. It’s historically 512 bytes (but it can differ) because of the physical notion of a sector on a disk.</p>
 <p>Turns out, despite the documentation stating this was returning in bytes, it was actually returning by block size; in this case 512.<br>
 I hard coded it into my code and decided to submit a patch to osquery to fix the issue and also add a column to the <code>block_devices</code> table for device <code>block_size</code>.</p>
-<h3 id="rip-more-bugs">rip more bugs</h3>
+<h3 id="rip-more-bugs">rip more bugs<a class="anchor" href="#rip-more-bugs">#</a></h3>
 <p>When I went to fix the Linux implementation and add the column, I saw that there was also a Darwin implementation. Curious to see if the issue was persistent, I ran it on my mac, and found that it was also inaccurate. I have a 256GB model.</p>
 <p><img src="images/1.png" alt="image"></p>
 <p>osqueryi results on my mac</p>
 <p>My SSD is 1892089856 bytes? Or <code>1892089856 * 512 = 968750006272</code>? (I wish I had almost a terabyte). Psych, it’s gotta be something else!<br>
-Took a look at the Darwin implementation, and found that it was using a bunch of IOKit stuff I had no idea about. I asked around for help, and we eventually found the Apple open source header for the method we needed to dissect. (I learned in C you can have <a href="https://en.wikipedia.org/wiki/Opaque_pointer">opaque structs with hidden definitions</a>)</p>
-<h3 id="opaque-structs-are-no-fun">opaque structs are no fun</h3>
+Took a look at the Darwin implementation, and found that it was using a bunch of IOKit stuff I had no idea about. I asked around for help, and we eventually found the Apple open source header for the method we needed to dissect. (I learned in C you can have <a href="https://en.wikipedia.org/wiki/Opaque_pointer" target="_blank">opaque structs with hidden definitions</a>
+)</p>
+<h3 id="opaque-structs-are-no-fun">opaque structs are no fun<a class="anchor" href="#opaque-structs-are-no-fun">#</a></h3>
 <p>It was difficult to figure out what it was doing at the system level, but the documentation pointed me to a dictionary <code>CFMutableDictionaryRef</code> that contained something for the key <code>Size</code>. Found some code on StackOverflow to print this dictionary, and turns out it was indeed returning the correct number. That’s when I became suspicious of a truncation error.</p>
 <p>Running <code>diskutil info -all</code> locally I found that I had<br>
 <code>Disk Size: 251.0 GB (251000193024 Bytes) (exactly 490234752 512-Byte-Units)</code></p>
 <p>The first dictionary printed, which would be <code>/dev/disk0</code>. The line with size:
 <code>17 : &amp;lt;CFString 0x7fffeb91cd20 [0x7fffeb978da0]&amp;gt;{contents = &amp;#34;Size&amp;#34;} = &amp;lt;CFNumber 0x3a70c7000037 [0x7fffeb978da0]&amp;gt;{**value** = +251000193024, **type** = kCFNumberSInt64Type}</code></p>
 <p>Immediately noticed the <code>type = kCFNumberSInt64Type</code>.</p>
-<h3 id="houston-we-have-a-truncation-error">houston, we have a truncation error</h3>
+<h3 id="houston-we-have-a-truncation-error">houston, we have a truncation error<a class="anchor" href="#houston-we-have-a-truncation-error">#</a></h3>
 <p>Converted it to a 32 bit int in ruby, and it confirmed that was the issue.
 <code>2.4.1 :001 &amp;gt; x = 251000193024   =&amp;gt; 251000193024   2.4.1 :002 &amp;gt; x &amp;amp; 0xffffffff   =&amp;gt; 1892089856</code></p>
 <p>I saw that there were checks for what type of <code>CFNumber</code> it was, but for some reason it wasn’t getting caught. Apparently it was hard coded it as a <code>kCFNumberIntType</code> somewhere in a series of nested method calls. I changed it to actually use the <code>CFNumberType</code> of the number.</p>
 <p>After fixing the Darwin implementation, I decided to return that in block sizes as well, to maintain consistency with the Linux implementation. Made this choice because Linux was already providing in block size, while the Darwin implementation was meaningless. Added the <code>block_size</code> column to both tables.</p>
-<p>See the <a href="https://github.com/facebook/osquery/pull/3539">PR</a> / <a href="https://github.com/facebook/osquery/issues/3538">Issue</a> on GitHub</p>
-<h3 id="tldr">tl;dr</h3>
+<p>See the <a href="https://github.com/facebook/osquery/pull/3539" target="_blank">PR</a>
+ / <a href="https://github.com/facebook/osquery/issues/3538" target="_blank">Issue</a>
+ on GitHub</p>
+<h3 id="tldr">tl;dr<a class="anchor" href="#tldr">#</a></h3>
 <ul>
 <li>Be attentive to truncation errors when handling ints</li>
 <li>Making programmers track types and silently converting often leads to type conversion errors</li>
 </ul>
-<h4 id="thanks-to-evanhttpsgithubcomeam-michaelhttpstwittercommtauraso-and-kenhttpstwittercomkwiggint-for-all-the-help-">Thanks to <a href="https://github.com/eam">Evan</a>, <a href="https://twitter.com/mtauraso">Michael</a>, and <a href="https://twitter.com/kwiggint">Ken</a> for all the help :)</h4>
+<h4 id="thanks-to-evanhttpsgithubcomeam-michaelhttpstwittercommtauraso-and-kenhttpstwittercomkwiggint-for-all-the-help-">Thanks to <a href="https://github.com/eam" target="_blank">Evan</a>
+, <a href="https://twitter.com/mtauraso" target="_blank">Michael</a>
+, and <a href="https://twitter.com/kwiggint" target="_blank">Ken</a>
+ for all the help :)</h4>
 
-  </article>
-</section>
+
+              
+          </article>
+          
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="https://vishwashah.me/blog/medium/2015-08-28_cmu-precollege-a-valuable-experience/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">CMU Pre-College: A Valuable Experience</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="https://vishwashah.me/blog/medium/2018-06-12_forming-a-new-fund/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Forming a new Fund</a>
+    </a>
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
 
 
-      </div>
-
-      <footer class="footer">
-  <section class="container">
-     © 2020    ·  Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>. 
-  </section>
-</footer>
-
-    </main>
-
+<div class="social-icons">
+  
+     
     
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-57527171-3', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
+      <a class="social-icons__link" title="Twitter"
+         href="https://twitter.com/vishifishy"
+         target="_blank" rel="noopener">
+        
+          <i class="social-icons__icon fab fa-twitter fa-lg"></i>
+        
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="GitHub"
+         href="https://github.com/vishwa35"
+         target="_blank" rel="noopener">
+        
+          <i class="social-icons__icon fab fa-github fa-lg"></i>
+        
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="Instagram"
+         href="https://instagram.com/postcardsfromvish"
+         target="_blank" rel="noopener">
+        
+          <i class="social-icons__icon fab fa-instagram fa-lg"></i>
+        
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="LinkedIn"
+         href="https://www.linkedin.com/in/vishwa35/"
+         target="_blank" rel="noopener">
+        
+          <i class="social-icons__icon fab fa-linkedin fa-lg"></i>
+        
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="Medium"
+         href="https://medium.com/@vishwa35"
+         target="_blank" rel="noopener">
+        
+          <i class="social-icons__icon fab fa-medium fa-lg"></i>
+        
+      </a>
+    
+     
+</div>
+
+            <p>© 2020</p>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  <script src="/js/dark-mode.js"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
 
 
-  </body>
+</body>
 
 </html>

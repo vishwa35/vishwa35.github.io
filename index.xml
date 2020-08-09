@@ -19,7 +19,7 @@
       
       <guid>https://vishwashah.me/blog/medium/2019-08-28_working-across-the-pond/</guid>
       <description>This summer was filled with unknowns.
-London, a city I knew no one in, on a continent in which I’d never left an airport. Palantir, where I’d intern as a forward deployed software engineer — I knew it’d be something different, but not exactly how.
+London, a city I knew no one in, on a continent in which I’d never left an airport. Palantir , where I’d intern as a forward deployed software engineer — I knew it’d be something different, but not exactly how.
 These unknowns led to quite a bit of discovery. I was able to reflect on my place in the world and interface with people of all kinds of backgrounds and attitudes on life, careers, and politics.</description>
     </item>
     
@@ -49,8 +49,7 @@ For the first 3 weeks or so, I’d go back up and check.</description>
       <pubDate>Sun, 06 Jan 2019 20:29:51 +0000</pubDate>
       
       <guid>https://vishwashah.me/blog/medium/2019-01-06_how-to-build-a-basic-slackbot-a-beginners-guide/</guid>
-      <description>Let’s try and automate something [in python] Photo by Rock’n Roll Monkey on Unsplash
-Update: code and tutorial updated on June 28 to reflect Slack API changes
+      <description>Let’s try and automate something [in python] Photo by Rock’n Roll Monkey on Unsplash Update: code and tutorial updated on June 28 to reflect Slack API changes
 Slackbots: Why use them? Before we get into the tutorial part of this post, let’s take a look at why this can be a worthy project and tool.
 Slack is an increasingly popular tool for team-wide communication. It’s grown to include plugins for other widely used project management tools, like JIRA, Google Drive, and the likes.</description>
     </item>
@@ -115,7 +114,7 @@ Python Flask Data Science   osquery   Fixing an int truncation error</descriptio
       <pubDate>Wed, 06 Jun 2018 01:10:30 -0700</pubDate>
       
       <guid>https://vishwashah.me/resume/</guid>
-      <description>Download PDF Education  Georgia Institute of Technology Aug 2016 – Dec 2019 | Atlanta, GA
+      <description>Download PDF  Education  Georgia Institute of Technology Aug 2016 – Dec 2019 | Atlanta, GA
  B.S. in Computer Science, concentrations in Intelligence and Information Internetworks &amp;ndash; GPA: 3.68 Affiliations: Alpha Kappa Psi (Business Fraternity), Ramblin’ Raas (Nationally Competitive Dance Team) Relevant Coursework: Machine Learning, Robotics and Perception, Algorithms, Intro to Artificial Intelligence, Intro to Computer Systems and Networks, Computer Organization and Programming, Probability and Statistics, Discrete Math, Linear Algebra, Multivariable Calculus, Data Structures/Algorithms  Experience  Palantir Software Engineer June 2020 - Present | New York, NY</description>
     </item>
     
@@ -125,8 +124,7 @@ Python Flask Data Science   osquery   Fixing an int truncation error</descriptio
       <pubDate>Fri, 18 Aug 2017 18:59:37 +0000</pubDate>
       
       <guid>https://vishwashah.me/blog/medium/2017-08-18_debugging-a-series-of-miscalculations-in-osquery/</guid>
-      <description>Heads up, we’ve moved! If you’d like to continue keeping up with the latest technical content from Square please visit us at our new home https://developer.squareup.com/blog
- What is osquery? osquery is an an open source tool by Facebook that provides a SQL interface for system information.
+      <description>Heads up, we’ve moved! If you’d like to continue keeping up with the latest technical content from Square please visit us at our new home https://developer.squareup.com/blog  What is osquery ? osquery is an an open source tool by Facebook that provides a SQL interface for system information.
 Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.</description>
     </item>
     
@@ -147,8 +145,8 @@ Taking art and design classes was a relatively new experience; I didn’t have t
       <pubDate>Fri, 12 Jun 2015 23:56:44 +0000</pubDate>
       
       <guid>https://vishwashah.me/blog/medium/2015-06-12_new-worldview-through-service/</guid>
-      <description>DominiCANT Believe It’s Over *The title of this should&#39;ve been a Nhu Worldview, because of the puns made on this trip, but for it to make sense to others, I opted to keep it like it is.
-I just returned from a trip to the Dominican Republic. I&#39;ve changed as a person through the experience, gaining a new perspective on the world and its people. I went with the Ryan Nece Foundation (@powerofgiving) as a part of the Student Service Program, and I am so thankful that I got this opportunity.</description>
+      <description>DominiCANT Believe It’s Over *The title of this should&#39;ve been a &amp;lt;em&amp;gt;Nhu&amp;lt;/em&amp;gt; Worldview, because of the puns made on this trip, but for it to make sense to others, I opted to keep it like it is.
+I just returned from a trip to the Dominican Republic. I&#39;ve changed as a person through the experience, gaining a new perspective on the world and its people. I went with the Ryan Nece Foundation (@powerofgiving ) as a part of the Student Service Program, and I am so thankful that I got this opportunity.</description>
     </item>
     
   </channel>
