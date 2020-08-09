@@ -4,10 +4,9 @@ date: 2018-06-06T01:10:30-07:00
 draft: false
 ---
 
-<img align="right" padding="25px" src="./img/me.jpg">
+Software Engineer @ Palantir
 
-##### BS Computer Science, Georgia Tech `December 2019`
-##### Interested in `full-time/new grad roles`
+BS Computer Science, Georgia Tech '19
 
 
 I'm particularly intruiged by work in transportation optimization, productivity, and financial openness. 
@@ -24,5 +23,5 @@ Find me on **[LinkedIn](https://www.linkedin.com/in/vishwa35/)** or email me at 
 
 ###### What Else Do I Do?
 
-`Hiking` `Photography` `Investing`
+`Hiking` `Photography` `Comedy` `Read`
 

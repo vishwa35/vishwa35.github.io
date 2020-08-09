@@ -1,0 +1,23 @@
+@import "../main";
+@import "post";
+
+/* overrides */
+.post__content {
+  ul {
+    list-style: square;
+    margin-top: 0.1rem;
+    li {
+      margin-bottom: 0.1rem;
+      &::before {
+        content: "";
+      }
+    }
+
+  }
+}
+
+a.grey {
+  @include theme() {
+    color: theme-get('light-text')
+  }
+}
