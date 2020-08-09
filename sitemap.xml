@@ -88,16 +88,6 @@
   </url>
   
   <url>
-    <loc>https://vishwashah.me/projects/</loc>
-    <lastmod>2018-06-06T01:10:30-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vishwashah.me/resume/</loc>
-    <lastmod>2018-06-06T01:10:30-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://vishwashah.me/blog/medium/2017-08-18_debugging-a-series-of-miscalculations-in-osquery/</loc>
     <lastmod>2020-08-08T18:00:55-04:00</lastmod>
   </url>
@@ -114,6 +104,14 @@
   
   <url>
     <loc>https://vishwashah.me/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/projects/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/resume/</loc>
   </url>
   
 </urlset>

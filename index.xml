@@ -97,28 +97,6 @@ The Basis Back in January, I watched a friend’s Snapchat story in awe as he po
     </item>
     
     <item>
-      <title>Projects</title>
-      <link>https://vishwashah.me/projects/</link>
-      <pubDate>Wed, 06 Jun 2018 01:10:30 -0700</pubDate>
-      
-      <guid>https://vishwashah.me/projects/</guid>
-      <description>@vpfbot (slackbot)   Slackbot built to streamline processes I encounter as Vice President of Finance for gtakpsi.
-Python Slack API Heroku   StreetLens   Traces the route of Google Maps Directions via HoloLens | HoloHack 2016
-Google Maps API Google Places API C# Unity HoloLens   charles   HackGT 2018 Project: comparative analysis of tweets and reddit threads
-Python Flask Data Science   osquery   Fixing an int truncation error</description>
-    </item>
-    
-    <item>
-      <title>Resume</title>
-      <link>https://vishwashah.me/resume/</link>
-      <pubDate>Wed, 06 Jun 2018 01:10:30 -0700</pubDate>
-      
-      <guid>https://vishwashah.me/resume/</guid>
-      <description>Download PDF  Education  Georgia Institute of Technology Aug 2016 – Dec 2019 | Atlanta, GA
- B.S. in Computer Science, concentrations in Intelligence and Information Internetworks &amp;ndash; GPA: 3.68 Affiliations: Alpha Kappa Psi (Business Fraternity), Ramblin’ Raas (Nationally Competitive Dance Team) Relevant Coursework: Machine Learning, Robotics and Perception, Algorithms, Intro to Artificial Intelligence, Intro to Computer Systems and Networks, Computer Organization and Programming, Probability and Statistics, Discrete Math, Linear Algebra, Multivariable Calculus, Data Structures/Algorithms  Experience  Palantir Software Engineer June 2020 - Present | New York, NY</description>
-    </item>
-    
-    <item>
       <title>Debugging a series of miscalculations in osquery</title>
       <link>https://vishwashah.me/blog/medium/2017-08-18_debugging-a-series-of-miscalculations-in-osquery/</link>
       <pubDate>Fri, 18 Aug 2017 18:59:37 +0000</pubDate>
@@ -147,6 +125,28 @@ Taking art and design classes was a relatively new experience; I didn’t have t
       <guid>https://vishwashah.me/blog/medium/2015-06-12_new-worldview-through-service/</guid>
       <description>DominiCANT Believe It’s Over *The title of this should&#39;ve been a &amp;lt;em&amp;gt;Nhu&amp;lt;/em&amp;gt; Worldview, because of the puns made on this trip, but for it to make sense to others, I opted to keep it like it is.
 I just returned from a trip to the Dominican Republic. I&#39;ve changed as a person through the experience, gaining a new perspective on the world and its people. I went with the Ryan Nece Foundation (@powerofgiving ) as a part of the Student Service Program, and I am so thankful that I got this opportunity.</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://vishwashah.me/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/projects/</guid>
+      <description>@vpfbot (slackbot)   Slackbot built to streamline processes I encounter as Vice President of Finance for gtakpsi.
+Python Slack API Heroku   StreetLens   Traces the route of Google Maps Directions via HoloLens | HoloHack 2016
+Google Maps API Google Places API C# Unity HoloLens   charles   HackGT 2018 Project: comparative analysis of tweets and reddit threads
+Python Flask Data Science   osquery   Fixing an int truncation error</description>
+    </item>
+    
+    <item>
+      <title>Resume</title>
+      <link>https://vishwashah.me/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/resume/</guid>
+      <description>Download PDF  Education  Georgia Institute of Technology Aug 2016 – Dec 2019 | Atlanta, GA
+ B.S. in Computer Science, concentrations in Intelligence and Information Internetworks &amp;ndash; GPA: 3.68 Affiliations: Alpha Kappa Psi (Business Fraternity), Ramblin’ Raas (Nationally Competitive Dance Team) Relevant Coursework: Machine Learning, Robotics and Perception, Algorithms, Intro to Artificial Intelligence, Intro to Computer Systems and Networks, Computer Organization and Programming, Probability and Statistics, Discrete Math, Linear Algebra, Multivariable Calculus, Data Structures/Algorithms  Experience  Palantir Software Engineer June 2020 - Present | New York, NY</description>
     </item>
     
   </channel>
