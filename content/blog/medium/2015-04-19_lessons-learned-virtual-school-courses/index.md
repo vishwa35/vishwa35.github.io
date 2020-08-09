@@ -3,6 +3,7 @@ title: "Lessons Learned: Virtual School Courses"
 author: "Vishwa Shah"
 date: 2015-04-19T17:21:00.391Z
 lastmod: 2020-08-08T18:00:48-04:00
+draft: true
 
 description: ""
 

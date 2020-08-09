@@ -3,6 +3,7 @@ title: "How I Got on Medium"
 author: "Vishwa Shah"
 date: 2015-04-08T00:19:30.863Z
 lastmod: 2020-08-08T18:00:45-04:00
+draft: true
 
 description: ""
 
@@ -17,7 +18,7 @@ aliases:
     - "/how-i-got-on-medium-c3ced96145b6"
 ---
 
-[![image](images/1.jpeg)](http://vshahphoto.tumblr.com/image/115622899129)
+![image](images/1.jpeg)
 
 Find me on Instagram @postcardsfromvish
 
@@ -61,7 +62,7 @@ Meanwhile, I kept reading other people’s stories. The variety of articles pres
 I tweeted @GetAbsurdist, and its Editor, @YungRama.
 
 > [](https://twitter.com/vishifishy/status/584069457368211456)
-
+{{< tweet 584069457368211456 >}}
 
 And then this happened:
 

@@ -18,6 +18,6 @@
 
 a.grey {
   @include theme() {
-    color: theme-get('light-text')
+    color: theme-get('high-neutral')
   }
 }

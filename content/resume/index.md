@@ -110,7 +110,7 @@ Report
 <a class="grey">May 2018 - December 2018</a>
 
 - Managed a $70,000 annual budget, financing events for the brotherhood and the general Georgia Tech business community (Rush, Social/Alumni Events, Retreats/Formals, Georgia Tech Business Forum, Startup Hackathon, Case Competition, etc)
-- Lead [the creation of a new fund to support Brothers' special projects ventures](https://medium.com/gtakpsi/forming-a-new-fund-bb44af38593d), including creating a growth plan and application structure
+- Lead [the creation of a new fund to support special projects ventures,](https://medium.com/gtakpsi/forming-a-new-fund-bb44af38593d)including creating a growth plan and application structure
 - Worked on an 10 person executive board to increase member engagement, revamp existing events, and launch new initiatives
 - Managed 3 teams of 3: Investments (~12k portfolio), Entrepreneurship, and Corporate Sponsorship to encourage the directors' personal growth and impact on the organization
 - Awarded **Outstanding Leader for Integrity** at the National Convention, 2019
