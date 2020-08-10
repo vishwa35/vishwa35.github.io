@@ -1,7 +1,10 @@
 ---
 title: "@vpfbot"
 date: 2018-06-06T01:03:29-07:00
-draft: true
+draft: false
+description: Slackbot built to streamline processes I encountered as Vice President of Finance for gtakpsi
+projTags: [slackbot, python]
+link: https://github.com/vishwa35/vpfbot
 ---
 
 ### Scheduled Messages

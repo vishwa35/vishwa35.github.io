@@ -72,5 +72,7 @@ theme = "hugo-theme-codex"
   title = "Projects"
   url = "/projects"
 
-
-
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  projTags = "projTags"

@@ -1,0 +1,38 @@
+@import "../main";
+@import "posts";
+
+/* overrides */
+
+a.grey {
+  @include theme() {
+    color: theme-get('high-neutral')
+  }
+}
+
+.post__header p {
+  margin-top:0.5rem;
+}
+
+.post__header .tags__list {
+  display: block;
+}
+
+.post__footer {
+  padding-top: 3rem;
+}
+
+footer {
+  text-align: center;
+  padding: 0 1.5rem;
+  @include theme() {
+    background: theme-get('bg');
+  }
+
+  p {
+    margin-top: 1rem; // reduce margin top due to social icons' padding
+    @include theme() {
+      color: theme-get('neutral');
+    }
+    font-size: 0.65rem;
+  }
+}

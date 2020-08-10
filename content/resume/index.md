@@ -1,9 +1,8 @@
 ---
 title: "Resume"
-date: 2018-06-06T01:10:30-07:00
 draft: false
-layout: "resume"
-type: "resume"
+layout: "static-page"
+type: "static-page"
 ---
 
 ### [Download PDF](./VishwaShahResume.pdf)
