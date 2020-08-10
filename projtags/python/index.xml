@@ -27,10 +27,8 @@
       <pubDate>Wed, 06 Jun 2018 01:03:29 -0700</pubDate>
       
       <guid>https://vishwashah.me/projects/vpfbot/</guid>
-      <description>Scheduled Messages  constructing a weekly update message based on a Google Sheet CSPON Updates: [a week ago] - [yesterday]
-Sales Closed - HELL YEA! Congrats!
- Company | @director | Date  Wins - YAY! Good news :) Remember to see these all the way through!
- Company | @director | Date  Losses - It happens. Please remember to fill out insights from this contact in the sheet. Onwards!</description>
+      <description>Streamlined some of my processes as Vice President of Finance for Alpha Kappa Psi by building a custom slackbot that reads from the extensive Google Sheets maintaining our financial information and logging for sponsorship efforts to deliver periodic updates on the status of the organization  Scheduled Messages  constructing a weekly update message based on a Google Sheet CSPON Updates: [a week ago] - [yesterday]
+Sales Closed - HELL YEA!</description>
     </item>
     
     <item>

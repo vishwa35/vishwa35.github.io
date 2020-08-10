@@ -111,10 +111,8 @@ The Basis Back in January, I watched a friend’s Snapchat story in awe as he po
       <pubDate>Wed, 06 Jun 2018 01:03:29 -0700</pubDate>
       
       <guid>https://vishwashah.me/projects/vpfbot/</guid>
-      <description>Scheduled Messages  constructing a weekly update message based on a Google Sheet CSPON Updates: [a week ago] - [yesterday]
-Sales Closed - HELL YEA! Congrats!
- Company | @director | Date  Wins - YAY! Good news :) Remember to see these all the way through!
- Company | @director | Date  Losses - It happens. Please remember to fill out insights from this contact in the sheet. Onwards!</description>
+      <description>Streamlined some of my processes as Vice President of Finance for Alpha Kappa Psi by building a custom slackbot that reads from the extensive Google Sheets maintaining our financial information and logging for sponsorship efforts to deliver periodic updates on the status of the organization  Scheduled Messages  constructing a weekly update message based on a Google Sheet CSPON Updates: [a week ago] - [yesterday]
+Sales Closed - HELL YEA!</description>
     </item>
     
     <item>
@@ -190,8 +188,8 @@ I just returned from a trip to the Dominican Republic. I&#39;ve changed as a per
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vishwashah.me/resume/</guid>
-      <description>Download PDF  Education  Georgia Institute of Technology Aug 2016 – Dec 2019 | Atlanta, GA
- B.S. in Computer Science, concentrations in Intelligence and Information Internetworks &amp;ndash; GPA: 3.68 Affiliations: Alpha Kappa Psi (Business Fraternity), Ramblin’ Raas (Nationally Competitive Dance Team) Relevant Coursework: Machine Learning, Robotics and Perception, Algorithms, Intro to Artificial Intelligence, Intro to Computer Systems and Networks, Computer Organization and Programming, Probability and Statistics, Discrete Math, Linear Algebra, Multivariable Calculus, Data Structures/Algorithms  Experience  Palantir Software Engineer June 2020 - Present | New York, NY</description>
+      <description>Education  Georgia Institute of Technology Aug 2016 – Dec 2019 | Atlanta, GA
+ B.S. Computer Science, concentrations: Intelligence &amp;#43; Information Internetworks  Affiliations: Alpha Kappa Psi (Business Fraternity), Ramblin’ Raas (Nationally Competitive Dance Team) Relevant Coursework:  Software / Design Theory / Maths Artificial Intelligence    Objects &amp; Design (CS 1331) Data Structures &amp; Algorithms (CS 1332) Software Design (CS 2340) Computer Organization &amp; Programming (CS 2110) Computer Systems and Networks (CS 2200) Computer Networking (CS 3251) Databases (CS 4400)    Multivariable Calculus (MATH 2550) Linear Algebra (MATH 1554) Discrete Mathematics (CS 2051) Applied Combinatorics (MATH 3012) Probability and Statistics (MATH 3215) Design &amp; Analysis of Algorithms (CS 3510) Automata &amp; Complexity (CS 4510)   Introduction to AI (CS 3600) Robotics &amp; Perception (CS 3630) Computer Vision (CS 4776) Machine Learning (CS 4641) Computing &amp; Ethics (CS 4001) Social Computing (CS 4803) Computational Linguistics (CS 4803/LING 4813) Intro to Linguistics (LING 2100)       Experience  Palantir Software Engineer June 2020 - Present | New York, NY</description>
     </item>
     
   </channel>

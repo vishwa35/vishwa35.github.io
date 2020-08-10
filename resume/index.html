@@ -24,6 +24,7 @@
 
   <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
   
   
@@ -36,10 +37,10 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/static-page.min.a28de4672b07a4e538972dbbea1a2aff5d8b5983e41fa993be25c46a02345996.css" integrity="sha256-oo3kZysHpOU4ly276hoq/12LWYPkH6mTviXEagI0WZY="/>
+    <link type="text/css" rel="stylesheet" href="/css/resume.min.619376a68598a5a64e6c8007a8bd3da348b700e347f2676b12fcdb485b890ce6.css" integrity="sha256-YZN2poWYpaZObIAHqL09o0i3AONH8mdrEvzbSFuJDOY="/>
   
     
-    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.5f2400baeff4c6b189b5209b41e719631a162131ef0d7a69fb01ecfab730a6bc.css" integrity="sha256-XyQAuu/0xrGJtSCbQecZYxoWITHvDXpp&#43;wHs&#43;rcwprw="/>
   
   
    
@@ -84,7 +85,7 @@ if (!doNotTrack) {
 </div>
  
 
-  <nav class="nav" id="navigation">
+  <nav class="myNav" id="navigation">
   <ul class="nav__list">
     
     
@@ -120,21 +121,64 @@ if (!doNotTrack) {
       <div class="post__container">
         <div class="post">
           <header class="post__header">
-            <h1 id="post__title">Resume</h1>
+            <h1 id="post__title">Resume <a class="title" href=./VishwaShahResume.pdf>[PDF]</a></h1>
           </header>
           <article class="post__content">
               
-<h3 id="download-pdfvishwashahresumepdf"><a href="./VishwaShahResume.pdf">Download PDF</a>
-</h3>
 <h3 id="education">Education<a class="anchor" href="#education">#</a></h3>
 <hr>
 <p><strong>Georgia Institute of Technology</strong>  <a class="grey">Aug 2016 – Dec 2019 | Atlanta, GA</a></p>
 <ul>
-<li><strong>B.S. in Computer Science</strong>, concentrations in <a href="http://www.catalog.gatech.edu/programs/intelligence-information-internetworks-computer-science-bs" target="_blank">Intelligence and Information Internetworks</a>
- &ndash; GPA: 3.68</li>
+<li><strong>B.S. Computer Science</strong>, concentrations: <a href="http://www.catalog.gatech.edu/programs/intelligence-information-internetworks-computer-science-bs" target="_blank">Intelligence &#43; Information Internetworks</a>
+</li>
 <li><strong>Affiliations</strong>: <a href="https://www.gtakpsi.com/" target="_blank">Alpha Kappa Psi</a>
  (Business Fraternity), Ramblin’ Raas (Nationally Competitive Dance Team)</li>
-<li><strong>Relevant Coursework</strong>: Machine Learning, Robotics and Perception, Algorithms, Intro to Artificial Intelligence, Intro to Computer Systems and Networks, Computer Organization and Programming, Probability and Statistics, Discrete Math, Linear Algebra, Multivariable Calculus, Data Structures/Algorithms</li>
+<li><strong>Relevant Coursework</strong>:
+<ul class="no-list">
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab" aria-controls="nav-1" aria-selected="true">Software / Design</a>
+    <a class="nav-item nav-link" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab" aria-controls="nav-2" aria-selected="false">Theory / Maths</a>
+    <a class="nav-item nav-link" id="nav-3-tab" data-toggle="tab" href="#nav-3" role="tab" aria-controls="nav-3" aria-selected="false">Artificial Intelligence</a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+    <ul>
+      <li>Objects & Design (CS 1331)</li>
+      <li>Data Structures & Algorithms (CS 1332)</li>
+      <li>Software Design (CS 2340)</li>
+      <li>Computer Organization & Programming (CS 2110)</li>
+      <li>Computer Systems and Networks (CS 2200)</li>
+      <li>Computer Networking (CS 3251)</li>
+      <li>Databases (CS 4400)</li>
+    </ul>
+    </div>
+    <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
+    <ul>
+      <li>Multivariable Calculus (MATH 2550)</li>
+      <li>Linear Algebra (MATH 1554)</li>
+      <li>Discrete Mathematics (CS 2051)</li>
+      <li>Applied Combinatorics (MATH 3012)</li>
+      <li>Probability and Statistics (MATH 3215)</li>
+      <li>Design & Analysis of Algorithms (CS 3510)</li>
+      <li>Automata & Complexity (CS 4510)</li>
+    </ul></div>
+    <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
+    <ul>
+      <li>Introduction to AI (CS 3600)</li>
+      <li>Robotics & Perception (CS 3630)</li>
+      <li>Computer Vision (CS 4776)</li>
+      <li>Machine Learning (CS 4641)</li>
+      <li>Computing & Ethics (CS 4001)</li>
+      <li>Social Computing (CS 4803)</li>
+      <li>Computational Linguistics (CS 4803/LING 4813)</li>
+      <li>Intro to Linguistics (LING 2100)</li>
+    </ul>
+    </div>
+  </div>
+</ul>
+</li>
 </ul>
 <h3 id="experience">Experience<a class="anchor" href="#experience">#</a></h3>
 <hr>
@@ -180,6 +224,22 @@ if (!doNotTrack) {
 Report
 - Resolved several interesting, niche bugs relating to timezone discrepancies and test environments
 - Gained exposure to product insight, React, and machine learning approaches -->
+<p><a class="grey"><strong>Nix | CREATE-X Capstone Design</strong></a>
+<strong>Co-Founder</strong>
+<a class="grey">Aug 2018 - Feb 2019 | Atlanta, GA</a>
+<a class="tag accent" href=https://quitwithnix.com/>[link]</a></p>
+<ul>
+<li>Developed a nicotine cessation algorithm based on a daily sliding window and existing smoking cessation plans</li>
+<li>Evaluated potential design decisions while considering future strategies to improve our product</li>
+<li>Aided in process development and organization for a team of 7</li>
+</ul>
+<p><a class="grey"><strong>Smart City Infrastructure</strong></a>
+<strong>Undergraduate Researcher</strong>
+<a class="grey">Jan 2018 – May 2018 | Atlanta, GA</a></p>
+<ul>
+<li>Contributed to analyzing work zone traffic patterns using image classifiers and computer vision functions to retrieve valuable vehicle attributes from traffic camera footage</li>
+<li>Analyzed collected data to determine the change in factors like speed, offset, flow, and density</li>
+</ul>
 <p><a class="grey"><strong>Entertainment Intelligence Lab, Georgia Tech</strong></a>
 <strong>Undergraduate Researcher</strong>
 <a class="grey">Aug 2017 - Present | Atlanta, GA</a>
@@ -248,52 +308,6 @@ including creating a growth plan and application structure</li>
 <p><strong>Languages</strong>: Spanish (conversational), Hindi (fluent), Gujarati (fluent), English (native)</p>
 <p><strong>Media</strong>: Adobe Photoshop, Adobe Illustrator, Adobe InDesign</p>
 <p><strong>Communication</strong>: Presentation, Public Speaking, Research Writing, Communication Design</p>
-<h3 id="projects">Projects<a class="anchor" href="#projects">#</a></h3>
-<hr>
-<p>Nix | CREATE-X Capstone Design
-<strong>Aug 2018 - Present</strong></p>
-<ul>
-<li>Developed a nicotine cessation algorithm based on a daily sliding window and existing smoking cessation plans</li>
-<li>Evaluated potential design decisions while considering future strategies to improve our product</li>
-<li>Aided in process development and organization for a team of 7</li>
-</ul>
-<p>Smart City Infrastructure | Research
-<strong>Jan 2018 – May 2018</strong></p>
-<ul>
-<li>Contributed to analyzing work zone traffic patterns using image classifiers and computer vision functions to retrieve valuable vehicle attributes from traffic camera footage</li>
-<li>Analyzed collected data to determine the change in factors like speed, offset, flow, and density</li>
-</ul>
-<p>@VPFbot
-<strong>May 2018</strong></p>
-<ul>
-<li>Streamlined some of my processes as Vice President of Finance for Alpha Kappa Psi by building a custom slackbot that reads from the extensive Google Sheets maintaining our financial information and logging for sponsorship efforts to deliver periodic updates on the status of the organization</li>
-</ul>
-<p>Charles | HackGT
-<strong>Oct 2017</strong></p>
-<ul>
-<li>Conducted sentiment analysis on Twitter and Reddit on a per topic basis using Python libraries</li>
-<li>Processed and visualized resulting data using D3.js, and deployed the application using Flask</li>
-</ul>
-<p>RAS Madness
-<strong>Aug 2017</strong></p>
-<ul>
-<li>Conceptualized and developed a web app to serve as a prediction platform for national dance competitions</li>
-<li>Generated a Ruby on Rails JSON API backend and implemented a Bootstrapped Javascript frontend</li>
-</ul>
-<p>Custom Alexa Skill
-<strong>July 2017</strong></p>
-<ul>
-<li>Developed a custom Alexa skill in Python and deployed using Flask</li>
-<li>Catered to the suggestions of a religious institution to offer relevant spiritual quotes</li>
-<li>Scraped tweets from a Twitter account using the Tweepy API</li>
-</ul>
-<p>StreetLens | Holohack
-<strong>Dec 2016</strong></p>
-<ul>
-<li>Constructed a HoloLens app enabling street view previews of Google Maps directions</li>
-<li>Conceived an algorithm to retrieve data at a consistent time interval using the Google Maps and Street View APIs</li>
-<li>Collaborated with 3 others under a 36-hour time constraint while learning C# and Visual Studio</li>
-</ul>
 
 
               
@@ -371,6 +385,22 @@ including creating a growth plan and application structure</li>
           </div>
       </div>
       
+      <div class="toc-container">
+          
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#skills">Skills</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+      
     </div>
     
 
@@ -389,8 +419,13 @@ including creating a growth plan and application structure</li>
     data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
 
   
+    <script src="/js/table-of-contents.js"></script>
+  
 
 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 
 </html>
