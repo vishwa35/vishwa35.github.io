@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>internship on Vishwa Shah</title>
+    <link>https://vishwashah.me/tags/internship/</link>
+    <description>Recent content in internship on Vishwa Shah</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2020</copyright>
+    <lastBuildDate>Wed, 28 Aug 2019 00:13:52 +0000</lastBuildDate>
+    
+	<atom:link href="https://vishwashah.me/tags/internship/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Working across the pond</title>
+      <link>https://vishwashah.me/blog/medium/across-the-pond/</link>
+      <pubDate>Wed, 28 Aug 2019 00:13:52 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/across-the-pond/</guid>
+      <description>This summer was filled with unknowns.
+London, a city I knew no one in, on a continent in which I’d never left an airport. Palantir , where I’d intern as a forward deployed software engineer — I knew it’d be something different, but not exactly how.
+These unknowns led to quite a bit of discovery. I was able to reflect on my place in the world and interface with people of all kinds of backgrounds and attitudes on life, careers, and politics.</description>
+    </item>
+    
+    <item>
+      <title>Graduating? Me? Not yet.</title>
+      <link>https://vishwashah.me/blog/medium/graduating-me-not-yet/</link>
+      <pubDate>Wed, 28 Aug 2019 00:07:56 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/graduating-me-not-yet/</guid>
+      <description>Last August I realized I would graduate in May — earlier than expected. I wasn’t mentally prepared; I didn’t know what I wanted to pursue career-wise. So I figured, another internship? I learned a ton this winter while at Lyft. My work was primarily related to data pipelines, and with the mentorship from Dan Fan and Ikramul Haq (and great feedback culture!) I strengthened my ability to evaluate technical design decisions, communicate across teams, and build solid services.</description>
+    </item>
+    
+    <item>
+      <title>Interning at Redfin</title>
+      <link>https://vishwashah.me/blog/medium/interning-at-redfin/</link>
+      <pubDate>Fri, 05 Oct 2018 15:01:03 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/interning-at-redfin/</guid>
+      <description>Engaging homeowners without really knowing what it’s like to be one Nine months ago, I got on a call with my future manager to talk about the scope of the team and understand if it’d be a good fit. Owner Engagement focuses on making Redfin resourceful for homeowners in an effort to retain their interest and ultimately convert owners to sellers.
+Having in the past worked on engineering infrastructure, I was excited to diversify and work on the product side of a company — I wanted the fulfillment of knowing users were directly impacted by my work.</description>
+    </item>
+    
+    <item>
+      <title>Debugging a series of miscalculations in osquery</title>
+      <link>https://vishwashah.me/blog/medium/debugging-a-series-of-miscalculations-in-osquery/</link>
+      <pubDate>Fri, 18 Aug 2017 18:59:37 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/blog/medium/debugging-a-series-of-miscalculations-in-osquery/</guid>
+      <description>Heads up, we’ve moved! If you’d like to continue keeping up with the latest technical content from Square please visit us at our new home https://developer.squareup.com/blog  What is osquery ? osquery is an an open source tool by Facebook that provides a SQL interface for system information.
+Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.</description>
+    </item>
+    
+  </channel>
+</rss>

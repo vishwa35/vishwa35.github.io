@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>slackbot on Vishwa Shah</title>
+    <link>https://vishwashah.me/projtags/slackbot/</link>
+    <description>Recent content in slackbot on Vishwa Shah</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2020</copyright>
+    <lastBuildDate>Wed, 06 Jun 2018 01:03:29 -0700</lastBuildDate>
+    
+	<atom:link href="https://vishwashah.me/projtags/slackbot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>@vpfbot</title>
+      <link>https://vishwashah.me/projects/vpfbot/</link>
+      <pubDate>Wed, 06 Jun 2018 01:03:29 -0700</pubDate>
+      
+      <guid>https://vishwashah.me/projects/vpfbot/</guid>
+      <description>Scheduled Messages  constructing a weekly update message based on a Google Sheet CSPON Updates: [a week ago] - [yesterday]
+Sales Closed - HELL YEA! Congrats!
+ Company | @director | Date  Wins - YAY! Good news :) Remember to see these all the way through!
+ Company | @director | Date  Losses - It happens. Please remember to fill out insights from this contact in the sheet. Onwards!</description>
+    </item>
+    
+  </channel>
+</rss>

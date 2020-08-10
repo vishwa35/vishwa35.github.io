@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ProjTags on Vishwa Shah</title>
+    <link>https://vishwashah.me/projtags/</link>
+    <description>Recent content in ProjTags on Vishwa Shah</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2020</copyright>
+    <lastBuildDate>Wed, 31 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://vishwashah.me/projtags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>computervision</title>
+      <link>https://vishwashah.me/projtags/computervision/</link>
+      <pubDate>Wed, 31 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/projtags/computervision/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://vishwashah.me/projtags/python/</link>
+      <pubDate>Wed, 31 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/projtags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>slackbot</title>
+      <link>https://vishwashah.me/projtags/slackbot/</link>
+      <pubDate>Wed, 06 Jun 2018 01:03:29 -0700</pubDate>
+      
+      <guid>https://vishwashah.me/projtags/slackbot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>d3</title>
+      <link>https://vishwashah.me/projtags/d3/</link>
+      <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/projtags/d3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>flask</title>
+      <link>https://vishwashah.me/projtags/flask/</link>
+      <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/projtags/flask/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>twitter</title>
+      <link>https://vishwashah.me/projtags/twitter/</link>
+      <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/projtags/twitter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>heroku</title>
+      <link>https://vishwashah.me/projtags/heroku/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/projtags/heroku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>https://vishwashah.me/projtags/javascript/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/projtags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rails</title>
+      <link>https://vishwashah.me/projtags/rails/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/projtags/rails/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ruby</title>
+      <link>https://vishwashah.me/projtags/ruby/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/projtags/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jain</title>
+      <link>https://vishwashah.me/projtags/jain/</link>
+      <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/projtags/jain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>csharp</title>
+      <link>https://vishwashah.me/projtags/csharp/</link>
+      <pubDate>Fri, 02 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/projtags/csharp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VR</title>
+      <link>https://vishwashah.me/projtags/vr/</link>
+      <pubDate>Fri, 02 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/projtags/vr/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

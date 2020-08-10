@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on Vishwa Shah</title>
+    <link>https://vishwashah.me/projtags/javascript/</link>
+    <description>Recent content in javascript on Vishwa Shah</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2020</copyright>
+    <lastBuildDate>Wed, 30 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://vishwashah.me/projtags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RASMadness</title>
+      <link>https://vishwashah.me/projects/rasmadness/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/projects/rasmadness/</guid>
+      <description> Conceptualized and developed a web app to serve as a prediction platform for national dance competitions Generated a Ruby on Rails JSON API backend and implemented a Bootstrapped Javascript frontend  </description>
+    </item>
+    
+  </channel>
+</rss>
