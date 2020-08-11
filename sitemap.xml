@@ -103,12 +103,12 @@
   </url>
   
   <url>
-    <loc>https://vishwashah.me/projects/group-photos/</loc>
+    <loc>https://vishwashah.me/portfolio/group-photos/</loc>
     <lastmod>2018-10-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://vishwashah.me/projects/</loc>
+    <loc>https://vishwashah.me/portfolio/</loc>
     <lastmod>2018-10-31T00:00:00+00:00</lastmod>
   </url>
   
@@ -168,7 +168,7 @@
   </url>
   
   <url>
-    <loc>https://vishwashah.me/projects/vpfbot/</loc>
+    <loc>https://vishwashah.me/portfolio/vpfbot/</loc>
     <lastmod>2018-06-06T01:03:29-07:00</lastmod>
   </url>
   
@@ -178,7 +178,7 @@
   </url>
   
   <url>
-    <loc>https://vishwashah.me/projects/charles/</loc>
+    <loc>https://vishwashah.me/portfolio/charles/</loc>
     <lastmod>2018-06-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -213,7 +213,7 @@
   </url>
   
   <url>
-    <loc>https://vishwashah.me/projects/rasmadness/</loc>
+    <loc>https://vishwashah.me/portfolio/rasmadness/</loc>
     <lastmod>2017-08-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -243,7 +243,7 @@
   </url>
   
   <url>
-    <loc>https://vishwashah.me/projects/jain-alexa/</loc>
+    <loc>https://vishwashah.me/portfolio/jain-alexa/</loc>
     <lastmod>2017-07-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -253,7 +253,7 @@
   </url>
   
   <url>
-    <loc>https://vishwashah.me/projects/streetlens/</loc>
+    <loc>https://vishwashah.me/portfolio/streetlens/</loc>
     <lastmod>2016-12-02T00:00:00+00:00</lastmod>
   </url>
   
@@ -284,6 +284,10 @@
   
   <url>
     <loc>https://vishwashah.me/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vishwashah.me/ongoing-projects/</loc>
   </url>
   
   <url>

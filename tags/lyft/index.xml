@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2020</copyright>
-    <lastBuildDate>Wed, 28 Aug 2019 00:07:56 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Apr 2019 00:07:56 +0000</lastBuildDate>
     
 	<atom:link href="https://vishwashah.me/tags/lyft/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Graduating? Me? Not yet.</title>
       <link>https://vishwashah.me/blog/medium/graduating-me-not-yet/</link>
-      <pubDate>Wed, 28 Aug 2019 00:07:56 +0000</pubDate>
+      <pubDate>Mon, 29 Apr 2019 00:07:56 +0000</pubDate>
       
       <guid>https://vishwashah.me/blog/medium/graduating-me-not-yet/</guid>
       <description>Last August I realized I would graduate in May — earlier than expected. I wasn’t mentally prepared; I didn’t know what I wanted to pursue career-wise. So I figured, another internship? I learned a ton this winter while at Lyft. My work was primarily related to data pipelines, and with the mentorship from Dan Fan and Ikramul Haq (and great feedback culture!) I strengthened my ability to evaluate technical design decisions, communicate across teams, and build solid services.</description>

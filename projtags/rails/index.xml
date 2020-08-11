@@ -14,10 +14,10 @@
     
     <item>
       <title>RASMadness</title>
-      <link>https://vishwashah.me/projects/rasmadness/</link>
+      <link>https://vishwashah.me/portfolio/rasmadness/</link>
       <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://vishwashah.me/projects/rasmadness/</guid>
+      <guid>https://vishwashah.me/portfolio/rasmadness/</guid>
       <description> Conceptualized and developed a web app to serve as a prediction platform for national dance competitions Generated a Ruby on Rails JSON API backend and implemented a Bootstrapped Javascript frontend  </description>
     </item>
     

@@ -14,10 +14,10 @@
     
     <item>
       <title>streetlens</title>
-      <link>https://vishwashah.me/projects/streetlens/</link>
+      <link>https://vishwashah.me/portfolio/streetlens/</link>
       <pubDate>Fri, 02 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://vishwashah.me/projects/streetlens/</guid>
+      <guid>https://vishwashah.me/portfolio/streetlens/</guid>
       <description> Constructed a HoloLens app enabling street view previews of Google Maps directions Conceived an algorithm to retrieve data at a consistent time interval using the Google Maps and Street View APIs Collaborated with 3 others under a 36-hour time constraint while learning C# and Visual Studio  </description>
     </item>
     

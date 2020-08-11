@@ -14,10 +14,10 @@
     
     <item>
       <title>jain-alexa</title>
-      <link>https://vishwashah.me/projects/jain-alexa/</link>
+      <link>https://vishwashah.me/portfolio/jain-alexa/</link>
       <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://vishwashah.me/projects/jain-alexa/</guid>
+      <guid>https://vishwashah.me/portfolio/jain-alexa/</guid>
       <description> Developed a custom Alexa skill in Python and deployed using Flask Catered to the suggestions of a religious institution to offer relevant spiritual quotes Scraped tweets from a Twitter account using the Tweepy API  </description>
     </item>
     

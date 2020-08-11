@@ -26,7 +26,7 @@ These unknowns led to quite a bit of discovery. I was able to reflect on my plac
     <item>
       <title>Graduating? Me? Not yet.</title>
       <link>https://vishwashah.me/blog/medium/graduating-me-not-yet/</link>
-      <pubDate>Wed, 28 Aug 2019 00:07:56 +0000</pubDate>
+      <pubDate>Mon, 29 Apr 2019 00:07:56 +0000</pubDate>
       
       <guid>https://vishwashah.me/blog/medium/graduating-me-not-yet/</guid>
       <description>Last August I realized I would graduate in May — earlier than expected. I wasn’t mentally prepared; I didn’t know what I wanted to pursue career-wise. So I figured, another internship? I learned a ton this winter while at Lyft. My work was primarily related to data pipelines, and with the mentorship from Dan Fan and Ikramul Haq (and great feedback culture!) I strengthened my ability to evaluate technical design decisions, communicate across teams, and build solid services.</description>
@@ -56,10 +56,10 @@ Slack is an increasingly popular tool for team-wide communication. It’s grown 
     
     <item>
       <title>CS4476: optimal group photos</title>
-      <link>https://vishwashah.me/projects/group-photos/</link>
+      <link>https://vishwashah.me/portfolio/group-photos/</link>
       <pubDate>Wed, 31 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://vishwashah.me/projects/group-photos/</guid>
+      <guid>https://vishwashah.me/portfolio/group-photos/</guid>
       <description></description>
     </item>
     
@@ -107,29 +107,29 @@ The Basis Back in January, I watched a friend’s Snapchat story in awe as he po
     
     <item>
       <title>@vpfbot</title>
-      <link>https://vishwashah.me/projects/vpfbot/</link>
+      <link>https://vishwashah.me/portfolio/vpfbot/</link>
       <pubDate>Wed, 06 Jun 2018 01:03:29 -0700</pubDate>
       
-      <guid>https://vishwashah.me/projects/vpfbot/</guid>
+      <guid>https://vishwashah.me/portfolio/vpfbot/</guid>
       <description>Streamlined some of my processes as Vice President of Finance for Alpha Kappa Psi by building a custom slackbot that reads from the extensive Google Sheets maintaining our financial information and logging for sponsorship efforts to deliver periodic updates on the status of the organization  Scheduled Messages  constructing a weekly update message based on a Google Sheet CSPON Updates: [a week ago] - [yesterday]
 Sales Closed - HELL YEA!</description>
     </item>
     
     <item>
       <title>charles</title>
-      <link>https://vishwashah.me/projects/charles/</link>
+      <link>https://vishwashah.me/portfolio/charles/</link>
       <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://vishwashah.me/projects/charles/</guid>
+      <guid>https://vishwashah.me/portfolio/charles/</guid>
       <description> Conducted sentiment analysis on Twitter and Reddit on a per topic basis using Python libraries Processed and visualized resulting data using D3.js, and deployed the application using Flask  </description>
     </item>
     
     <item>
       <title>RASMadness</title>
-      <link>https://vishwashah.me/projects/rasmadness/</link>
+      <link>https://vishwashah.me/portfolio/rasmadness/</link>
       <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://vishwashah.me/projects/rasmadness/</guid>
+      <guid>https://vishwashah.me/portfolio/rasmadness/</guid>
       <description> Conceptualized and developed a web app to serve as a prediction platform for national dance competitions Generated a Ruby on Rails JSON API backend and implemented a Bootstrapped Javascript frontend  </description>
     </item>
     
@@ -145,19 +145,19 @@ Over the course of the summer I’ve been working on integrating osquery results
     
     <item>
       <title>jain-alexa</title>
-      <link>https://vishwashah.me/projects/jain-alexa/</link>
+      <link>https://vishwashah.me/portfolio/jain-alexa/</link>
       <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://vishwashah.me/projects/jain-alexa/</guid>
+      <guid>https://vishwashah.me/portfolio/jain-alexa/</guid>
       <description> Developed a custom Alexa skill in Python and deployed using Flask Catered to the suggestions of a religious institution to offer relevant spiritual quotes Scraped tweets from a Twitter account using the Tweepy API  </description>
     </item>
     
     <item>
       <title>streetlens</title>
-      <link>https://vishwashah.me/projects/streetlens/</link>
+      <link>https://vishwashah.me/portfolio/streetlens/</link>
       <pubDate>Fri, 02 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://vishwashah.me/projects/streetlens/</guid>
+      <guid>https://vishwashah.me/portfolio/streetlens/</guid>
       <description> Constructed a HoloLens app enabling street view previews of Google Maps directions Conceived an algorithm to retrieve data at a consistent time interval using the Google Maps and Street View APIs Collaborated with 3 others under a 36-hour time constraint while learning C# and Visual Studio  </description>
     </item>
     
@@ -180,6 +180,16 @@ Taking art and design classes was a relatively new experience; I didn’t have t
       <guid>https://vishwashah.me/blog/medium/a-new-worldview/</guid>
       <description>DominiCANT Believe It’s Over *The title of this should&#39;ve been a &amp;lt;em&amp;gt;Nhu&amp;lt;/em&amp;gt; Worldview, because of the puns made on this trip, but for it to make sense to others, I opted to keep it like it is.
 I just returned from a trip to the Dominican Republic. I&#39;ve changed as a person through the experience, gaining a new perspective on the world and its people. I went with the Ryan Nece Foundation (@powerofgiving ) as a part of the Student Service Program, and I am so thankful that I got this opportunity.</description>
+    </item>
+    
+    <item>
+      <title>Ongoing Projects</title>
+      <link>https://vishwashah.me/ongoing-projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vishwashah.me/ongoing-projects/</guid>
+      <description>I&amp;rsquo;m always doing (and learning!) a few different things. Here&amp;rsquo;s a peek into what I&amp;rsquo;m up to, +past+future projects.
+Current  taking this game theory course (Aug &amp;lsquo;20- ) learning how to play guitar thanks to Shama Lakdawala :) (Aug &amp;lsquo;20- ) read! reading 26 books in 2020&amp;ndash; track my progress and thoughts here (Jan &amp;lsquo;20- ) started a podcast where we talk attempt to answer some hard life questions while exploring philosophy, religion, ethics, and science.</description>
     </item>
     
     <item>
