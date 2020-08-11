@@ -35,6 +35,8 @@ theme = "hugo-theme-codex"
   twitterSite = "@vishifishy"
   twitterAuthor = "@vishifishy"
 
+  keywords = ['vishwa', 'shah', 'tampa', 'atlanta', 'georgia tech', 'technology', 'software', 'blog', 'postcardsfromvish', 'awhsiv', 'vishwa35', 'vishifishy', 'hillsborough', 'lyft', 'palantir', 'square', 'redfin', 'computer science', 'photography', 'podcast', 'aneka', 'yja', 'gatech']
+
 # This disables Hugo's default syntax highlighting in favor
 # of prismjs. If you wish to use Hugo's default syntax highlighting
 # over prismjs, remove this. You will also need to remove the prismjs
@@ -67,12 +69,24 @@ theme = "hugo-theme-codex"
   url = "/resume"
 
 [[menu.main]]
-  identifier = "projects"
-  name = "projects"
-  title = "Projects"
-  url = "/projects"
+  identifier = "portfolio"
+  name = "portfolio"
+  title = "Portfolio"
+  url = "/portfolio"
+
+[[menu.main]]
+  identifier = "ongoing projects"
+  name = "ongoing projects"
+  title = "Ongoing Projects"
+  url = "/ongoing-projects"
+
+[[menu.main]]
+  identifier = "reading list"
+  name = "reading list"
+  title = "Reading List"
+  url = "/reading-list"
 
 [taxonomies]
   category = "categories"
   tag = "tags"
-  projTags = "projTags"
+  projTags = "projtags"

@@ -7,6 +7,12 @@ projTags: [slackbot, python]
 link: https://github.com/vishwa35/vpfbot
 ---
 
+
+- Streamlined some of my processes as Vice President of Finance for Alpha Kappa Psi by building a custom slackbot that reads from the extensive Google Sheets maintaining our financial information and logging for sponsorship efforts to deliver periodic updates on the status of the organization
+
+[//]: <> (- Added support for notifications triggered on external events such as Google Form submissions, alert emails, budget shifts, etc. - Resolved common financial questions by adding an interactive layer to respond to trigger words in the workspace)
+
+
 ### Scheduled Messages
 ---
 

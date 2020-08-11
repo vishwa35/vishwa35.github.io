@@ -1,19 +1,65 @@
 ---
 title: "Resume"
+link: "./VishwaShahResume.pdf"
 draft: false
-layout: "static-page"
-type: "static-page"
+layout: "resume"
+type: "resume"
+toc: true
 ---
 
-### [Download PDF](./VishwaShahResume.pdf)
 
 ### Education
 ****
 **Georgia Institute of Technology**  <a class="grey">Aug 2016 – Dec 2019 | Atlanta, GA</a>
 
-- **B.S. in Computer Science**, concentrations in [Intelligence and Information Internetworks](http://www.catalog.gatech.edu/programs/intelligence-information-internetworks-computer-science-bs) -- GPA: 3.68
+- **B.S. Computer Science**, concentrations: [Intelligence + Information Internetworks](http://www.catalog.gatech.edu/programs/intelligence-information-internetworks-computer-science-bs)
 - **Affiliations**: [Alpha Kappa Psi](https://www.gtakpsi.com/) (Business Fraternity), Ramblin’ Raas (Nationally Competitive Dance Team)
-- **Relevant Coursework**: Machine Learning, Robotics and Perception, Algorithms, Intro to Artificial Intelligence, Intro to Computer Systems and Networks, Computer Organization and Programming, Probability and Statistics, Discrete Math, Linear Algebra, Multivariable Calculus, Data Structures/Algorithms
+- **Relevant Coursework**: 
+  <ul class="no-list">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab" aria-controls="nav-1" aria-selected="true">Software / Design</a>
+      <a class="nav-item nav-link" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab" aria-controls="nav-2" aria-selected="false">Theory / Maths</a>
+      <a class="nav-item nav-link" id="nav-3-tab" data-toggle="tab" href="#nav-3" role="tab" aria-controls="nav-3" aria-selected="false">Artificial Intelligence</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+      <ul>
+        <li>Objects & Design (CS 1331)</li>
+        <li>Data Structures & Algorithms (CS 1332)</li>
+        <li>Software Design (CS 2340)</li>
+        <li>Computer Organization & Programming (CS 2110)</li>
+        <li>Computer Systems and Networks (CS 2200)</li>
+        <li>Computer Networking (CS 3251)</li>
+        <li>Databases (CS 4400)</li>
+      </ul>
+      </div>
+      <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
+      <ul>
+        <li>Multivariable Calculus (MATH 2550)</li>
+        <li>Linear Algebra (MATH 1554)</li>
+        <li>Discrete Mathematics (CS 2051)</li>
+        <li>Applied Combinatorics (MATH 3012)</li>
+        <li>Probability and Statistics (MATH 3215)</li>
+        <li>Design & Analysis of Algorithms (CS 3510)</li>
+        <li>Automata & Complexity (CS 4510)</li>
+      </ul></div>
+      <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
+      <ul>
+        <li>Introduction to AI (CS 3600)</li>
+        <li>Robotics & Perception (CS 3630)</li>
+        <li>Computer Vision (CS 4776)</li>
+        <li>Machine Learning (CS 4641)</li>
+        <li>Computing & Ethics (CS 4001)</li>
+        <li>Social Computing (CS 4803)</li>
+        <li>Computational Linguistics (CS 4803/LING 4813)</li>
+        <li>Intro to Linguistics (LING 2100)</li>
+      </ul>
+      </div>
+    </div>
+  </ul>
+  
 
 ### Experience
 ****
@@ -63,6 +109,24 @@ type: "static-page"
 Report
 - Resolved several interesting, niche bugs relating to timezone discrepancies and test environments
 - Gained exposure to product insight, React, and machine learning approaches -->
+
+
+<a class="grey">**Nix | CREATE-X Capstone Design**</a>
+**Co-Founder** 
+<a class="grey">Aug 2018 - Feb 2019 | Atlanta, GA</a>
+<a class="tag accent" href=https://quitwithnix.com/>[link]</a>
+
+- Developed a nicotine cessation algorithm based on a daily sliding window and existing smoking cessation plans
+- Evaluated potential design decisions while considering future strategies to improve our product
+- Aided in process development and organization for a team of 7
+
+<a class="grey">**Smart City Infrastructure**</a>
+**Undergraduate Researcher** 
+<a class="grey">Jan 2018 – May 2018 | Atlanta, GA</a>
+
+- Contributed to analyzing work zone traffic patterns using image classifiers and computer vision functions to retrieve valuable vehicle attributes from traffic camera footage
+- Analyzed collected data to determine the change in factors like speed, offset, flow, and density
+
 
 <a class="grey">**Entertainment Intelligence Lab, Georgia Tech**</a>
 **Undergraduate Researcher** 
@@ -134,53 +198,4 @@ Report
 
 **Communication**: Presentation, Public Speaking, Research Writing, Communication Design
 
-### Projects
-****
-
-Nix | CREATE-X Capstone Design
-**Aug 2018 - Present**
-
-- Developed a nicotine cessation algorithm based on a daily sliding window and existing smoking cessation plans
-- Evaluated potential design decisions while considering future strategies to improve our product
-- Aided in process development and organization for a team of 7
-
-
-Smart City Infrastructure | Research
-**Jan 2018 – May 2018**
-
-- Contributed to analyzing work zone traffic patterns using image classifiers and computer vision functions to retrieve valuable vehicle attributes from traffic camera footage
-- Analyzed collected data to determine the change in factors like speed, offset, flow, and density
-
-@VPFbot
-**May 2018**
-
-- Streamlined some of my processes as Vice President of Finance for Alpha Kappa Psi by building a custom slackbot that reads from the extensive Google Sheets maintaining our financial information and logging for sponsorship efforts to deliver periodic updates on the status of the organization
-
-[//]: <> (- Added support for notifications triggered on external events such as Google Form submissions, alert emails, budget shifts, etc. - Resolved common financial questions by adding an interactive layer to respond to trigger words in the workspace)
-
-Charles | HackGT
-**Oct 2017**
-
-- Conducted sentiment analysis on Twitter and Reddit on a per topic basis using Python libraries
-- Processed and visualized resulting data using D3.js, and deployed the application using Flask
-
-RAS Madness
-**Aug 2017**
-
-- Conceptualized and developed a web app to serve as a prediction platform for national dance competitions
-- Generated a Ruby on Rails JSON API backend and implemented a Bootstrapped Javascript frontend
-
-Custom Alexa Skill
-**July 2017**
-
-- Developed a custom Alexa skill in Python and deployed using Flask
-- Catered to the suggestions of a religious institution to offer relevant spiritual quotes
-- Scraped tweets from a Twitter account using the Tweepy API
-
-StreetLens | Holohack
-**Dec 2016**
-
-- Constructed a HoloLens app enabling street view previews of Google Maps directions
-- Conceived an algorithm to retrieve data at a consistent time interval using the Google Maps and Street View APIs
-- Collaborated with 3 others under a 36-hour time constraint while learning C# and Visual Studio
 

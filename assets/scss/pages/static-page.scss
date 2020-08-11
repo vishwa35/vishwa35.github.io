@@ -6,6 +6,7 @@
   ul {
     list-style: square;
     margin-top: 0.1rem;
+    margin-bottom: 0.25rem;
     li {
       margin-bottom: 0.1rem;
       &::before {
@@ -20,4 +21,14 @@ a.grey {
   @include theme() {
     color: theme-get('high-neutral')
   }
+}
+
+.card-body {
+  padding: .5rem 1.25rem;
+  @include theme() {
+    background-color: neutralize(theme-get('bg'), 7);
+    color: theme-get('text');
+    border: transparent;
+  }
+
 }

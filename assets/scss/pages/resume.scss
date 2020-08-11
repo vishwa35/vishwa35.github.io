@@ -1,0 +1,49 @@
+@import "../main";
+@import "post";
+
+/* overrides */
+.post__content {
+  ul {
+    list-style: square;
+    margin-top: 0.1rem;
+    li {
+      margin-bottom: 0.1rem;
+      &::before {
+        content: "";
+      }
+    }
+
+  }
+}
+
+a.grey {
+  @include theme() {
+    color: theme-get('high-neutral')
+  }
+}
+
+.no-list {
+  list-style: none;
+}
+
+a:hover.tag__link {
+  text-decoration: none;
+}
+
+.title {
+  text-decoration: none;
+}
+
+.post__header {
+  a[href] {
+    @include theme() {
+      color: theme-get('accent-text');
+    }
+    &:hover {
+      text-decoration: none;
+      @include theme() {
+        color: extremify(theme-get('accent-text'), 30%);
+      }
+    }
+  }
+}
