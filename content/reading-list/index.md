@@ -1,6 +1,6 @@
 ---
 title: "Reading List"
-draft: true
+draft: false
 layout: "static-page"
 type: "static-page"
 ---
