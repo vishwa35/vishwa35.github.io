@@ -60,8 +60,7 @@ Slack is an increasingly popular tool for team-wide communication. It’s grown 
       <pubDate>Fri, 05 Oct 2018 15:01:03 +0000</pubDate>
       
       <guid>https://vishwashah.me/blog/medium/interning-at-redfin/</guid>
-      <description>Originally published on the Redfin Engineering Blog 
-Engaging homeowners without really knowing what it’s like to be one Nine months ago, I got on a call with my future manager to talk about the scope of the team and understand if it’d be a good fit. Owner Engagement focuses on making Redfin resourceful for homeowners in an effort to retain their interest and ultimately convert owners to sellers.
+      <description>Engaging homeowners without really knowing what it’s like to be one Nine months ago, I got on a call with my future manager to talk about the scope of the team and understand if it’d be a good fit. Owner Engagement focuses on making Redfin resourceful for homeowners in an effort to retain their interest and ultimately convert owners to sellers.
 Having in the past worked on engineering infrastructure, I was excited to diversify and work on the product side of a company — I wanted the fulfillment of knowing users were directly impacted by my work.</description>
     </item>
     
@@ -82,8 +81,7 @@ What Does It Mean to Invest? According to investopedia.com (a great resource!):
       <pubDate>Fri, 03 Aug 2018 13:01:01 +0000</pubDate>
       
       <guid>https://vishwashah.me/blog/medium/anekantvad-defined-me/</guid>
-      <description>Originally published in Young Minds 
-Taking the time to understand the “third” core tenet of Jainism At #YJA18, Nikita T. Mitchell gave a wonderful keynote.
+      <description>Taking the time to understand the “third” core tenet of Jainism At #YJA18, Nikita T. Mitchell gave a wonderful keynote.
  Your faith is rooted in compassion. Shine that light.
  While sharing her story, she asked us to reflect on and share a defining moment for our faith. For me, I thought back to the couple distinctive turning points in how I approached Jainism and where I concentrated my efforts: my journey in understanding Anekantvad.</description>
     </item>
@@ -104,10 +102,8 @@ The Basis Back in January, I watched a friend’s Snapchat story in awe as he po
       <pubDate>Fri, 18 Aug 2017 18:59:37 +0000</pubDate>
       
       <guid>https://vishwashah.me/blog/medium/debugging-a-series-of-miscalculations-in-osquery/</guid>
-      <description>Originally published on the Square Engineering Blog 
-What is osquery ? osquery is an an open source tool by Facebook that provides a SQL interface for system information.
-Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.
-Finding the miscalculations small linux disk sizes?</description>
+      <description>Heads up, we’ve moved! If you’d like to continue keeping up with the latest technical content from Square please visit us at our new home https://developer.squareup.com/blog  What is osquery ? osquery is an an open source tool by Facebook that provides a SQL interface for system information.
+Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.</description>
     </item>
     
     <item>

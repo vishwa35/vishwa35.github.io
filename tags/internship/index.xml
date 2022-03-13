@@ -38,8 +38,7 @@ These unknowns led to quite a bit of discovery. I was able to reflect on my plac
       <pubDate>Fri, 05 Oct 2018 15:01:03 +0000</pubDate>
       
       <guid>https://vishwashah.me/blog/medium/interning-at-redfin/</guid>
-      <description>Originally published on the Redfin Engineering Blog 
-Engaging homeowners without really knowing what it’s like to be one Nine months ago, I got on a call with my future manager to talk about the scope of the team and understand if it’d be a good fit. Owner Engagement focuses on making Redfin resourceful for homeowners in an effort to retain their interest and ultimately convert owners to sellers.
+      <description>Engaging homeowners without really knowing what it’s like to be one Nine months ago, I got on a call with my future manager to talk about the scope of the team and understand if it’d be a good fit. Owner Engagement focuses on making Redfin resourceful for homeowners in an effort to retain their interest and ultimately convert owners to sellers.
 Having in the past worked on engineering infrastructure, I was excited to diversify and work on the product side of a company — I wanted the fulfillment of knowing users were directly impacted by my work.</description>
     </item>
     
@@ -49,10 +48,8 @@ Having in the past worked on engineering infrastructure, I was excited to divers
       <pubDate>Fri, 18 Aug 2017 18:59:37 +0000</pubDate>
       
       <guid>https://vishwashah.me/blog/medium/debugging-a-series-of-miscalculations-in-osquery/</guid>
-      <description>Originally published on the Square Engineering Blog 
-What is osquery ? osquery is an an open source tool by Facebook that provides a SQL interface for system information.
-Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.
-Finding the miscalculations small linux disk sizes?</description>
+      <description>Heads up, we’ve moved! If you’d like to continue keeping up with the latest technical content from Square please visit us at our new home https://developer.squareup.com/blog  What is osquery ? osquery is an an open source tool by Facebook that provides a SQL interface for system information.
+Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.</description>
     </item>
     
   </channel>

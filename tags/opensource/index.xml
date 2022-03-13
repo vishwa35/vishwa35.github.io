@@ -18,10 +18,8 @@
       <pubDate>Fri, 18 Aug 2017 18:59:37 +0000</pubDate>
       
       <guid>https://vishwashah.me/blog/medium/debugging-a-series-of-miscalculations-in-osquery/</guid>
-      <description>Originally published on the Square Engineering Blog 
-What is osquery ? osquery is an an open source tool by Facebook that provides a SQL interface for system information.
-Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.
-Finding the miscalculations small linux disk sizes?</description>
+      <description>Heads up, we’ve moved! If you’d like to continue keeping up with the latest technical content from Square please visit us at our new home https://developer.squareup.com/blog  What is osquery ? osquery is an an open source tool by Facebook that provides a SQL interface for system information.
+Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.</description>
     </item>
     
   </channel>
