@@ -14,7 +14,7 @@ toc: true
 
 - **B.S. Computer Science**, concentrations: [Intelligence + Information Internetworks](http://www.catalog.gatech.edu/programs/intelligence-information-internetworks-computer-science-bs)
 - **Affiliations**: [Alpha Kappa Psi](https://www.gtakpsi.com/) (Business Fraternity), Ramblin’ Raas (Nationally Competitive Dance Team)
-- **Relevant Coursework**: 
+- **Relevant Coursework**:
   <ul class="no-list">
     <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -59,24 +59,29 @@ toc: true
       </div>
     </div>
   </ul>
-  
+
 
 ### Experience
 ****
 <a class="grey">**Palantir**</a>
-**Software Engineer** 
+**Software Engineer**
 <a class="grey">June 2020 - Present | New York, NY</a>
 
+- Supporting compute infrastructure for streaming data (using Apache Kafka, Flink)
+- Built features including support to stream changelog data from generic sources and store data across multiple kafka clusters
+- Led migration of clusters between environments
+- Managed cross-team features to productize recurring workflows that rely upon streaming infrastructure
+
 <a class="grey">**Wadhwani AI**</a>
-**Research Intern, COVID Response** 
+**Research Intern, COVID Response**
 <a class="grey">March 2020 - June 2020 | Mumbai, IN</a>
 <a class="tag accent" href=https://www.hindustantimes.com/mumbai-news/artificial-intelligence-helps-mumbai-civic-body-detect-1-255-comorbid-patients/story-z9ips72D65wlrql7ZKklfL.html>[news article]</a>
 
-- Implemented curve-fitting and SEIR-based modelling efforts to deliver COVID-19 pandemic related predictions to Indian municipal entities 
+- Implemented curve-fitting and SEIR-based modelling efforts to deliver COVID-19 pandemic related predictions to Indian municipal entities
 
 
 <a class="grey">**Palantir**</a>
-**Forward Deployed Software Engineering Intern** 
+**Forward Deployed Software Engineering Intern**
 <a class="grey">May 2019 - Aug 2019 | London, UK</a>
 <a href=https://medium.com/@vishwa35/working-across-the-pond-5e896438d93a>[blog post]</a>
 
@@ -84,7 +89,7 @@ toc: true
 - Developed a suite of tooling to manage dynamic pipeline creation, ensured a simple maintenance story despite an increased number of parallel pipelines, and contributed to fleshing out similar use-cases across the company
 
 <a class="grey">**Lyft**</a> <!-- Core Datastores -->
-**Software Engineering Intern** 
+**Software Engineering Intern**
 <a class="grey">Jan 2019 - Apr 2019 | Seattle, WA</a>
 <a class="tag accent" href=https://medium.com/@vishwa35/graduating-me-not-yet-85d07963091f>[blog post]</a>
 
@@ -94,12 +99,12 @@ toc: true
 
 
 <a class="grey">**Redfin**</a> <!-- Owner Engagement -->
-**Software Engineering Intern** 
+**Software Engineering Intern**
 <a class="grey">May 2018 - Aug 2018 | Seattle, WA</a>
 <a class="tag accent" href=https://redfin.engineering/interning-at-redfin-289f28ec43c0>[blog post]</a>
 
 - Improved the fluidity of the claim home experience by implementing Google One-Tap login for my team's primary endpoint, lifting registrations (44%), subscriptions (25%), and sell contacts (18%)
-- Worked across several teams to investigate Redfin Home Report subscription activity to optimize open rate, developing clustering/classification models and launching two experiments to test open rate improvements 
+- Worked across several teams to investigate Redfin Home Report subscription activity to optimize open rate, developing clustering/classification models and launching two experiments to test open rate improvements
 
 <!-- - Worked across several teams to investigate Redfin Home Report subscription activity in an effort to optimize open rate
 - Developed clustering and classification models to predict best send time, content, and owner intent for the Home
@@ -112,7 +117,7 @@ Report
 
 
 <a class="grey">**Nix | CREATE-X Capstone Design**</a>
-**Co-Founder** 
+**Co-Founder**
 <a class="grey">Aug 2018 - Feb 2019 | Atlanta, GA</a>
 <a class="tag accent" href=https://quitwithnix.com/>[link]</a>
 
@@ -121,7 +126,7 @@ Report
 - Aided in process development and organization for a team of 7
 
 <a class="grey">**Smart City Infrastructure**</a>
-**Undergraduate Researcher** 
+**Undergraduate Researcher**
 <a class="grey">Jan 2018 – May 2018 | Atlanta, GA</a>
 
 - Contributed to analyzing work zone traffic patterns using image classifiers and computer vision functions to retrieve valuable vehicle attributes from traffic camera footage
@@ -129,7 +134,7 @@ Report
 
 
 <a class="grey">**Entertainment Intelligence Lab, Georgia Tech**</a>
-**Undergraduate Researcher** 
+**Undergraduate Researcher**
 <a class="grey">Aug 2017 - Present | Atlanta, GA</a>
 <a class="tag accent" href=https://arxiv.org/pdf/1805.03720.pdf>[paper]</a>
 
@@ -138,7 +143,7 @@ Report
 - Awarded the [President's Undergraduate Research Award](https://www.undergradresearch.gatech.edu/content/presidents-undergraduate-research-awards) for Fall 2018
 
 <a class="grey">**College of Computing, Georgia Tech**</a>
-**Tutor** 
+**Tutor**
 <a class="grey">Jan 2018 - Present | Atlanta, GA</a>
 <a class="tag accent" href=https://arxiv.org/pdf/1805.03720.pdf>[paper]</a>
 
@@ -147,7 +152,7 @@ Report
 - Tutored undergraduate students in Intro to Object Oriented Programming and Discrete Math
 
 <a class="grey">**Square**</a> <!-- Platform Engineering -->
-**Software Engineering Intern** 
+**Software Engineering Intern**
 <a class="grey">May 2017 - Aug 2017 | San Francisco, CA</a>
 <a class="tag accent" href=https://medium.com/square-corner-blog/debugging-a-series-of-miscalculations-in-osquery-14cce2cfe39c>[blog post]</a>
 
@@ -159,8 +164,23 @@ Report
 ### Leadership
 ****
 
+<a class="grey">**Young Jains of America**</a> <!-- Platform Engineering -->
+**Director of Publications**
+<a class="grey">Oct 2020 – Oct 2021</a>
+<a class="tag accent" href=https://yja.org/community>[link]</a>
+
+- Led a team of 15 writers and editors to publish 2 magazines and release regular digital content, from original opinion to interviews and profiles
+**Daytime Programming Lead**
+<a class="grey">Dec 2019 – July 2020</a>
+<a class="tag accent" href=https://yja.org/community>[link]</a>
+
+- Laid the groundwork to plan educational sessions for a 3-day national convention uniting 800 Jains across the country, which was cancelled due to the 2020 COVID Pandemic
+- Pivoted to organizing a day of virtual programming, working with 5 notable speakers to organize impactful sessions, broadcasted to ~1000 people over the course of the day
+
+
+
 <a class="grey">**Aneka**</a> <!-- Platform Engineering -->
-**Podcast Host** 
+**Podcast Host**
 <a class="grey">Apr 2019 – Present</a>
 <a class="tag accent" href=https://yja.org/aneka>[link]</a>
 
@@ -169,7 +189,7 @@ Report
 
 
 <a class="grey">**Alpha Kappa Psi**</a> <!-- Platform Engineering -->
-**Vice President of Finance** 
+**Vice President of Finance**
 <a class="grey">May 2018 - December 2018</a>
 
 - Managed a $70,000 annual budget, financing events for the brotherhood and the general Georgia Tech business community (Rush, Social/Alumni Events, Retreats/Formals, Georgia Tech Business Forum, Startup Hackathon, Case Competition, etc)
@@ -180,7 +200,7 @@ Report
 
 
 <a class="grey">**ATL Tamasha**</a> <!-- Platform Engineering -->
-**Marketing Chair** 
+**Marketing Chair**
 <a class="grey">May 2017 - March 2018</a>
 
 - Lead marketing efforts for ATL Tamasha, the organization's flagship event and region's premier Fall South Asian dance competition
@@ -197,5 +217,3 @@ Report
 **Media**: Adobe Photoshop, Adobe Illustrator, Adobe InDesign
 
 **Communication**: Presentation, Public Speaking, Research Writing, Communication Design
-
-
