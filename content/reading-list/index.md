@@ -6,7 +6,7 @@ type: "static-page"
 ---
 Thanks to so many friends, co-workers, and mentors for recommending some stellar books. I'd fallen out of the habit of reading in college but never forgot to write titles down, so the real backlog is far FAR longer than this...
 
-Memorable Reads:
+## Memorable Reads
 - A Very Punchable Face, Colin Jost
 - The Book of Eels: Our Enduring Fascination with the Most Mysterious Creature in the Natural World, Patrik Svensson (2022)
 - The Runaway Species: How Human Creativity Remakes the World, Anthony Brandt, David Eagleman (2022)
@@ -38,7 +38,7 @@ Memorable Reads:
 - Brave New World, Aldous Huxley (2013)
 - The Republic, Plato (2012)
 
-Next:
+## Next:
 - Sapiens, Yuval Noah Harari
 - The Argumentative Indian, Amartya Sen
 - Guns, Germs, and Steel, Jared Diamond
