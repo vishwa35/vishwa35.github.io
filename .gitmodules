@@ -4,4 +4,7 @@
 	branch = master
 [submodule "themes/hugo-theme-codex"]
 	path = themes/hugo-theme-codex
-	url = https://github.com/jakewies/hugo-theme-codex.git
+	url = https://github.com/vishwa35/hugo-theme-codex.git
+[submodule "themes/coder"]
+	path = themes/coder
+	url = https://github.com/luizdepra/hugo-coder.git
