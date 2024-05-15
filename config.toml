@@ -24,6 +24,7 @@ theme = "hugo-theme-codex"
   instagram = "https://instagram.com/postcardsfromvish"
   linkedin = "https://www.linkedin.com/in/vishwa35/"
   medium = "https://medium.com/@vishwa35"
+  substack = "https://postcardsfromvish.substack.com"
   # youtube = "https://www.youtube.com/channel/<your channel>"
   
   # Titles for your icons (shown as tooltips), and also their display order.
@@ -79,6 +80,12 @@ theme = "hugo-theme-codex"
   name = "ongoing projects"
   title = "Ongoing Projects"
   url = "/ongoing-projects"
+
+[[menu.main]]
+  identifier = "itineraries"
+  name = "itineraries"
+  title = "Itineraries"
+  url = "/itineraries"
 
 [[menu.main]]
   identifier = "reading list"
