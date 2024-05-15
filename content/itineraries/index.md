@@ -137,7 +137,7 @@ toc: true
       	<li>Homeslice for pizza, they have this really good pomegranate tahini cauliflower chickpea one that I LOVE</li>
 		<li>Inamo - Japanese food</li>
 		<li>The Kati Roll Company</li>
-		<li>Dishoom - overrated imo but everyone hyoes it up so maybe go once</li>
+		<li>Dishoom - overrated imo but everyone hypes it up so maybe go once</li>
 		<li>Nandos - gotta go once at least</li>
 		<li>DUM Biryani House</li>
 		<li>Crosstown Doughnuts</li>

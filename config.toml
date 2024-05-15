@@ -30,7 +30,7 @@ theme = "hugo-theme-codex"
   # Titles for your icons (shown as tooltips), and also their display order.
   # Currently, these icons are supported: 
   #   "Twitter", "GitHub", "Email", "Facebook", "GitLab", "Instagram", "LinkedIn", "YouTube"
-  iconOrder = ["Twitter", "GitHub", "Instagram", "LinkedIn", "Medium"]
+  iconOrder = ["Twitter", "GitHub", "Instagram", "LinkedIn", "Medium", "Substack"]
 
   # Metadata for Twitter cards, defaults to params.twitter
   twitterSite = "@vishifishy"
