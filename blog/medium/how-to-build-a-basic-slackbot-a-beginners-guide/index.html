@@ -23,6 +23,7 @@
   
 
   <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
@@ -37,7 +38,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.032a06cbc7dc731b7a555f35beaae3739a366851cd0e9984a0c0a9e900697103.css" integrity="sha256-AyoGy8fccxt6VV81vqrjc5o2aFHNDpmEoMCp6QBpcQM="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.b320d3fc98b3651fe499fd11851f24fbf8f184209f26376ff5b6550e816af3a5.css" integrity="sha256-syDT/JizZR/kmf0RhR8k&#43;/jxhCCfJjdv9bZVDoFq86U="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.dd2e8cd202e8f3757845507601f19f44d1da26619a2b807d3eb5edaa2388c426.css" integrity="sha256-3S6M0gLo83V4RVB2AfGfRNHaJmGaK4B9PrXtqiOIxCY="/>
@@ -76,16 +77,12 @@
   
   </script>
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-57527171-3', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+    
+      
+    
+  
+
 </head>
 
 <body>
@@ -107,8 +104,11 @@ if (!doNotTrack) {
       </li>
     
       <li>
-        <a  class="active"
-         href="/blog">blog</a>
+        <a  href="/blog">blog</a>
+      </li>
+    
+      <li>
+        <a  href="/itineraries">itineraries</a>
       </li>
     
       <li>
@@ -143,29 +143,46 @@ if (!doNotTrack) {
         <div class="post">
           <header class="post__header">
             <h1 id="post__title">How to build a basic slackbot: a  beginner’s guide</h1>
-            <time datetime="2019-01-06 20:29:51.157 &#43;0000 UTC" class="post__date"
-            >Jan 6 2019</time>
+            <time datetime="2019-01-06 20:29:51.157 &#43;0000 UTC" class="post__date">Jan 6 2019</time> 
           </header>
           <article class="post__content">
               
 <h4 id="lets-try-and-automate-something-in-python">Let’s try and automate something [in python]</h4>
 <p><img src="images/1.jpeg" alt="image"></p>
-<p>Photo by <a href="https://unsplash.com/photos/R4WCbazrD1g?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText" target="_blank">Rock’n Roll Monkey</a>
- on <a href="https://unsplash.com/search/photos/bot?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText" target="_blank">Unsplash</a>
+<p>Photo by <a href="https://unsplash.com/photos/R4WCbazrD1g?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Rock’n Roll Monkey</a>
+ on <a href="https://unsplash.com/search/photos/bot?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Unsplash</a>
 </p>
 <p><strong><em>Update: code and tutorial updated on June 28 to reflect Slack API changes</em></strong></p>
 <h3 id="slackbots-why-use-them">Slackbots: Why use them?<a class="anchor" href="#slackbots-why-use-them">#</a></h3>
 <p>Before we get into the tutorial part of this post, let’s take a look at why this can be a worthy project and tool.</p>
-<p><a href="http://slack.com" target="_blank">Slack</a>
+<p><a href="http://slack.com" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Slack</a>
  is an increasingly popular tool for team-wide communication. It’s grown to include plugins for other widely used project management tools, like JIRA, Google Drive, and the likes. Any slack user knows — the more you can do from within the conversation, the better.</p>
 <p>Common uses for a slackbot range from a simple notifier for when a task is complete (like a test build, or when your lunch is ready) to interactive, button-based bots that execute commands at the user’s will. You can build polling mechanisms, conversational bots, and more.</p>
 <h3 id="setting-up-a-python-programming-environment">Setting up a python programming environment<a class="anchor" href="#setting-up-a-python-programming-environment">#</a></h3>
 <p><img src="images/2.gif" alt="image"></p>
-<p>If you’re a windows user and you haven’t used python before, you’ll need to <a href="https://docs.python.org/3/using/windows.html" target="_blank">install</a>
+<p>If you’re a windows user and you haven’t used python before, you’ll need to <a href="https://docs.python.org/3/using/windows.html" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>install</a>
  it. Linux/Mac users: Unix comes with python!</p>
 <p>Once installed, fire up your terminal and type <code>python</code> or <code>python3</code> (if you have multiple installations) to make sure it works and is there.</p>
-<p>Also check to see you have a good text editor for code: <a href="https://www.sublimetext.com/3" target="_blank">sublime</a>
- and <a href="https://flight-manual.atom.io/getting-started/sections/installing-atom/" target="_blank">atom</a>
+<p>Also check to see you have a good text editor for code: <a href="https://www.sublimetext.com/3" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>sublime</a>
+ and <a href="https://flight-manual.atom.io/getting-started/sections/installing-atom/" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>atom</a>
  are great choices.</p>
 <p>Optional: It might also be useful to work in a virtual environment — it’s good practice for when you have a lot of dependencies.</p>
 <pre><code>pip install virtualenv  
@@ -173,9 +190,15 @@ virtualenv tutorial
 source tutorial/bin/activate
 </code></pre>
 <p><img src="images/3.gif" alt="image"></p>
-<p>You should also fork the <a href="https://github.com/vishwa35/slackbot-tutorial" target="_blank">tutorial GitHub repo</a>
+<p>You should also fork the <a href="https://github.com/vishwa35/slackbot-tutorial" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>tutorial GitHub repo</a>
  and clone to your local machine, as we’ll be using that code as a framework for this tutorial.</p>
-<p>To do this, go to the <a href="https://github.com/vishwa35/slackbot-tutorial" target="_blank">repo</a>
+<p>To do this, go to the <a href="https://github.com/vishwa35/slackbot-tutorial" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>repo</a>
  and click <code>Fork</code> on the top right. The forked repo should be <strong>&lt;yourusername&gt;/slackbot-tutorial</strong>. Hit the green <code>Clone or download</code> button on the right under the stats bar, and copy the url. Return to the terminal to clone the repository:</p>
 <pre><code>cd Desktop/  
 git clone [https://github.com/yourusername/slackbot-tutorial.git](https://github.com/vishwa35/slackbot-tutorial.git)  
@@ -184,12 +207,21 @@ sublime . (or open your text editor and open this directory)
 </code></pre>
 <h3 id="slack-apps">Slack Apps<a class="anchor" href="#slack-apps">#</a></h3>
 <p>There are two ways to go about creating your slackbot: standalone bots, or Slack apps. Apps allow a wider range of functionality going forward, and is Slack’s recommended route for creating a bot user.</p>
-<p>Go to <a href="https://api.slack.com/apps" target="_blank">https://api.slack.com/apps</a>
+<p>Go to <a href="https://api.slack.com/apps" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>https://api.slack.com/apps</a>
  and hit <code>Create New App</code> on the top right. Give it a name and pick a workspace where you can create a channel to test your bot in. You can always reconfigure your bot for another workspace later, or even post it to the Slack App Directory.</p>
 <p>I recommend making a #test channel in a workspace you create just for development purposes, or one that has relatively few users who wouldn’t mind you testing something out there.</p>
 <p><img src="images/4.png" alt="image"></p>
-<p>The first thing you’ll want to do is get the bot token. When you get to the above page, click Bots. Add some scopes; these determine what permissions your app’s bot user will have. To start, <strong><a href="https://api.slack.com/scopes/chat:write" target="_blank">chat:write</a>
- and <a href="https://api.slack.com/scopes/im:write" target="_blank">im:write</a>
+<p>The first thing you’ll want to do is get the bot token. When you get to the above page, click Bots. Add some scopes; these determine what permissions your app’s bot user will have. To start, <strong><a href="https://api.slack.com/scopes/chat:write" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>chat:write</a>
+ and <a href="https://api.slack.com/scopes/im:write" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>im:write</a>
 </strong> are probably enough.</p>
 <p><img src="images/5.png" alt="image"></p>
 <p>Now, to actually get your tokens, you’ll want to go to <code>OAuth &amp;amp; Permissions</code> on the left sidebar.</p>
@@ -224,10 +256,19 @@ https://slack.com/api/chat.postMessage
 <p>This is, of course, a super basic implementation of a scheduled message sender — you can actually do this just with slackbot <code>/remind #test “Hello, Slack!” every Monday at 9am</code>.</p>
 <p>The <strong>true power</strong> here is that you can substitute in any function for <code>sendMessage</code>, leveraging the power of interfacing with external services through APIs, doing math, etc and then constructing a message to post.</p>
 <h4 id="slash-commands">Slash Commands</h4>
-<p>This one requires a little more setup — go back to your <a href="http://api.slack.com/apps" target="_blank">app settings</a>
- &gt; Slash Commands. Create a new slash command: for example, <code>/test</code>. For the request URL, you’ll need to either deploy this web server (I use Heroku), or run a local <code>ngrok</code> instance to test it. The latter will run it locally, and is best for testing. You can <code>brew install ngrok</code> or get it from <a href="https://ngrok.com/download" target="_blank">here</a>
+<p>This one requires a little more setup — go back to your <a href="http://api.slack.com/apps" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>app settings</a>
+ &gt; Slash Commands. Create a new slash command: for example, <code>/test</code>. For the request URL, you’ll need to either deploy this web server (I use Heroku), or run a local <code>ngrok</code> instance to test it. The latter will run it locally, and is best for testing. You can <code>brew install ngrok</code> or get it from <a href="https://ngrok.com/download" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>here</a>
 .</p>
-<p>In the starter code repo, look for <code>slashCommand.py</code> to start understanding this method. To start the server, run <code>python server.py</code>. The Request URL to put in Slack will be given by your <code>ngrok</code> instance and the <code>@app.route</code> in your code — it would be something like <a href="http://a8787d2fea3b.ngrok.io" target="_blank">http://a1234b5cde6f.ngrok.io</a>
+<p>In the starter code repo, look for <code>slashCommand.py</code> to start understanding this method. To start the server, run <code>python server.py</code>. The Request URL to put in Slack will be given by your <code>ngrok</code> instance and the <code>@app.route</code> in your code — it would be something like <a href="http://a8787d2fea3b.ngrok.io" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>http://a1234b5cde6f.ngrok.io</a>
 /<strong>slack/test</strong> (the bold part comes from the route defined in the code). You should be able to test the slash commands in your Slack workspace. From the tutorial code, try <code>/test</code>.</p>
 <h3 id="moving-forward">Moving Forward<a class="anchor" href="#moving-forward">#</a></h3>
 <p>Now you have a very basic slackbot that either operates on a command or runs every so often. Be creative with how you use it! Think about what else you can link this skeleton to to make it more useful.</p>
@@ -235,7 +276,10 @@ https://slack.com/api/chat.postMessage
 <ol>
 <li>Actions/responses could be triggered by mentions or certain phrases. This requires running a server and listening the messages somewhere.</li>
 <li>You bot could be conversational, and might contribute to threads. Check out some NLP to get started on having intelligible conversation! Word2Vec + TensorFlow or Keras might be a place to start. DialogFlow is also great.</li>
-<li>Link it up with some other APIs. Maybe you want to be able to interact with a Google Sheet and run some calculations. You might want to send other users a message based on some actions. Integrate <a href="https://api.slack.com/docs/message-buttons" target="_blank">buttons</a>
+<li>Link it up with some other APIs. Maybe you want to be able to interact with a Google Sheet and run some calculations. You might want to send other users a message based on some actions. Integrate <a href="https://api.slack.com/docs/message-buttons" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>buttons</a>
 . Perhaps you want to trigger messages based on something else.</li>
 </ol>
 
@@ -269,7 +313,6 @@ https://slack.com/api/chat.postMessage
 
   <ul class="tags__list">
     <li class="tag__item">
-      <a class="tag__link twitter-share-button" data-size="large" data-show-count="false" href="https://twitter.com/share?ref_src=twsrc%5Etfw">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </li>
   </ul>
 
@@ -285,7 +328,7 @@ https://slack.com/api/chat.postMessage
   
     <a class="pagination__item" href="https://vishwashah.me/blog/medium/hack-your-life/">
       <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >Using Habits to Hack Your Life</a>
+      <span class="pagination__title" >Using Habits to Hack Your Life</span>
     </a>
   
 </div>
@@ -299,9 +342,13 @@ https://slack.com/api/chat.postMessage
   
      
     
-      <a class="social-icons__link" title="Twitter"
-         href="https://twitter.com/vishifishy"
-         target="_blank" rel="noopener">
+      <a
+        class="social-icons__link"
+        title="Twitter"
+        href="https://twitter.com/vishifishy"
+        target="_blank"
+        rel="me noopener"
+      >
         
           <i class="social-icons__icon fab fa-twitter fa-lg"></i>
         
@@ -310,9 +357,13 @@ https://slack.com/api/chat.postMessage
   
      
     
-      <a class="social-icons__link" title="GitHub"
-         href="https://github.com/vishwa35"
-         target="_blank" rel="noopener">
+      <a
+        class="social-icons__link"
+        title="GitHub"
+        href="https://github.com/vishwa35"
+        target="_blank"
+        rel="me noopener"
+      >
         
           <i class="social-icons__icon fab fa-github fa-lg"></i>
         
@@ -321,9 +372,13 @@ https://slack.com/api/chat.postMessage
   
      
     
-      <a class="social-icons__link" title="Instagram"
-         href="https://instagram.com/postcardsfromvish"
-         target="_blank" rel="noopener">
+      <a
+        class="social-icons__link"
+        title="Instagram"
+        href="https://instagram.com/postcardsfromvish"
+        target="_blank"
+        rel="me noopener"
+      >
         
           <i class="social-icons__icon fab fa-instagram fa-lg"></i>
         
@@ -332,9 +387,13 @@ https://slack.com/api/chat.postMessage
   
      
     
-      <a class="social-icons__link" title="LinkedIn"
-         href="https://www.linkedin.com/in/vishwa35/"
-         target="_blank" rel="noopener">
+      <a
+        class="social-icons__link"
+        title="LinkedIn"
+        href="https://www.linkedin.com/in/vishwa35/"
+        target="_blank"
+        rel="me noopener"
+      >
         
           <i class="social-icons__icon fab fa-linkedin fa-lg"></i>
         
@@ -343,9 +402,13 @@ https://slack.com/api/chat.postMessage
   
      
     
-      <a class="social-icons__link" title="Medium"
-         href="https://medium.com/@vishwa35"
-         target="_blank" rel="noopener">
+      <a
+        class="social-icons__link"
+        title="Medium"
+        href="https://medium.com/@vishwa35"
+        target="_blank"
+        rel="me noopener"
+      >
         
           <i class="social-icons__icon fab fa-medium fa-lg"></i>
         
@@ -367,7 +430,7 @@ https://slack.com/api/chat.postMessage
    
 
   
-  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  <script src="/js/index.min.301a8b0870381bf76b3b5182e8966d363a0474281183439beb024d8b8228fc66.js" integrity="sha256-MBqLCHA4G/drO1GC6JZtNjoEdCgRg0Ob6wJNi4Io/GY=" crossorigin="anonymous"></script>
   
   
   <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>

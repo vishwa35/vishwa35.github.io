@@ -4,130 +4,101 @@
     <title>Projtags on Vishwa Shah</title>
     <link>https://vishwashah.me/projtags/</link>
     <description>Recent content in Projtags on Vishwa Shah</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© 2020</copyright>
     <lastBuildDate>Wed, 31 Oct 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://vishwashah.me/projtags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://vishwashah.me/projtags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>computervision</title>
+      <title>Computervision</title>
       <link>https://vishwashah.me/projtags/computervision/</link>
-      <pubDate>Wed, 31 Oct 2018 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vishwashah.me/projtags/computervision/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>python</title>
+      <title>Python</title>
       <link>https://vishwashah.me/projtags/python/</link>
-      <pubDate>Wed, 31 Oct 2018 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vishwashah.me/projtags/python/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>slackbot</title>
+      <title>Slackbot</title>
       <link>https://vishwashah.me/projtags/slackbot/</link>
-      <pubDate>Wed, 06 Jun 2018 01:03:29 -0700</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vishwashah.me/projtags/slackbot/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>d3</title>
+      <title>D3</title>
       <link>https://vishwashah.me/projtags/d3/</link>
-      <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vishwashah.me/projtags/d3/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>flask</title>
+      <title>Flask</title>
       <link>https://vishwashah.me/projtags/flask/</link>
-      <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vishwashah.me/projtags/flask/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>twitter</title>
+      <title>Twitter</title>
       <link>https://vishwashah.me/projtags/twitter/</link>
-      <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vishwashah.me/projtags/twitter/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>heroku</title>
+      <title>Heroku</title>
       <link>https://vishwashah.me/projtags/heroku/</link>
-      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vishwashah.me/projtags/heroku/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>javascript</title>
+      <title>Javascript</title>
       <link>https://vishwashah.me/projtags/javascript/</link>
-      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vishwashah.me/projtags/javascript/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>rails</title>
+      <title>Rails</title>
       <link>https://vishwashah.me/projtags/rails/</link>
-      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vishwashah.me/projtags/rails/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ruby</title>
+      <title>Ruby</title>
       <link>https://vishwashah.me/projtags/ruby/</link>
-      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vishwashah.me/projtags/ruby/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>jain</title>
+      <title>Jain</title>
       <link>https://vishwashah.me/projtags/jain/</link>
-      <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vishwashah.me/projtags/jain/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>csharp</title>
+      <title>Csharp</title>
       <link>https://vishwashah.me/projtags/csharp/</link>
-      <pubDate>Fri, 02 Dec 2016 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vishwashah.me/projtags/csharp/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>VR</title>
       <link>https://vishwashah.me/projtags/vr/</link>
-      <pubDate>Fri, 02 Dec 2016 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://vishwashah.me/projtags/vr/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

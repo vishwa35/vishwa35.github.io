@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>art on Vishwa Shah</title>
+    <title>Art on Vishwa Shah</title>
     <link>https://vishwashah.me/tags/art/</link>
-    <description>Recent content in art on Vishwa Shah</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Art on Vishwa Shah</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© 2020</copyright>
-    <lastBuildDate>Fri, 28 Aug 2015 00:55:12 +0000</lastBuildDate>
-    
-	<atom:link href="https://vishwashah.me/tags/art/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 08 Aug 2020 18:00:54 -0400</lastBuildDate>
+    <atom:link href="https://vishwashah.me/tags/art/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CMU Pre-College: A Valuable Experience</title>
       <link>https://vishwashah.me/blog/medium/cmu-precollege-a-valuable-experience/</link>
       <pubDate>Fri, 28 Aug 2015 00:55:12 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/cmu-precollege-a-valuable-experience/</guid>
-      <description>Both a work of art I created in Printmaking class as well as a commentary on my motto for life.
-I’m writing this 3 weeks after the end of the program, because I’ve been extremely busy since it ended. And I need to write this for my CAS reflection anyway.
-Taking art and design classes was a relatively new experience; I didn’t have this kind of opportunity before, and I never really considered it a priority.</description>
+      <description>Both a work of art I created in Printmaking class as well as a commentary on my motto for life.&#xA;I’m writing this 3 weeks after the end of the program, because I’ve been extremely busy since it ended. And I need to write this for my CAS reflection anyway.&#xA;Taking art and design classes was a relatively new experience; I didn’t have this kind of opportunity before, and I never really considered it a priority.</description>
     </item>
-    
   </channel>
 </rss>

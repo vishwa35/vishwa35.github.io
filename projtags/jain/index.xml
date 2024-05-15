@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>jain on Vishwa Shah</title>
+    <title>Jain on Vishwa Shah</title>
     <link>https://vishwashah.me/projtags/jain/</link>
-    <description>Recent content in jain on Vishwa Shah</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Jain on Vishwa Shah</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© 2020</copyright>
     <lastBuildDate>Wed, 26 Jul 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://vishwashah.me/projtags/jain/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://vishwashah.me/projtags/jain/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>jain-alexa</title>
       <link>https://vishwashah.me/portfolio/jain-alexa/</link>
       <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://vishwashah.me/portfolio/jain-alexa/</guid>
-      <description> Developed a custom Alexa skill in Python and deployed using Flask Catered to the suggestions of a religious institution to offer relevant spiritual quotes Scraped tweets from a Twitter account using the Tweepy API  </description>
+      <description> Developed a custom Alexa skill in Python and deployed using Flask Catered to the suggestions of a religious institution to offer relevant spiritual quotes Scraped tweets from a Twitter account using the Tweepy API </description>
     </item>
-    
   </channel>
 </rss>

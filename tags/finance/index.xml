@@ -1,37 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>finance on Vishwa Shah</title>
+    <title>Finance on Vishwa Shah</title>
     <link>https://vishwashah.me/tags/finance/</link>
-    <description>Recent content in finance on Vishwa Shah</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Finance on Vishwa Shah</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© 2020</copyright>
-    <lastBuildDate>Tue, 11 Sep 2018 23:19:23 +0000</lastBuildDate>
-    
-	<atom:link href="https://vishwashah.me/tags/finance/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 08 Aug 2020 18:00:59 -0400</lastBuildDate>
+    <atom:link href="https://vishwashah.me/tags/finance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting Started with Investing</title>
       <link>https://vishwashah.me/blog/medium/getting-started-with-investing/</link>
       <pubDate>Tue, 11 Sep 2018 23:19:23 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/getting-started-with-investing/</guid>
-      <description>growing that internship money You’ve been watching those direct deposits come in — maybe spending lots of it on rent, recreation, and the likes. Maybe tuition or housing this Fall. If you have the bandwidth to save some of it, however, your bank balance has been rising. How do you make the most of it? Invest.
-What Does It Mean to Invest? According to investopedia.com (a great resource!):
- Investing is the act of committing money or capital to an endeavor (a business, project, real estate, etc.</description>
+      <description>growing that internship money You’ve been watching those direct deposits come in — maybe spending lots of it on rent, recreation, and the likes. Maybe tuition or housing this Fall. If you have the bandwidth to save some of it, however, your bank balance has been rising. How do you make the most of it? Invest.&#xA;What Does It Mean to Invest? According to investopedia.com (a great resource!):&#xA;Investing is the act of committing money or capital to an endeavor (a business, project, real estate, etc.</description>
     </item>
-    
     <item>
       <title>Forming a new Fund</title>
       <link>https://vishwashah.me/blog/medium/forming-a-new-fund/</link>
       <pubDate>Tue, 12 Jun 2018 16:59:34 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/forming-a-new-fund/</guid>
-      <description>supporting individual growth and exploration Inception As with most ideas, there were some building block experiences to this idea.
-The Basis Back in January, I watched a friend’s Snapchat story in awe as he posted videos from CES 2018 (a major consumer electronics conference). Later that day, as I took my usual mental break and went to the Student Center to chat with some bros, CES came up in conversation.</description>
+      <description>supporting individual growth and exploration Inception As with most ideas, there were some building block experiences to this idea.&#xA;The Basis Back in January, I watched a friend’s Snapchat story in awe as he posted videos from CES 2018 (a major consumer electronics conference). Later that day, as I took my usual mental break and went to the Student Center to chat with some bros, CES came up in conversation.</description>
     </item>
-    
   </channel>
 </rss>

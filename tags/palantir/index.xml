@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>palantir on Vishwa Shah</title>
+    <title>Palantir on Vishwa Shah</title>
     <link>https://vishwashah.me/tags/palantir/</link>
-    <description>Recent content in palantir on Vishwa Shah</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Palantir on Vishwa Shah</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© 2020</copyright>
-    <lastBuildDate>Wed, 28 Aug 2019 00:13:52 +0000</lastBuildDate>
-    
-	<atom:link href="https://vishwashah.me/tags/palantir/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 08 Aug 2020 18:01:08 -0400</lastBuildDate>
+    <atom:link href="https://vishwashah.me/tags/palantir/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Working across the pond</title>
       <link>https://vishwashah.me/blog/medium/across-the-pond/</link>
       <pubDate>Wed, 28 Aug 2019 00:13:52 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/across-the-pond/</guid>
-      <description>This summer was filled with unknowns.
-London, a city I knew no one in, on a continent in which I’d never left an airport. Palantir , where I’d intern as a forward deployed software engineer — I knew it’d be something different, but not exactly how.
-These unknowns led to quite a bit of discovery. I was able to reflect on my place in the world and interface with people of all kinds of backgrounds and attitudes on life, careers, and politics.</description>
+      <description>This summer was filled with unknowns.&#xA;London, a city I knew no one in, on a continent in which I’d never left an airport. Palantir , where I’d intern as a forward deployed software engineer — I knew it’d be something different, but not exactly how.&#xA;These unknowns led to quite a bit of discovery. I was able to reflect on my place in the world and interface with people of all kinds of backgrounds and attitudes on life, careers, and politics.</description>
     </item>
-    
   </channel>
 </rss>

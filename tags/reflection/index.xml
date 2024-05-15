@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>reflection on Vishwa Shah</title>
+    <title>Reflection on Vishwa Shah</title>
     <link>https://vishwashah.me/tags/reflection/</link>
-    <description>Recent content in reflection on Vishwa Shah</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Reflection on Vishwa Shah</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© 2020</copyright>
-    <lastBuildDate>Tue, 26 Mar 2019 15:47:23 +0000</lastBuildDate>
-    
-	<atom:link href="https://vishwashah.me/tags/reflection/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 08 Aug 2020 18:01:06 -0400</lastBuildDate>
+    <atom:link href="https://vishwashah.me/tags/reflection/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using Habits to Hack Your Life</title>
       <link>https://vishwashah.me/blog/medium/hack-your-life/</link>
       <pubDate>Tue, 26 Mar 2019 15:47:23 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/hack-your-life/</guid>
-      <description>How to actually accomplish your New Year’s resolutions and keep the cycle of self-improvement churning. Every morning as I leave for work, I grab my keys off the same place on the counter, stuff my feet into my boots, and lock the door.
-Then I walk down two flights of stairs, and ask myself — did I lock the door?
-For the first 3 weeks or so, I’d go back up and check.</description>
+      <description>How to actually accomplish your New Year’s resolutions and keep the cycle of self-improvement churning. Every morning as I leave for work, I grab my keys off the same place on the counter, stuff my feet into my boots, and lock the door.&#xA;Then I walk down two flights of stairs, and ask myself — did I lock the door?&#xA;For the first 3 weeks or so, I’d go back up and check.</description>
     </item>
-    
   </channel>
 </rss>

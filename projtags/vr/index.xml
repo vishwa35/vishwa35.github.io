@@ -4,22 +4,17 @@
     <title>VR on Vishwa Shah</title>
     <link>https://vishwashah.me/projtags/vr/</link>
     <description>Recent content in VR on Vishwa Shah</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© 2020</copyright>
     <lastBuildDate>Fri, 02 Dec 2016 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://vishwashah.me/projtags/vr/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://vishwashah.me/projtags/vr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>streetlens</title>
       <link>https://vishwashah.me/portfolio/streetlens/</link>
       <pubDate>Fri, 02 Dec 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://vishwashah.me/portfolio/streetlens/</guid>
-      <description> Constructed a HoloLens app enabling street view previews of Google Maps directions Conceived an algorithm to retrieve data at a consistent time interval using the Google Maps and Street View APIs Collaborated with 3 others under a 36-hour time constraint while learning C# and Visual Studio  </description>
+      <description> Constructed a HoloLens app enabling street view previews of Google Maps directions Conceived an algorithm to retrieve data at a consistent time interval using the Google Maps and Street View APIs Collaborated with 3 others under a 36-hour time constraint while learning C# and Visual Studio </description>
     </item>
-    
   </channel>
 </rss>

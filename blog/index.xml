@@ -4,128 +4,87 @@
     <title>Blogs on Vishwa Shah</title>
     <link>https://vishwashah.me/blog/</link>
     <description>Recent content in Blogs on Vishwa Shah</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© 2020</copyright>
-    <lastBuildDate>Wed, 28 Aug 2019 00:13:52 +0000</lastBuildDate>
-    
-	<atom:link href="https://vishwashah.me/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 08 Aug 2020 18:01:08 -0400</lastBuildDate>
+    <atom:link href="https://vishwashah.me/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Working across the pond</title>
       <link>https://vishwashah.me/blog/medium/across-the-pond/</link>
       <pubDate>Wed, 28 Aug 2019 00:13:52 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/across-the-pond/</guid>
-      <description>This summer was filled with unknowns.
-London, a city I knew no one in, on a continent in which I’d never left an airport. Palantir , where I’d intern as a forward deployed software engineer — I knew it’d be something different, but not exactly how.
-These unknowns led to quite a bit of discovery. I was able to reflect on my place in the world and interface with people of all kinds of backgrounds and attitudes on life, careers, and politics.</description>
+      <description>This summer was filled with unknowns.&#xA;London, a city I knew no one in, on a continent in which I’d never left an airport. Palantir , where I’d intern as a forward deployed software engineer — I knew it’d be something different, but not exactly how.&#xA;These unknowns led to quite a bit of discovery. I was able to reflect on my place in the world and interface with people of all kinds of backgrounds and attitudes on life, careers, and politics.</description>
     </item>
-    
     <item>
       <title>Graduating? Me? Not yet.</title>
       <link>https://vishwashah.me/blog/medium/graduating-me-not-yet/</link>
       <pubDate>Mon, 29 Apr 2019 00:07:56 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/graduating-me-not-yet/</guid>
       <description>Last August I realized I would graduate in May — earlier than expected. I wasn’t mentally prepared; I didn’t know what I wanted to pursue career-wise. So I figured, another internship? I learned a ton this winter while at Lyft. My work was primarily related to data pipelines, and with the mentorship from Dan Fan and Ikramul Haq (and great feedback culture!) I strengthened my ability to evaluate technical design decisions, communicate across teams, and build solid services.</description>
     </item>
-    
     <item>
       <title>Using Habits to Hack Your Life</title>
       <link>https://vishwashah.me/blog/medium/hack-your-life/</link>
       <pubDate>Tue, 26 Mar 2019 15:47:23 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/hack-your-life/</guid>
-      <description>How to actually accomplish your New Year’s resolutions and keep the cycle of self-improvement churning. Every morning as I leave for work, I grab my keys off the same place on the counter, stuff my feet into my boots, and lock the door.
-Then I walk down two flights of stairs, and ask myself — did I lock the door?
-For the first 3 weeks or so, I’d go back up and check.</description>
+      <description>How to actually accomplish your New Year’s resolutions and keep the cycle of self-improvement churning. Every morning as I leave for work, I grab my keys off the same place on the counter, stuff my feet into my boots, and lock the door.&#xA;Then I walk down two flights of stairs, and ask myself — did I lock the door?&#xA;For the first 3 weeks or so, I’d go back up and check.</description>
     </item>
-    
     <item>
       <title>How to build a basic slackbot: a  beginner’s guide</title>
       <link>https://vishwashah.me/blog/medium/how-to-build-a-basic-slackbot-a-beginners-guide/</link>
       <pubDate>Sun, 06 Jan 2019 20:29:51 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/how-to-build-a-basic-slackbot-a-beginners-guide/</guid>
-      <description>Let’s try and automate something [in python] Photo by Rock’n Roll Monkey on Unsplash Update: code and tutorial updated on June 28 to reflect Slack API changes
-Slackbots: Why use them? Before we get into the tutorial part of this post, let’s take a look at why this can be a worthy project and tool.
-Slack is an increasingly popular tool for team-wide communication. It’s grown to include plugins for other widely used project management tools, like JIRA, Google Drive, and the likes.</description>
+      <description>Let’s try and automate something [in python] Photo by Rock’n Roll Monkey on Unsplash Update: code and tutorial updated on June 28 to reflect Slack API changes&#xA;Slackbots: Why use them? Before we get into the tutorial part of this post, let’s take a look at why this can be a worthy project and tool.&#xA;Slack is an increasingly popular tool for team-wide communication. It’s grown to include plugins for other widely used project management tools, like JIRA, Google Drive, and the likes.</description>
     </item>
-    
     <item>
       <title>Interning at Redfin</title>
       <link>https://vishwashah.me/blog/medium/interning-at-redfin/</link>
       <pubDate>Fri, 05 Oct 2018 15:01:03 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/interning-at-redfin/</guid>
-      <description>Engaging homeowners without really knowing what it’s like to be one Nine months ago, I got on a call with my future manager to talk about the scope of the team and understand if it’d be a good fit. Owner Engagement focuses on making Redfin resourceful for homeowners in an effort to retain their interest and ultimately convert owners to sellers.
-Having in the past worked on engineering infrastructure, I was excited to diversify and work on the product side of a company — I wanted the fulfillment of knowing users were directly impacted by my work.</description>
+      <description>Engaging homeowners without really knowing what it’s like to be one Nine months ago, I got on a call with my future manager to talk about the scope of the team and understand if it’d be a good fit. Owner Engagement focuses on making Redfin resourceful for homeowners in an effort to retain their interest and ultimately convert owners to sellers.&#xA;Having in the past worked on engineering infrastructure, I was excited to diversify and work on the product side of a company — I wanted the fulfillment of knowing users were directly impacted by my work.</description>
     </item>
-    
     <item>
       <title>Getting Started with Investing</title>
       <link>https://vishwashah.me/blog/medium/getting-started-with-investing/</link>
       <pubDate>Tue, 11 Sep 2018 23:19:23 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/getting-started-with-investing/</guid>
-      <description>growing that internship money You’ve been watching those direct deposits come in — maybe spending lots of it on rent, recreation, and the likes. Maybe tuition or housing this Fall. If you have the bandwidth to save some of it, however, your bank balance has been rising. How do you make the most of it? Invest.
-What Does It Mean to Invest? According to investopedia.com (a great resource!):
- Investing is the act of committing money or capital to an endeavor (a business, project, real estate, etc.</description>
+      <description>growing that internship money You’ve been watching those direct deposits come in — maybe spending lots of it on rent, recreation, and the likes. Maybe tuition or housing this Fall. If you have the bandwidth to save some of it, however, your bank balance has been rising. How do you make the most of it? Invest.&#xA;What Does It Mean to Invest? According to investopedia.com (a great resource!):&#xA;Investing is the act of committing money or capital to an endeavor (a business, project, real estate, etc.</description>
     </item>
-    
     <item>
       <title>Anekantvad, defined (me)</title>
       <link>https://vishwashah.me/blog/medium/anekantvad-defined-me/</link>
       <pubDate>Fri, 03 Aug 2018 13:01:01 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/anekantvad-defined-me/</guid>
-      <description>Taking the time to understand the “third” core tenet of Jainism At #YJA18, Nikita T. Mitchell gave a wonderful keynote.
- Your faith is rooted in compassion. Shine that light.
- While sharing her story, she asked us to reflect on and share a defining moment for our faith. For me, I thought back to the couple distinctive turning points in how I approached Jainism and where I concentrated my efforts: my journey in understanding Anekantvad.</description>
+      <description>Taking the time to understand the “third” core tenet of Jainism At #YJA18, Nikita T. Mitchell gave a wonderful keynote.&#xA;Your faith is rooted in compassion. Shine that light.&#xA;While sharing her story, she asked us to reflect on and share a defining moment for our faith. For me, I thought back to the couple distinctive turning points in how I approached Jainism and where I concentrated my efforts: my journey in understanding Anekantvad.</description>
     </item>
-    
     <item>
       <title>Forming a new Fund</title>
       <link>https://vishwashah.me/blog/medium/forming-a-new-fund/</link>
       <pubDate>Tue, 12 Jun 2018 16:59:34 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/forming-a-new-fund/</guid>
-      <description>supporting individual growth and exploration Inception As with most ideas, there were some building block experiences to this idea.
-The Basis Back in January, I watched a friend’s Snapchat story in awe as he posted videos from CES 2018 (a major consumer electronics conference). Later that day, as I took my usual mental break and went to the Student Center to chat with some bros, CES came up in conversation.</description>
+      <description>supporting individual growth and exploration Inception As with most ideas, there were some building block experiences to this idea.&#xA;The Basis Back in January, I watched a friend’s Snapchat story in awe as he posted videos from CES 2018 (a major consumer electronics conference). Later that day, as I took my usual mental break and went to the Student Center to chat with some bros, CES came up in conversation.</description>
     </item>
-    
     <item>
       <title>Debugging a series of miscalculations in osquery</title>
       <link>https://vishwashah.me/blog/medium/debugging-a-series-of-miscalculations-in-osquery/</link>
       <pubDate>Fri, 18 Aug 2017 18:59:37 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/debugging-a-series-of-miscalculations-in-osquery/</guid>
-      <description>Heads up, we’ve moved! If you’d like to continue keeping up with the latest technical content from Square please visit us at our new home https://developer.squareup.com/blog  What is osquery ? osquery is an an open source tool by Facebook that provides a SQL interface for system information.
-Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.</description>
+      <description>Heads up, we’ve moved! If you’d like to continue keeping up with the latest technical content from Square please visit us at our new home https://developer.squareup.com/blog What is osquery ? osquery is an an open source tool by Facebook that provides a SQL interface for system information.&#xA;Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.</description>
     </item>
-    
     <item>
       <title>CMU Pre-College: A Valuable Experience</title>
       <link>https://vishwashah.me/blog/medium/cmu-precollege-a-valuable-experience/</link>
       <pubDate>Fri, 28 Aug 2015 00:55:12 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/cmu-precollege-a-valuable-experience/</guid>
-      <description>Both a work of art I created in Printmaking class as well as a commentary on my motto for life.
-I’m writing this 3 weeks after the end of the program, because I’ve been extremely busy since it ended. And I need to write this for my CAS reflection anyway.
-Taking art and design classes was a relatively new experience; I didn’t have this kind of opportunity before, and I never really considered it a priority.</description>
+      <description>Both a work of art I created in Printmaking class as well as a commentary on my motto for life.&#xA;I’m writing this 3 weeks after the end of the program, because I’ve been extremely busy since it ended. And I need to write this for my CAS reflection anyway.&#xA;Taking art and design classes was a relatively new experience; I didn’t have this kind of opportunity before, and I never really considered it a priority.</description>
     </item>
-    
     <item>
       <title>A New Worldview — Through Service</title>
       <link>https://vishwashah.me/blog/medium/a-new-worldview/</link>
       <pubDate>Fri, 12 Jun 2015 23:56:44 +0000</pubDate>
-      
       <guid>https://vishwashah.me/blog/medium/a-new-worldview/</guid>
-      <description>DominiCANT Believe It’s Over *The title of this should&#39;ve been a &amp;lt;em&amp;gt;Nhu&amp;lt;/em&amp;gt; Worldview, because of the puns made on this trip, but for it to make sense to others, I opted to keep it like it is.
-I just returned from a trip to the Dominican Republic. I&#39;ve changed as a person through the experience, gaining a new perspective on the world and its people. I went with the Ryan Nece Foundation (@powerofgiving ) as a part of the Student Service Program, and I am so thankful that I got this opportunity.</description>
+      <description>DominiCANT Believe It’s Over *The title of this should&#39;ve been a Nhu Worldview, because of the puns made on this trip, but for it to make sense to others, I opted to keep it like it is.&#xA;I just returned from a trip to the Dominican Republic. I&#39;ve changed as a person through the experience, gaining a new perspective on the world and its people. I went with the Ryan Nece Foundation (@powerofgiving ) as a part of the Student Service Program, and I am so thankful that I got this opportunity.</description>
     </item>
-    
   </channel>
 </rss>
