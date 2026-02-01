@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Credit Card Optimizer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Playfair+Display:wght@500;700&display=swap');
+
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #232838;
+    --border: #2e3345;
+    --text: #e2e4ea;
+    --text-dim: #6b7088;
+    --accent: #7dd3a8;
+    --accent2: #5b9ef5;
+    --accent-dim: rgba(125,211,168,0.12);
+    --red: #ef6b6b;
+    --gold: #e8c86d;
+    --gold-dim: rgba(232,200,109,0.12);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'DM Mono', monospace;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 32px 24px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+   
+  .header { max-width: 1100px; margin: 0 auto 36px; }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .header p { color: var(--text-dim); font-size: 12px; }
+
+   
+  .layout { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+
+   
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .panel-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface2);
+  }
+  .panel-header h2 {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-dim);
+  }
+  .panel-body { padding: 20px; }
+
+   
+  .rent-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .rent-row label { color: var(--text-dim); font-size: 12px; white-space: nowrap; }
+  .rent-row .input-wrap { position: relative; }
+  .rent-row .input-wrap span {
+    position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+    color: var(--text-dim); font-size: 13px;
+  }
+  .rent-row input {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 6px;
+    padding: 8px 12px 8px 22px; width: 140px; color: var(--text); font-family: inherit; font-size: 14px;
+    outline: none;
+  }
+  .rent-row input:focus { border-color: var(--accent); }
+  .rent-info { color: var(--text-dim); font-size: 11px; margin-top: 8px; }
+  .rent-info span { color: var(--accent); font-weight: 500; }
+
+   
+  .spend-scroll { overflow-x: auto; }
+  .spend-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+  }
+  .spend-table th {
+    text-align: right;
+    padding: 8px 10px;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .spend-table th:first-child { text-align: left; }
+  .spend-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid rgba(46,51,69,0.4);
+  }
+  .spend-table td:first-child { color: var(--text); font-size: 12px; }
+  .spend-table input[type="number"] {
+    background: var(--surface2); border: 1px solid transparent; border-radius: 4px;
+    padding: 5px 8px; width: 72px; color: var(--text); font-family: inherit; font-size: 12px;
+    text-align: right; outline: none; transition: border-color 0.15s;
+  }
+  .spend-table input[type="number"]:focus { border-color: var(--accent); }
+  .spend-table .row-total {
+    font-weight: 500; color: var(--accent2); text-align: right; font-size: 12px; min-width: 72px;
+  }
+  .spend-table .col-total {
+    font-weight: 500; color: var(--gold); font-size: 12px; text-align: right;
+  }
+  .spend-table tfoot td { border-top: 1px solid var(--border); padding-top: 10px; }
+  .spend-table tfoot td:first-child { color: var(--text); font-weight: 500; font-size: 12px; }
+
+   
+  .fee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+  }
+  .fee-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    transition: border-color 0.2s;
+  }
+  .fee-card:hover { border-color: var(--border); }
+  .fee-card .fee-card-header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+  }
+  .fee-card .card-name { font-size: 12px; font-weight: 500; color: var(--text); flex:1; }
+  .fee-card .af-badge {
+    font-size: 10px; background: var(--gold-dim); color: var(--gold);
+    padding: 2px 6px; border-radius: 3px; white-space: nowrap;
+  }
+  .fee-card .fee-row {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 6px; font-size: 11px;
+  }
+  .fee-card .fee-row label { color: var(--text-dim); }
+  .fee-card .fee-row .input-wrap { position: relative; }
+  .fee-card .fee-row .input-wrap span {
+    position: absolute; left: 7px; top: 50%; transform: translateY(-50%);
+    color: var(--text-dim); font-size: 11px;
+  }
+  .fee-card .fee-row input {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
+    padding: 4px 8px 4px 18px; width: 80px; color: var(--text); font-family: inherit; font-size: 12px;
+    outline: none;
+  }
+  .fee-card .fee-row input:focus { border-color: var(--accent); }
+  .fee-card .net-cost {
+    font-size: 11px; text-align: right; color: var(--text-dim); margin-top: 4px;
+  }
+  .fee-card .net-cost span { color: var(--red); font-weight: 500; }
+  .fee-card .net-cost.positive span { color: var(--accent); }
+
+   
+  .pval-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .pval-item { display: flex; align-items: center; gap: 8px; }
+  .pval-item label { font-size: 11px; color: var(--text-dim); white-space: nowrap; }
+  .pval-item input {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 4px;
+    padding: 4px 8px; width: 60px; color: var(--text); font-family: inherit; font-size: 12px;
+    outline: none; text-align: right;
+  }
+  .pval-item input:focus { border-color: var(--accent); }
+  .pval-item .unit { font-size: 10px; color: var(--text-dim); }
+
+   
+  .results-list { display: flex; flex-direction: column; gap: 10px; }
+  .result-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: start;
+    transition: border-color 0.2s;
+  }
+  .result-card:first-child {
+    border-color: var(--accent);
+    background: linear-gradient(135deg, rgba(125,211,168,0.06), var(--surface2));
+  }
+  .result-card:first-child .rank { background: var(--accent); color: var(--bg); }
+  .result-card .rank {
+    font-size: 10px; font-weight: 500; background: var(--border);
+    color: var(--text-dim); padding: 2px 7px; border-radius: 3px;
+    display: inline-block; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .result-card .combo-name { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+  .result-card .combo-detail { font-size: 11px; color: var(--text-dim); }
+  .result-value {
+    text-align: right;
+  }
+  .result-value .val-label { font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.6px; }
+  .result-value .val-num { font-size: 22px; font-weight: 500; color: var(--accent); font-family: 'Playfair Display', serif; }
+  .result-value .val-breakdown { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
+
+   
+  .result-detail {
+    display: none; grid-column: 1/-1;
+    border-top: 1px solid var(--border); padding-top: 12px; margin-top: 4px;
+  }
+  .result-card.open .result-detail { display: block; }
+  .result-card .toggle-btn {
+    font-size: 10px; color: var(--accent2); background: none; border: none;
+    cursor: pointer; font-family: inherit; padding: 0; margin-top: 6px;
+  }
+  .detail-table { width: 100%; font-size: 11px; margin-top: 8px; }
+  .detail-table th {
+    text-align: right; color: var(--text-dim); font-weight: 400;
+    padding: 3px 8px; border-bottom: 1px solid var(--border); font-size: 10px;
+  }
+  .detail-table th:first-child { text-align: left; }
+  .detail-table td { padding: 3px 8px; text-align: right; color: var(--text-dim); }
+  .detail-table td:first-child { text-align: left; color: var(--text); }
+  .detail-table tfoot td { border-top: 1px solid var(--border); color: var(--text); font-weight: 500; padding-top: 5px; }
+
+   
+  .io-bar {
+    display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+  }
+  .btn-io {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 5px;
+    padding: 6px 14px; font-family: inherit; font-size: 11px; color: var(--accent2);
+    cursor: pointer; transition: border-color 0.15s, background 0.15s;
+  }
+  .btn-io:hover { border-color: var(--accent2); background: rgba(91,158,245,0.08); }
+  .io-bar .io-sep { width: 1px; height: 22px; background: var(--border); }
+  .io-bar .io-status {
+    font-size: 10px; color: var(--accent); margin-left: 4px;
+    animation: fadeIn 0.4s ease;
+  }
+  @keyframes fadeIn { from { opacity:0; transform: translateY(-4px); } to { opacity:1; transform:translateY(0); } }
+
+   
+  #importFileInput { display: none; }
+
+   
+  .bilt-qualify {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 10px; padding: 3px 7px; border-radius: 3px; margin-top: 4px;
+  }
+  .bilt-qualify.ok { background: var(--accent-dim); color: var(--accent); }
+  .bilt-qualify.warn { background: rgba(239,107,107,0.12); color: var(--red); }
+  .bilt-qualify .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+   
+  .empty-state { color: var(--text-dim); font-size: 12px; padding: 32px 0; text-align: center; }
+
+   
+  .btn-calc {
+    background: var(--accent); color: var(--bg); border: none; border-radius: 6px;
+    padding: 10px 24px; font-family: inherit; font-size: 12px; font-weight: 500;
+    cursor: pointer; letter-spacing: 0.5px; text-transform: uppercase;
+    transition: opacity 0.2s;
+  }
+  .btn-calc:hover { opacity: 0.85; }
+
+   
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+   
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  input[type=number] { -moz-appearance: textfield; }
+
+   
+  @media (max-width: 600px) {
+    body { padding: 20px 12px; }
+    .fee-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Credit Card Optimizer</h1>
+  <p>Input your monthly spend, configure card benefits, and find the highest-value combination.</p>
+</div>
+
+<div class="layout">
+
+  
+  <div class="panel">
+    <div class="panel-header"><h2>Monthly Rent & Bilt Configuration</h2></div>
+    <div class="panel-body">
+      <div class="rent-row">
+        <label>Monthly Rent</label>
+        <div class="input-wrap"><span>$</span><input type="number" id="rentInput" value="3000" /></div>
+      </div>
+      
+      <div class="rent-row" style="margin-top:12px">
+        <label>Bilt Obsidian 3x Category</label>
+        <select id="biltObsChoice" style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:8px 12px;color:var(--text);font-family:inherit;font-size:13px;outline:none;">
+          <option value="auto">Auto-optimize (best monthly)</option>
+          <option value="dining">Dining (always)</option>
+          <option value="groceries">Groceries (always, $25k cap)</option>
+        </select>
+      </div>
+
+      <div class="rent-info" id="rentInfo" style="margin-top:12px">
+        <strong>Bilt Rent Earning Tiers (Option 1):</strong><br/>
+        <span style="font-size:10px;line-height:1.6">
+          • Spend 25% of rent → earn 1x on 50% of rent<br/>
+          • Spend 50% of rent → earn 1x on 75% of rent<br/>
+          • Spend 75% of rent → earn 1x on 100% of rent<br/>
+          • Spend 100% of rent → earn 1x on 125% of rent
+        </span>
+        <div style="margin-top:8px;padding:8px;background:var(--surface1);border-left:3px solid var(--accent);font-size:11px;line-height:1.5;color:var(--text-dim);">
+          <strong>Note:</strong> This calculator only supports Bilt's housing points earning structure (Option 1). It does not include Bilt Cash (Option 2) calculations.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="panel">
+    <div class="panel-header"><h2>Save & Load Data</h2></div>
+    <div class="panel-body">
+      <div class="io-bar">
+        <button class="btn-io" id="exportBtn">⬇ Export JSON</button>
+        <button class="btn-io" id="importBtn">⬆ Import JSON</button>
+        <input type="file" id="importFileInput" accept=".json" />
+        <div class="io-sep"></div>
+        <button class="btn-io" id="copyBtn">⎘ Copy to Clipboard</button>
+        <button class="btn-io" id="pasteBtn">⎘ Paste from Clipboard</button>
+        <span class="io-status" id="ioStatus" style="display:none"></span>
+      </div>
+      <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:6px;font-size:11px;line-height:1.6;color:var(--text-dim);border-left:3px solid var(--accent);">
+        <strong style="color:var(--text);">💡 Tip:</strong> Use your LLM of choice to help aggregate and synthesize your spending data from your credit card statements into the categories below and put it into the JSON format for easy analysis. Just paste your statements and ask it to categorize your spending!
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="panel">
+    <div class="panel-header"><h2>2025 Monthly Spending by Category</h2></div>
+    <div class="panel-body">
+      <div class="spend-scroll">
+        <table class="spend-table" id="spendTable">
+          <thead>
+            <tr>
+              <th style="text-align:left">Category</th>
+              
+              <th style="min-width:72px">Total</th>
+            </tr>
+          </thead>
+          <tbody id="spendBody"></tbody>
+          <tfoot id="spendFoot"></tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="panel">
+    <div class="panel-header"><h2>Points Valuation (¢ per point)</h2></div>
+    <div class="panel-body">
+      <div class="pval-row" id="pvalRow"></div>
+    </div>
+  </div>
+
+  
+  <div class="panel">
+    <div class="panel-header"><h2>Annual Fee & Benefits</h2></div>
+    <div class="panel-body">
+      <div class="fee-grid" id="feeGrid"></div>
+    </div>
+  </div>
+
+  
+  <div style="text-align:center">
+    <button class="btn-calc" id="calcBtn">Calculate Best Combinations</button>
+  </div>
+
+  
+  <div class="panel" id="resultsPanel" style="display:none">
+    <div class="panel-header"><h2>Results — Top Card Combinations</h2></div>
+    <div class="panel-body">
+      
+      <div style="margin-bottom:20px;padding:16px;background:var(--surface2);border-radius:8px;">
+        <div style="display:flex;gap:40px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:300px;">
+            <div style="font-weight:600;margin-bottom:8px;font-size:13px;">Must Include:</div>
+            <div id="includeFilters" style="display:flex;flex-direction:column;gap:6px;"></div>
+          </div>
+          <div style="flex:1;min-width:300px;">
+            <div style="font-weight:600;margin-bottom:8px;font-size:13px;">Must Exclude:</div>
+            <div id="excludeFilters" style="display:flex;flex-direction:column;gap:6px;"></div>
+          </div>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:8px;align-items:center;">
+          <button class="btn" onclick="clearFilters()" style="padding:6px 12px;font-size:12px;background:var(--surface1);">Clear All Filters</button>
+          <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;margin-left:16px;">
+            <input type="checkbox" id="excludeBonusesCheckbox" style="cursor:pointer;">
+            <span>Exclude signup bonuses from ranking (show recurring value only)</span>
+          </label>
+          <span id="filterStatus" style="font-size:12px;color:var(--text-dim);line-height:32px;margin-left:auto;"></span>
+        </div>
+      </div>
+      
+      <div class="results-list" id="resultsList"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+
+
+
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const CATEGORIES = ['Travel','Dining','Groceries','Entertainment','Streaming','Other'];
+
+
+
+
+
+const CARDS = [
+  
+  {
+    id: 'amex_gold',
+    name: 'Amex Gold',
+    annualFee: 325,
+    currency: 'amex_mr',
+    rates: { travel: 3, dining: 4, groceries: 4, entertainment: 1, streaming: 1, other: 1 },
+    caps: { groceries: 25000, dining: 50000 },
+    notes: '4x dining (cap $50k/yr); 4x groceries (cap $25k/yr); 3x flights only; 1x else.',
+    detailNotes: 'Travel: 3x flights only (hotels 2x via portal)',
+    signupBonus: 0
+  },
+  {
+    id: 'amex_green',
+    name: 'Amex Green',
+    annualFee: 150,
+    currency: 'amex_mr',
+    rates: { travel: 3, dining: 3, groceries: 1, entertainment: 1, streaming: 1, other: 1 },
+    caps: {},
+    notes: '3x on travel (flights, hotels, car rentals, cruises, etc.); 3x on dining; 1x on all else. $189 CLEAR credit can offset most of annual fee.',
+    signupBonus: 0
+  },
+  {
+    id: 'amex_plat',
+    name: 'Amex Platinum',
+    annualFee: 895,
+    currency: 'amex_mr',
+    rates: { travel: 5, dining: 1, groceries: 1, entertainment: 1, streaming: 1, other: 1 },
+    caps: { travel: 500000 },
+    notes: '5x flights (direct or Amex Travel) + prepaid hotels via Amex Travel (cap $500k/yr); 1x else.',
+    detailNotes: 'Travel: 5x flights / 5x prepaid hotels portal (cap $500k/yr)',
+    signupBonus: 0
+  },
+  
+  {
+    id: 'bilt_blue',
+    name: 'Bilt Blue',
+    annualFee: 0,
+    currency: 'bilt',
+    rates: { travel: 1, dining: 1, groceries: 1, entertainment: 1, streaming: 1, other: 1 },
+    caps: {},
+    canEarnRent: true,
+    notes: '1x on all purchases including rent. Rent points via tiered spend thresholds (Option 1): spend 25%/50%/75%/100% of rent → earn 1x on 50%/75%/100%/125% of rent. $0 annual fee.',
+    signupBonus: 0
+  },
+  {
+    id: 'bilt_obs',
+    name: 'Bilt Obsidian',
+    annualFee: 95,
+    currency: 'bilt',
+    rates: { travel: 2, dining: 1, groceries: 1, entertainment: 1, streaming: 1, other: 1 },
+    caps: { groceries: 25000 },
+    canEarnRent: true,
+    has3xChoice: true,
+    notes: 'Choose dining 3x OR grocery 3x (grocery capped $25k). 2x travel, 1x other. Rent points via tiered spend thresholds (Option 1): spend 25%/50%/75%/100% of rent → earn 1x on 50%/75%/100%/125% of rent.',
+    signupBonus: 0
+  },
+  {
+    id: 'bilt_pal',
+    name: 'Bilt Palladium',
+    annualFee: 495,
+    currency: 'bilt',
+    rates: { travel: 2, dining: 2, groceries: 2, entertainment: 2, streaming: 2, other: 2 },
+    caps: {},
+    canEarnRent: true,
+    notes: '2x on all everyday spend. Rent points via tiered spend thresholds (Option 1): spend 25%/50%/75%/100% of rent → earn 1x on 50%/75%/100%/125% of rent. $400 hotel travel credit + $200 Bilt Cash annually. Priority Pass lounge access.',
+    signupBonus: 0
+  },
+  
+  {
+    id: 'savor',
+    name: 'Capital One Savor',
+    annualFee: 0,
+    currency: 'cap1_miles',
+    rates: { travel: 1, dining: 3, groceries: 2, entertainment: 3, streaming: 3, other: 1 },
+    caps: {},
+    notes: '3x on dining, entertainment, & popular streaming; 2x at grocery stores; 1x on all else. No foreign transaction fees. $0 annual fee.',
+    signupBonus: 0
+  },
+  {
+    id: 'venture_x',
+    name: 'Capital One VentureX',
+    annualFee: 395,
+    currency: 'cap1_miles',
+    rates: { travel: 5, dining: 2, groceries: 2, entertainment: 2, streaming: 2, other: 2 },
+    caps: {},
+    notes: '5x flights via C1 portal (10x hotels/rentals portal, 2x direct); 2x everything else. $300 travel credit.',
+    detailNotes: 'Travel: 5x flights portal / 10x hotels portal / 2x direct',
+    signupBonus: 0
+  },
+  
+  {
+    id: 'cfu',
+    name: 'Chase Freedom Unlimited',
+    annualFee: 0,
+    currency: 'chase_ur',
+    rates: { travel: 5, dining: 3, groceries: 1.5, entertainment: 1.5, streaming: 1.5, other: 1.5 },
+    caps: {},
+    notes: '5x travel via Chase Travel; 3x dining & drugstores; 1.5x all other purchases. Points pool with Chase UR if you hold a Chase premium card (CSP/CSR).',
+    signupBonus: 0
+  },
+  {
+    id: 'csp',
+    name: 'Chase Sapphire Preferred',
+    annualFee: 95,
+    currency: 'chase_ur',
+    rates: { travel: 5, dining: 3, groceries: 1, entertainment: 1, streaming: 3, other: 1 },
+    caps: {},
+    notes: '5x travel via Chase Travel; 3x dining & streaming; 1x online groceries (changed from 3x in early 2024); 2x other travel direct; 1x all else.',
+    signupBonus: 0
+  },
+  {
+    id: 'csr',
+    name: 'Chase Sapphire Reserve',
+    annualFee: 795,
+    currency: 'chase_ur',
+    rates: { travel: 8, dining: 3, groceries: 1, entertainment: 1, streaming: 1, other: 1 },
+    caps: {},
+    notes: '8x travel via Chase Travel portal (4x direct bookings); 3x dining; 1x all else. $300 annual travel credit.',
+    detailNotes: 'Travel: 8x portal / 4x direct',
+    signupBonus: 0
+  }
+];
+
+const CURRENCIES = {
+  amex_mr:    { label: 'Amex MR', defaultCpp: 2.0 },
+  chase_ur:   { label: 'Chase UR', defaultCpp: 2.0 },
+  cap1_miles: { label: 'C1 Miles', defaultCpp: 1.85 },
+  bilt:       { label: 'Bilt Pts', defaultCpp: 2.2 }
+};
+
+
+
+
+let spending = {}; 
+CATEGORIES.forEach(c => { spending[c] = new Array(12).fill(0); });
+
+let pointValues = {}; 
+Object.keys(CURRENCIES).forEach(k => { pointValues[k] = CURRENCIES[k].defaultCpp; });
+
+let feeOffsets = {}; 
+CARDS.forEach(c => { feeOffsets[c.id] = 0; });
+
+let signupBonuses = {}; 
+CARDS.forEach(c => { signupBonuses[c.id] = c.signupBonus || 0; });
+
+let includeFilters = new Set(); 
+let excludeFilters = new Set(); 
+let allResults = []; 
+
+
+
+
+
+
+function buildFilterCheckboxes() {
+  const includeDiv = document.getElementById('includeFilters');
+  const excludeDiv = document.getElementById('excludeFilters');
+  
+  includeDiv.innerHTML = '';
+  excludeDiv.innerHTML = '';
+  
+  CARDS.forEach(card => {
+    
+    const incLabel = document.createElement('label');
+    incLabel.style.cssText = 'display:flex;align-items:center;gap:8px;font-size:12px;cursor:pointer;';
+    incLabel.innerHTML = `
+      <input type="checkbox" data-filter="include" data-card="${card.id}" style="cursor:pointer;">
+      <span>${card.name}</span>
+    `;
+    includeDiv.appendChild(incLabel);
+    
+    
+    const excLabel = document.createElement('label');
+    excLabel.style.cssText = 'display:flex;align-items:center;gap:8px;font-size:12px;cursor:pointer;';
+    excLabel.innerHTML = `
+      <input type="checkbox" data-filter="exclude" data-card="${card.id}" style="cursor:pointer;">
+      <span>${card.name}</span>
+    `;
+    excludeDiv.appendChild(excLabel);
+  });
+  
+  
+  document.querySelectorAll('[data-filter="include"]').forEach(cb => {
+    cb.addEventListener('change', (e) => {
+      const cardId = e.target.dataset.card;
+      if (e.target.checked) {
+        includeFilters.add(cardId);
+        
+        const excludeCb = document.querySelector(`[data-filter="exclude"][data-card="${cardId}"]`);
+        if (excludeCb && excludeCb.checked) {
+          excludeCb.checked = false;
+          excludeFilters.delete(cardId);
+        }
+      } else {
+        includeFilters.delete(cardId);
+      }
+      applyFilters();
+    });
+  });
+  
+  document.querySelectorAll('[data-filter="exclude"]').forEach(cb => {
+    cb.addEventListener('change', (e) => {
+      const cardId = e.target.dataset.card;
+      if (e.target.checked) {
+        excludeFilters.add(cardId);
+        
+        const includeCb = document.querySelector(`[data-filter="include"][data-card="${cardId}"]`);
+        if (includeCb && includeCb.checked) {
+          includeCb.checked = false;
+          includeFilters.delete(cardId);
+        }
+      } else {
+        excludeFilters.delete(cardId);
+      }
+      applyFilters();
+    });
+  });
+}
+
+function clearFilters() {
+  includeFilters.clear();
+  excludeFilters.clear();
+  document.querySelectorAll('[data-filter]').forEach(cb => cb.checked = false);
+  applyFilters();
+}
+
+function applyFilters() {
+  if (!allResults || allResults.length === 0) {
+    document.getElementById('filterStatus').textContent = '';
+    return;
+  }
+  
+  let filtered = allResults.filter(r => {
+    
+    for (let cardId of includeFilters) {
+      if (!r.combo.includes(cardId)) return false;
+    }
+    
+    
+    for (let cardId of excludeFilters) {
+      if (r.combo.includes(cardId)) return false;
+    }
+    
+    return true;
+  });
+  
+  const statusEl = document.getElementById('filterStatus');
+  if (includeFilters.size === 0 && excludeFilters.size === 0) {
+    statusEl.textContent = `Showing all ${allResults.length} results`;
+  } else {
+    statusEl.textContent = `Showing ${filtered.length} of ${allResults.length} results`;
+  }
+  
+  renderResults(filtered.slice(0, 20));
+}
+
+
+function buildSpendTable() {
+  const thead = document.querySelector('#spendTable thead tr');
+  
+  while (thead.children.length > 1) thead.removeChild(thead.lastChild);
+  
+  MONTHS.forEach((m,i) => {
+    const th = document.createElement('th');
+    th.textContent = m;
+    thead.insertBefore(th, thead.lastChild);
+  });
+
+  const tbody = document.getElementById('spendBody');
+  tbody.innerHTML = '';
+  CATEGORIES.forEach(cat => {
+    const tr = document.createElement('tr');
+    let html = `<td>${cat}</td>`;
+    MONTHS.forEach((m,i) => {
+      html += `<td><input type="number" min="0" data-cat="${cat}" data-month="${i}" value="${spending[cat][i]}" /></td>`;
+    });
+    html += `<td class="row-total" data-cat="${cat}">$0</td>`;
+    tr.innerHTML = html;
+    tbody.appendChild(tr);
+  });
+
+  
+  const tfoot = document.getElementById('spendFoot');
+  tfoot.innerHTML = '';
+  const tr = document.createElement('tr');
+  let html = `<td>Monthly Total</td>`;
+  MONTHS.forEach((m,i) => {
+    html += `<td class="col-total" data-month="${i}">$0</td>`;
+  });
+  html += `<td class="col-total" id="grandTotal">$0</td>`;
+  tr.innerHTML = html;
+  tfoot.appendChild(tr);
+
+  
+  tbody.addEventListener('input', (e) => {
+    if (e.target.tagName !== 'INPUT') return;
+    const cat = e.target.dataset.cat;
+    const month = parseInt(e.target.dataset.month);
+    spending[cat][month] = parseFloat(e.target.value) || 0;
+    updateTotals();
+  });
+}
+
+function updateTotals() {
+  CATEGORIES.forEach(cat => {
+    const total = spending[cat].reduce((a,b) => a+b, 0);
+    document.querySelector(`.row-total[data-cat="${cat}"]`).textContent = fmt(total);
+  });
+  MONTHS.forEach((m,i) => {
+    let t = 0;
+    CATEGORIES.forEach(cat => { t += spending[cat][i]; });
+    document.querySelector(`.col-total[data-month="${i}"]`).textContent = fmt(t);
+  });
+  let grand = 0;
+  CATEGORIES.forEach(cat => { grand += spending[cat].reduce((a,b)=>a+b,0); });
+  document.getElementById('grandTotal').textContent = fmt(grand);
+}
+
+function buildPointValues() {
+  const row = document.getElementById('pvalRow');
+  row.innerHTML = '';
+  Object.keys(CURRENCIES).forEach(k => {
+    const c = CURRENCIES[k];
+    row.innerHTML += `
+      <div class="pval-item">
+        <label>${c.label}</label>
+        <input type="number" min="0" step="0.01" data-curr="${k}" value="${pointValues[k].toFixed(2)}" />
+        <span class="unit">¢/pt</span>
+      </div>`;
+  });
+  row.addEventListener('input', (e) => {
+    if (e.target.tagName !== 'INPUT') return;
+    pointValues[e.target.dataset.curr] = parseFloat(e.target.value) || 0;
+  });
+}
+
+function buildFeeCards() {
+  const grid = document.getElementById('feeGrid');
+  grid.innerHTML = '';
+  CARDS.forEach(card => {
+    grid.innerHTML += `
+      <div class="fee-card" data-card="${card.id}">
+        <div class="fee-card-header">
+          <span class="card-name">${card.name}</span>
+          <span class="af-badge">AF: $${card.annualFee}</span>
+        </div>
+        <div class="fee-row">
+          <label>Benefits value</label>
+          <div class="input-wrap"><span>$</span><input type="number" min="0" data-card="${card.id}" data-type="benefit" value="${feeOffsets[card.id]}" /></div>
+        </div>
+        <div class="fee-row">
+          <label>Signup bonus</label>
+          <div class="input-wrap"><input type="number" min="0" data-card="${card.id}" data-type="bonus" value="${signupBonuses[card.id]}" style="text-align:right;" /><span style="font-size:11px;margin-left:4px;color:var(--text-dim)">pts</span></div>
+        </div>
+        <div class="net-cost" data-card="${card.id}">Net cost: <span>$${card.annualFee}</span>/yr</div>
+        <div style="font-size:10px;color:var(--text-dim);margin-top:6px;line-height:1.4">${card.notes}</div>
+      </div>`;
+  });
+  grid.addEventListener('input', (e) => {
+    if (e.target.tagName !== 'INPUT') return;
+    const id = e.target.dataset.card;
+    const type = e.target.dataset.type;
+    if (type === 'benefit') {
+      feeOffsets[id] = parseFloat(e.target.value) || 0;
+      updateNetCost(id);
+    } else if (type === 'bonus') {
+      signupBonuses[id] = parseFloat(e.target.value) || 0;
+    }
+  });
+}
+
+function updateNetCost(id) {
+  const card = CARDS.find(c => c.id === id);
+  const net = card.annualFee - feeOffsets[id];
+  const el = document.querySelector(`.net-cost[data-card="${id}"]`);
+  el.className = 'net-cost' + (net <= 0 ? ' positive' : '');
+  el.innerHTML = `Net cost: <span>${net <= 0 ? '−$'+Math.abs(net) : '$'+net}</span>/yr`;
+}
+
+
+
+
+
+
+
+function calcCardValue(cardId) {
+  
+  const card = CARDS.find(c => c.id === cardId);
+  const cpp = pointValues[card.currency] / 100; 
+  const rent = parseFloat(document.getElementById('rentInput').value) || 0;
+  const annualSpend = {}; 
+  CATEGORIES.forEach(cat => { annualSpend[cat] = spending[cat].reduce((a,b)=>a+b,0); });
+
+  let breakdown = {};
+  let totalValue = 0;
+
+  CATEGORIES.forEach(cat => {
+    let spend = annualSpend[cat];
+    let rate = card.rates[cat];
+    let capSpend = spend;
+
+    
+    if (card.caps && card.caps[cat] && spend > card.caps[cat]) {
+      capSpend = card.caps[cat];
+      
+      const remainder = spend - card.caps[cat];
+      const val = (capSpend * rate + remainder * 1) * cpp;
+      breakdown[cat] = val;
+      totalValue += val;
+      return;
+    }
+    const val = spend * rate * cpp;
+    breakdown[cat] = val;
+    totalValue += val;
+  });
+
+  
+  let rentValue = 0;
+  if (card.canEarnRent) {
+    
+    
+    rentValue = rent * 12 * card.rentRate * cpp;
+    breakdown['Rent'] = rentValue;
+    totalValue += rentValue;
+  }
+
+  return { totalValue, breakdown, currency: card.currency };
+}
+
+function getNetFee(cardId) {
+  const card = CARDS.find(c => c.id === cardId);
+  return Math.max(0, card.annualFee - feeOffsets[cardId]);
+}
+
+function generateCombinations() {
+  
+  
+  const ids = CARDS.map(c => c.id);
+  const combos = [];
+  
+  ids.forEach(a => combos.push([a]));
+  
+  for (let i=0;i<ids.length;i++) for(let j=i+1;j<ids.length;j++) combos.push([ids[i],ids[j]]);
+  
+  for (let i=0;i<ids.length;i++) for(let j=i+1;j<ids.length;j++) for(let k=j+1;k<ids.length;k++) combos.push([ids[i],ids[j],ids[k]]);
+  
+  for (let i=0;i<ids.length;i++) for(let j=i+1;j<ids.length;j++) for(let k=j+1;k<ids.length;k++) for(let m=k+1;m<ids.length;m++) combos.push([ids[i],ids[j],ids[k],ids[m]]);
+  return combos;
+}
+
+function cardCatValue(card, cat, spend, biltObsChosenCat) {
+  
+  
+  const cpp = pointValues[card.currency] / 100;
+  const catKey = cat.toLowerCase();
+  let rate = card.rates[catKey];
+  
+  
+  if (card.has3xChoice) {
+    if (biltObsChosenCat === 'auto') {
+      
+      
+      rate = card.rates[catKey];
+    } else if (biltObsChosenCat === catKey) {
+      
+      rate = 3;
+    } else {
+      
+      rate = card.rates[catKey];
+    }
+  }
+  
+  
+  if (isNaN(cpp) || isNaN(rate) || cpp === 0 || rate === undefined) {
+    console.log('[DEBUG] cardCatValue invalid:', {
+      card: card.id,
+      cat,
+      catKey,
+      pointValues_curr: pointValues[card.currency],
+      cpp,
+      rate,
+      rates: card.rates
+    });
+  }
+  
+  
+  if (!cpp || !rate || isNaN(cpp) || isNaN(rate)) return 0;
+
+  if (card.caps && card.caps[catKey] && spend > card.caps[catKey]) {
+    return (card.caps[catKey] * rate + (spend - card.caps[catKey]) * 1) * cpp;
+  }
+  return spend * rate * cpp;
+}
+
+function calcBiltRentValue(monthlyNonRentSpend, monthlyRent, card) {
+  
+  
+  
+  
+  const cpp = pointValues[card.currency] / 100;
+  if (!cpp || isNaN(cpp)) {
+    return { value: 0, annualRentPoints: 0, tier: 0 };
+  }
+
+  const spendPct = monthlyRent > 0 ? monthlyNonRentSpend / monthlyRent : 0;
+  
+  let rentMultiplier = 0; 
+  if (spendPct >= 1.0) {
+    rentMultiplier = 1.25;
+  } else if (spendPct >= 0.75) {
+    rentMultiplier = 1.0;
+  } else if (spendPct >= 0.50) {
+    rentMultiplier = 0.75;
+  } else if (spendPct >= 0.25) {
+    rentMultiplier = 0.50;
+  } else {
+    rentMultiplier = 0; 
+  }
+
+  const annualRentPoints = monthlyRent * rentMultiplier * 12; 
+  const totalRentValue = annualRentPoints * cpp;
+  
+  return {
+    value: totalRentValue,
+    annualRentPoints,
+    tier: rentMultiplier
+  };
+}
+
+function evalCombo(combo) {
+  const rent = parseFloat(document.getElementById('rentInput').value) || 0;
+  const biltObsChoice = document.getElementById('biltObsChoice').value; 
+
+  const annualSpend = {};
+  CATEGORIES.forEach(cat => { annualSpend[cat] = spending[cat].reduce((a,b)=>a+b,0); });
+
+  const cards = combo.map(id => CARDS.find(c => c.id === id));
+  const biltCard = cards.find(c => c.canEarnRent) || null;
+  const biltObsCard = cards.find(c => c.has3xChoice) || null;
+
+  let bestAlloc = {};
+  let biltObs3xCategory = null; 
+
+  
+  if (biltObsCard && biltObsChoice === 'auto') {
+    const tryDining = evalComboWithBiltChoice(combo, annualSpend, rent, 'dining');
+    const tryGroceries = evalComboWithBiltChoice(combo, annualSpend, rent, 'groceries');
+    
+    
+    if (tryDining.netValue >= tryGroceries.netValue) {
+      return { ...tryDining, biltObs3xCategory: 'dining' };
+    } else {
+      return { ...tryGroceries, biltObs3xCategory: 'groceries' };
+    }
+  } else {
+    
+    const chosenCat = biltObsChoice; 
+    return evalComboWithBiltChoice(combo, annualSpend, rent, chosenCat);
+  }
+}
+
+function evalComboWithBiltChoice(combo, annualSpend, rent, biltObs3xCat) {
+  
+  const cards = combo.map(id => CARDS.find(c => c.id === id));
+  const biltCard = cards.find(c => c.canEarnRent) || null;
+
+  
+  let categoryValues = {};
+  CATEGORIES.forEach(cat => {
+    const spend = annualSpend[cat];
+    if (spend === 0) { categoryValues[cat] = { value: 0, card: null }; return; }
+
+    let bestVal = -Infinity, bestCard = null;
+    cards.forEach(card => {
+      const v = cardCatValue(card, cat, spend, biltObs3xCat);
+      if (v > bestVal) { bestVal = v; bestCard = card.id; }
+    });
+
+    if (!isFinite(bestVal)) bestVal = 0;
+    categoryValues[cat] = { value: bestVal, card: bestCard };
+  });
+
+  
+  let rentMeta = null;
+  if (biltCard) {
+    
+    let totalOnBilt = 0;
+    CATEGORIES.forEach(cat => {
+      if (categoryValues[cat].card === biltCard.id) {
+        totalOnBilt += annualSpend[cat];
+      }
+    });
+    const monthlyOnBilt = totalOnBilt / 12;
+
+    const rentResult = calcBiltRentValue(monthlyOnBilt, rent, biltCard);
+    
+    categoryValues['Rent'] = {
+      value: rentResult.value,
+      card: biltCard.id
+    };
+
+    rentMeta = {
+      biltCard: biltCard.id,
+      monthlyOnBilt,
+      tier: rentResult.tier,
+      annualRentPoints: rentResult.annualRentPoints,
+      totalRentValue: rentResult.value
+    };
+  }
+
+  
+  let totalEarned = Object.values(categoryValues).reduce((s,v) => s + v.value, 0);
+  let totalFees = combo.reduce((s, id) => s + getNetFee(id), 0);
+  
+  
+  let signupBonusValue = 0;
+  combo.forEach(id => {
+    const card = cards.find(c => c.id === id);
+    if (card && signupBonuses[id]) {
+      const cpp = pointValues[card.currency] / 100;
+      signupBonusValue += signupBonuses[id] * cpp;
+    }
+  });
+  
+  let netValue = totalEarned - totalFees;
+
+  if (!isFinite(totalEarned)) totalEarned = 0;
+  if (!isFinite(totalFees)) totalFees = 0;
+  if (!isFinite(netValue)) netValue = 0;
+  if (!isFinite(signupBonusValue)) signupBonusValue = 0;
+
+  return { combo, totalEarned, totalFees, netValue, signupBonusValue, categoryValues, rentMeta, biltObs3xCat };
+}
+
+function calculate() {
+  console.log('[DEBUG] calculate() called');
+  console.log('  spending:', spending);
+  console.log('  pointValues:', pointValues);
+  console.log('  feeOffsets:', feeOffsets);
+  
+  const combos = generateCombinations();
+  const results = combos.map(evalCombo);
+
+  
+  const excludeBonuses = document.getElementById('excludeBonusesCheckbox').checked;
+  
+  
+  if (excludeBonuses) {
+    results.sort((a,b) => b.netValue - a.netValue);
+  } else {
+    results.sort((a,b) => (b.netValue + b.signupBonusValue) - (a.netValue + a.signupBonusValue));
+  }
+
+  console.log('[DEBUG] Top 3 results (excludeBonuses=' + excludeBonuses + '):');
+  results.slice(0,3).forEach((r,i) => {
+    console.log(`  #${i+1}:`, r.combo, 'net=', r.netValue, 'bonus=', r.signupBonusValue);
+  });
+
+  
+  allResults = results;
+  applyFilters();
+}
+
+
+
+
+
+function renderResults(results) {
+  const panel = document.getElementById('resultsPanel');
+  const list = document.getElementById('resultsList');
+  panel.style.display = 'block';
+
+  if (results.length === 0) {
+    list.innerHTML = '<div class="empty-state">No results. Enter some spending data first.</div>';
+    return;
+  }
+
+  const rent = parseFloat(document.getElementById('rentInput').value) || 0;
+
+  list.innerHTML = '';
+  results.forEach((r, idx) => {
+    const names = r.combo.map(id => CARDS.find(c=>c.id===id).name).join(' + ');
+    
+    let detailRows = '';
+    const allCats = ['Travel','Dining','Groceries','Entertainment','Streaming','Other','Rent'];
+    allCats.forEach(cat => {
+      if (!r.categoryValues[cat]) return;
+      const v = r.categoryValues[cat];
+      if (v.value === 0 && !v.card) return;
+      const cardName = v.card ? CARDS.find(c=>c.id===v.card).name : '—';
+
+      if (cat === 'Rent' && r.rentMeta) {
+        const m = r.rentMeta;
+        const tierPct = (m.tier * 100).toFixed(0);
+        const spendPct = m.monthlyOnBilt > 0 && rent > 0 ? ((m.monthlyOnBilt / rent) * 100).toFixed(0) : 0;
+        const rentPtsFormatted = (m.annualRentPoints || 0).toLocaleString('en-US', {maximumFractionDigits: 0});
+        
+        let badge = `<span class="bilt-qualify ok">
+          <span class="dot"></span> ${fmt(m.monthlyOnBilt)}/mo on Bilt (${spendPct}% of rent) → ${tierPct}% rent multiplier
+          <div style="font-size:10px;margin-top:4px;line-height:1.6">
+            • Rent points: ${rentPtsFormatted} pts/yr (1x on ${tierPct}% of rent)<br/>
+            • Total rent value: ${fmt(m.totalRentValue || m.value)}
+          </div>
+        </span>`;
+        detailRows += `<tr><td>Rent ${badge}</td><td>${cardName}</td><td>${fmt(v.value)}</td></tr>`;
+      } else {
+        
+        let multiplier = '';
+        let detailNote = '';
+        if (v.card) {
+          const card = CARDS.find(c => c.id === v.card);
+          const catKey = cat.toLowerCase();
+          let rate = card.rates[catKey];
+          
+          
+          if (card.has3xChoice && r.biltObs3xCat === catKey) {
+            rate = 3;
+          }
+          
+          multiplier = rate ? ` (${rate}x)` : '';
+          
+          
+          if (catKey === 'travel' && card.detailNotes) {
+            detailNote = ` <span style="color:var(--text-dim);font-size:10px;font-style:italic;">${card.detailNotes}</span>`;
+          }
+        }
+        
+        
+        let badge = '';
+        if (r.biltObs3xCat && cat.toLowerCase() === r.biltObs3xCat) {
+          badge = ` <span style="background:var(--accent);color:var(--bg);padding:2px 6px;border-radius:4px;font-size:9px;font-weight:600;margin-left:6px">3x choice</span>`;
+        }
+        detailRows += `<tr><td>${cat}${badge}</td><td>${cardName}${multiplier}${detailNote}</td><td>${fmt(v.value)}</td></tr>`;
+      }
+    });
+    
+    let feeRows = '';
+    r.combo.forEach(id => {
+      const card = CARDS.find(c=>c.id===id);
+      const net = getNetFee(id);
+      feeRows += `<tr><td>${card.name} (AF $${card.annualFee} − $${feeOffsets[id]} benefits)</td><td></td><td style="color:var(--red)">−${fmt(net)}</td></tr>`;
+    });
+    
+    
+    let bonusRow = '';
+    if (r.signupBonusValue > 0) {
+      bonusRow = `<tr style="border-top:1px solid var(--border);background:var(--surface2)"><td><strong>Sign-up Bonuses (one-time)</strong></td><td></td><td style="color:var(--green)">+${fmt(r.signupBonusValue)}</td></tr>`;
+    }
+
+    const el = document.createElement('div');
+    el.className = 'result-card';
+    el.innerHTML = `
+      <div>
+        <span class="rank">${idx===0 ? '★ Best' : '#'+(idx+1)}</span>
+        <div class="combo-name">${names}</div>
+        <div class="combo-detail">Best card per category shown in detail</div>
+        <button class="toggle-btn" onclick="this.closest('.result-card').classList.toggle('open'); this.textContent = this.closest('.result-card').classList.contains('open') ? '▲ Hide detail' : '▼ Show detail'">▼ Show detail</button>
+        <div class="result-detail">
+          <table class="detail-table">
+            <thead><tr><th style="text-align:left">Category</th><th>Best Card</th><th>Annual Value</th></tr></thead>
+            <tbody>${detailRows}</tbody>
+            <tbody>${feeRows}</tbody>
+            ${bonusRow}
+            <tfoot><tr><td>Net Annual Value</td><td></td><td style="color:var(--accent)">${fmt(r.netValue)}</td></tr></tfoot>
+          </table>
+        </div>
+      </div>
+      <div class="result-value">
+        <div class="val-label">Net Value / Year</div>
+        <div class="val-num">${fmt(r.netValue)}</div>
+        <div class="val-breakdown">Earned ${fmt(r.totalEarned)} − Fees ${fmt(r.totalFees)}</div>
+        ${r.signupBonusValue > 0 ? `<div class="val-breakdown" style="color:var(--green);margin-top:4px;">+ ${fmt(r.signupBonusValue)} signup bonus (one-time)</div>` : ''}
+      </div>`;
+    list.appendChild(el);
+  });
+
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function fmt(n) {
+  if (n == null || isNaN(n)) return '$0';
+  return '$' + n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+
+
+
+
+function buildPayload() {
+  return {
+    _version: 1,
+    rent: parseFloat(document.getElementById('rentInput').value) || 0,
+    biltObsChoice: document.getElementById('biltObsChoice').value,
+    spending: spending,
+    pointValues: pointValues,
+    feeOffsets: feeOffsets,
+    signupBonuses: signupBonuses
+  };
+}
+
+function applyPayload(data) {
+  if (!data || data._version !== 1) { showIoStatus('Invalid data format.'); return; }
+
+  
+  document.getElementById('rentInput').value = data.rent || 0;
+  
+  
+  if (data.biltObsChoice != null) {
+    document.getElementById('biltObsChoice').value = data.biltObsChoice;
+  } else if (data.biltPct != null) {
+    
+    
+    document.getElementById('biltObsChoice').value = 'auto';
+  }
+
+  
+  CATEGORIES.forEach(cat => {
+    if (data.spending && data.spending[cat]) {
+      spending[cat] = data.spending[cat].slice(0, 12);
+      while (spending[cat].length < 12) spending[cat].push(0);
+    } else {
+      spending[cat] = new Array(12).fill(0);
+    }
+  });
+  rebuildSpendInputs();
+  updateTotals();
+
+  
+  if (data.pointValues) {
+    Object.keys(CURRENCIES).forEach(k => {
+      if (data.pointValues[k] != null) pointValues[k] = data.pointValues[k];
+    });
+    rebuildPointInputs();
+  }
+
+  
+  if (data.feeOffsets) {
+    CARDS.forEach(c => {
+      if (data.feeOffsets[c.id] != null) feeOffsets[c.id] = data.feeOffsets[c.id];
+    });
+    rebuildFeeInputs();
+    CARDS.forEach(c => updateNetCost(c.id));
+  }
+  
+  
+  if (data.signupBonuses) {
+    CARDS.forEach(c => {
+      if (data.signupBonuses[c.id] != null) signupBonuses[c.id] = data.signupBonuses[c.id];
+    });
+    rebuildBonusInputs();
+  }
+}
+
+
+function rebuildSpendInputs() {
+  CATEGORIES.forEach(cat => {
+    MONTHS.forEach((m, i) => {
+      const el = document.querySelector(`input[data-cat="${cat}"][data-month="${i}"]`);
+      if (el) el.value = spending[cat][i];
+    });
+  });
+}
+
+function rebuildPointInputs() {
+  Object.keys(CURRENCIES).forEach(k => {
+    const el = document.querySelector(`input[data-curr="${k}"]`);
+    if (el) el.value = pointValues[k].toFixed(2);
+  });
+}
+
+function rebuildFeeInputs() {
+  CARDS.forEach(c => {
+    const el = document.querySelector(`.fee-row input[data-card="${c.id}"][data-type="benefit"]`);
+    if (el) el.value = feeOffsets[c.id];
+  });
+}
+
+function rebuildBonusInputs() {
+  CARDS.forEach(c => {
+    const el = document.querySelector(`.fee-row input[data-card="${c.id}"][data-type="bonus"]`);
+    if (el) el.value = signupBonuses[c.id];
+  });
+}
+
+function showIoStatus(msg) {
+  const el = document.getElementById('ioStatus');
+  el.textContent = msg;
+  el.style.display = 'inline';
+  setTimeout(() => { el.style.display = 'none'; }, 2200);
+}
+
+
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify(buildPayload(), null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'cc-optimizer-data.json'; a.click();
+  URL.revokeObjectURL(url);
+  showIoStatus('Exported.');
+});
+
+
+document.getElementById('importBtn').addEventListener('click', () => {
+  document.getElementById('importFileInput').click();
+});
+document.getElementById('importFileInput').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      applyPayload(data);
+      showIoStatus('Imported successfully.');
+    } catch(err) {
+      showIoStatus('Parse error — not valid JSON.');
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = ''; 
+});
+
+
+document.getElementById('copyBtn').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(JSON.stringify(buildPayload(), null, 2));
+    showIoStatus('Copied to clipboard.');
+  } catch(err) {
+    showIoStatus('Clipboard access denied.');
+  }
+});
+
+
+document.getElementById('pasteBtn').addEventListener('click', async () => {
+  try {
+    const text = await navigator.clipboard.readText();
+    if (!text || text.trim() === '') {
+      showIoStatus('Clipboard is empty.');
+      return;
+    }
+    const data = JSON.parse(text);
+    applyPayload(data);
+    showIoStatus('Pasted successfully.');
+  } catch(err) {
+    console.error('Paste error:', err);
+    if (err.name === 'NotAllowedError') {
+      showIoStatus('Clipboard permission denied. Please allow clipboard access.');
+    } else if (err instanceof SyntaxError) {
+      showIoStatus('Invalid JSON in clipboard.');
+    } else {
+      showIoStatus('Paste failed: ' + err.message);
+    }
+  }
+});
+
+
+
+
+
+buildSpendTable();
+updateTotals();
+buildPointValues();
+buildFeeCards();
+buildFilterCheckboxes();
+CARDS.forEach(c => updateNetCost(c.id));
+
+document.getElementById('calcBtn').addEventListener('click', calculate);
+
+
+document.getElementById('excludeBonusesCheckbox').addEventListener('change', () => {
+  if (allResults && allResults.length > 0) {
+    calculate();
+  }
+});
+</script>
+</body>
+</html>
