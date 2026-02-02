@@ -332,7 +332,7 @@
           • Spend 100% of rent → earn 1x on 125% of rent
         </span>
         <div style="margin-top:8px;padding:8px;background:var(--surface1);border-left:3px solid var(--accent);font-size:11px;line-height:1.5;color:var(--text-dim);">
-          <strong>Note:</strong> This calculator only supports Bilt's housing points earning structure (Option 1). It does not include Bilt Cash (Option 2) calculations.
+          <strong>Note:</strong> This calculator supports both Bilt earning options: Option 1 (tiered rent earning based on monthly spend) and Option 2 (Bilt Cash system). Cards labeled "(Bilt Cash)" use Option 2, where you earn 4% Bilt Cash on everyday spend and use $30 in Bilt Cash to unlock 1,000 Bilt Points per $1,000 of rent.
         </div>
       </div>
     </div>
@@ -511,6 +511,46 @@ const CARDS = [
     notes: '2x on all everyday spend. Rent points via tiered spend thresholds (Option 1): spend 25%/50%/75%/100% of rent → earn 1x on 50%/75%/100%/125% of rent. $400 hotel travel credit + $200 Bilt Cash annually. Priority Pass lounge access.',
     signupBonus: 0
   },
+  {
+    id: 'bilt_blue_cash',
+    name: 'Bilt Blue (Bilt Cash)',
+    annualFee: 0,
+    currency: 'bilt',
+    rates: { travel: 1, dining: 1, groceries: 1, entertainment: 1, streaming: 1, other: 1 },
+    caps: {},
+    canEarnRent: true,
+    usesBiltCash: true,
+    biltCashRate: 0.04,  
+    notes: '1x Bilt Pts on all spend + 4% Bilt Cash on everyday spend (Option 2). Use $30 Bilt Cash to earn 1,000 Bilt Pts on $1,000 rent (3% effective rate). $0 annual fee.',
+    signupBonus: 0
+  },
+  {
+    id: 'bilt_obs_cash',
+    name: 'Bilt Obsidian (Bilt Cash)',
+    annualFee: 95,
+    currency: 'bilt',
+    rates: { travel: 2, dining: 1, groceries: 1, entertainment: 1, streaming: 1, other: 1 },
+    caps: { groceries: 25000 },
+    canEarnRent: true,
+    usesBiltCash: true,
+    biltCashRate: 0.04,  
+    has3xChoice: true,
+    notes: 'Choose dining 3x OR grocery 3x (cap $25k) + 4% Bilt Cash on everyday spend (Option 2). Use $30 Bilt Cash to earn 1,000 Bilt Pts on $1,000 rent. 2x travel, 1x other.',
+    signupBonus: 0
+  },
+  {
+    id: 'bilt_pal_cash',
+    name: 'Bilt Palladium (Bilt Cash)',
+    annualFee: 495,
+    currency: 'bilt',
+    rates: { travel: 2, dining: 2, groceries: 2, entertainment: 2, streaming: 2, other: 2 },
+    caps: {},
+    canEarnRent: true,
+    usesBiltCash: true,
+    biltCashRate: 0.04,  
+    notes: '2x Bilt Pts on all spend + 4% Bilt Cash on everyday spend (Option 2). Use $30 Bilt Cash to earn 1,000 Bilt Pts on $1,000 rent. $400 hotel credit + $200 annual Bilt Cash. Priority Pass.',
+    signupBonus: 0
+  },
   
   {
     id: 'savor',
@@ -571,7 +611,8 @@ const CURRENCIES = {
   amex_mr:    { label: 'Amex MR', defaultCpp: 2.0 },
   chase_ur:   { label: 'Chase UR', defaultCpp: 2.0 },
   cap1_miles: { label: 'C1 Miles', defaultCpp: 1.85 },
-  bilt:       { label: 'Bilt Pts', defaultCpp: 2.2 }
+  bilt:       { label: 'Bilt Pts', defaultCpp: 2.2 },
+  bilt_cash:  { label: 'Bilt Cash', defaultCpp: 1.0 }  
 };
 
 
@@ -767,12 +808,22 @@ function buildPointValues() {
   row.innerHTML = '';
   Object.keys(CURRENCIES).forEach(k => {
     const c = CURRENCIES[k];
-    row.innerHTML += `
-      <div class="pval-item">
-        <label>${c.label}</label>
-        <input type="number" min="0" step="0.01" data-curr="${k}" value="${pointValues[k].toFixed(2)}" />
-        <span class="unit">¢/pt</span>
-      </div>`;
+    
+    if (k === 'bilt_cash') {
+      row.innerHTML += `
+        <div class="pval-item">
+          <label>Bilt Cash</label>
+          <input type="number" min="0" step="0.01" data-curr="${k}" value="${pointValues[k].toFixed(2)}" />
+          <span class="unit">$/฿</span>
+        </div>`;
+    } else {
+      row.innerHTML += `
+        <div class="pval-item">
+          <label>${c.label}</label>
+          <input type="number" min="0" step="0.01" data-curr="${k}" value="${pointValues[k].toFixed(2)}" />
+          <span class="unit">¢/pt</span>
+        </div>`;
+    }
   });
   row.addEventListener('input', (e) => {
     if (e.target.tagName !== 'INPUT') return;
@@ -875,7 +926,7 @@ function calcCardValue(cardId) {
 
 function getNetFee(cardId) {
   const card = CARDS.find(c => c.id === cardId);
-  return Math.max(0, card.annualFee - feeOffsets[cardId]);
+  return card.annualFee - feeOffsets[cardId];
 }
 
 function generateCombinations() {
@@ -932,10 +983,22 @@ function cardCatValue(card, cat, spend, biltObsChosenCat) {
   
   if (!cpp || !rate || isNaN(cpp) || isNaN(rate)) return 0;
 
+  
+  let pointsValue;
   if (card.caps && card.caps[catKey] && spend > card.caps[catKey]) {
-    return (card.caps[catKey] * rate + (spend - card.caps[catKey]) * 1) * cpp;
+    pointsValue = (card.caps[catKey] * rate + (spend - card.caps[catKey]) * 1) * cpp;
+  } else {
+    pointsValue = spend * rate * cpp;
   }
-  return spend * rate * cpp;
+  
+  
+  if (card.usesBiltCash && card.biltCashRate) {
+    const biltCashCpp = pointValues['bilt_cash'] / 100;
+    const biltCashValue = spend * card.biltCashRate * biltCashCpp;
+    return pointsValue + biltCashValue;
+  }
+  
+  return pointsValue;
 }
 
 function calcBiltRentValue(monthlyNonRentSpend, monthlyRent, card) {
@@ -971,6 +1034,58 @@ function calcBiltRentValue(monthlyNonRentSpend, monthlyRent, card) {
     annualRentPoints,
     tier: rentMultiplier
   };
+}
+
+function calcBiltCashRentValue(totalBiltCash, monthlyRent, biltCard) {
+  
+  
+  
+  
+  
+  const biltPtsCpp = pointValues[biltCard.currency] / 100;
+  const biltCashCpp = pointValues['bilt_cash'] / 100;
+  
+  
+  const valueIfKeptAsCash = totalBiltCash * biltCashCpp * 12; 
+  
+  
+  
+  const maxBiltCashUsable = monthlyRent * 0.03;
+  const biltCashToConvert = Math.min(totalBiltCash, maxBiltCashUsable);
+  
+  
+  const pointsUnlocked = (biltCashToConvert / 3) * 100;
+  const annualRentPoints = pointsUnlocked * 12;
+  const rentPointsValue = annualRentPoints * biltPtsCpp;
+  
+  
+  const biltCashLeftover = totalBiltCash - biltCashToConvert;
+  const leftoverValue = biltCashLeftover * biltCashCpp * 12;
+  
+  const valueIfConvertedToRent = rentPointsValue + leftoverValue;
+  
+  
+  if (valueIfKeptAsCash >= valueIfConvertedToRent) {
+    
+    return {
+      value: 0, 
+      annualRentPoints: 0,
+      biltCashUsed: 0,
+      biltCashNeeded: maxBiltCashUsable,
+      strategy: 'keep_cash',
+      biltCashValue: valueIfKeptAsCash
+    };
+  } else {
+    
+    return {
+      value: rentPointsValue, 
+      annualRentPoints,
+      biltCashUsed: biltCashToConvert,
+      biltCashNeeded: maxBiltCashUsable,
+      strategy: 'convert_to_rent',
+      biltCashValue: leftoverValue
+    };
+  }
 }
 
 function evalCombo(combo) {
@@ -1038,20 +1153,53 @@ function evalComboWithBiltChoice(combo, annualSpend, rent, biltObs3xCat) {
     });
     const monthlyOnBilt = totalOnBilt / 12;
 
-    const rentResult = calcBiltRentValue(monthlyOnBilt, rent, biltCard);
-    
-    categoryValues['Rent'] = {
-      value: rentResult.value,
-      card: biltCard.id
-    };
+    if (biltCard.usesBiltCash) {
+      
+      
+      const totalBiltCashEarned = totalOnBilt * biltCard.biltCashRate;
+      const monthlyBiltCash = totalBiltCashEarned / 12;
+      
+      const rentResult = calcBiltCashRentValue(monthlyBiltCash, rent, biltCard);
+      
+      
+      
+      const biltCashCpp = pointValues['bilt_cash'] / 100;
+      const annualBiltCashUsed = rentResult.biltCashUsed * 12;
+      const biltCashUsedValue = annualBiltCashUsed * biltCashCpp;
+      
+      categoryValues['Rent'] = {
+        value: rentResult.value - biltCashUsedValue, 
+        card: biltCard.id
+      };
 
-    rentMeta = {
-      biltCard: biltCard.id,
-      monthlyOnBilt,
-      tier: rentResult.tier,
-      annualRentPoints: rentResult.annualRentPoints,
-      totalRentValue: rentResult.value
-    };
+      rentMeta = {
+        biltCard: biltCard.id,
+        monthlyOnBilt,
+        usesBiltCash: true,
+        monthlyBiltCash,
+        biltCashUsed: rentResult.biltCashUsed,
+        biltCashNeeded: rentResult.biltCashNeeded,
+        annualRentPoints: rentResult.annualRentPoints,
+        totalRentValue: rentResult.value - biltCashUsedValue,
+        strategy: rentResult.strategy
+      };
+    } else {
+      
+      const rentResult = calcBiltRentValue(monthlyOnBilt, rent, biltCard);
+      
+      categoryValues['Rent'] = {
+        value: rentResult.value,
+        card: biltCard.id
+      };
+
+      rentMeta = {
+        biltCard: biltCard.id,
+        monthlyOnBilt,
+        tier: rentResult.tier,
+        annualRentPoints: rentResult.annualRentPoints,
+        totalRentValue: rentResult.value
+      };
+    }
   }
 
   
@@ -1103,8 +1251,50 @@ function calculate() {
   });
 
   
-  allResults = results;
+  const filteredResults = removeRedundantSupersets(results);
+  console.log(`[DEBUG] Filtered ${results.length - filteredResults.length} redundant supersets`);
+
+  
+  allResults = filteredResults;
   applyFilters();
+}
+
+function removeRedundantSupersets(results) {
+  
+  
+  
+  
+  
+  const toRemove = new Set();
+  
+  for (let i = 0; i < results.length; i++) {
+    if (toRemove.has(i)) continue;
+    
+    for (let j = 0; j < results.length; j++) {
+      if (i === j || toRemove.has(j)) continue;
+      
+      const comboA = results[i];
+      const comboB = results[j];
+      
+      
+      const isSuperset = comboB.combo.every(cardId => comboA.combo.includes(cardId)) && 
+                         comboA.combo.length > comboB.combo.length;
+      
+      if (isSuperset) {
+        
+        const sameNetValue = Math.abs(comboA.netValue - comboB.netValue) < 0.01;
+        const sameBonus = Math.abs(comboA.signupBonusValue - comboB.signupBonusValue) < 0.01;
+        
+        if (sameNetValue && sameBonus) {
+          
+          toRemove.add(i);
+          break; 
+        }
+      }
+    }
+  }
+  
+  return results.filter((_, idx) => !toRemove.has(idx));
 }
 
 
@@ -1137,17 +1327,41 @@ function renderResults(results) {
 
       if (cat === 'Rent' && r.rentMeta) {
         const m = r.rentMeta;
-        const tierPct = (m.tier * 100).toFixed(0);
-        const spendPct = m.monthlyOnBilt > 0 && rent > 0 ? ((m.monthlyOnBilt / rent) * 100).toFixed(0) : 0;
         const rentPtsFormatted = (m.annualRentPoints || 0).toLocaleString('en-US', {maximumFractionDigits: 0});
         
-        let badge = `<span class="bilt-qualify ok">
-          <span class="dot"></span> ${fmt(m.monthlyOnBilt)}/mo on Bilt (${spendPct}% of rent) → ${tierPct}% rent multiplier
-          <div style="font-size:10px;margin-top:4px;line-height:1.6">
-            • Rent points: ${rentPtsFormatted} pts/yr (1x on ${tierPct}% of rent)<br/>
-            • Total rent value: ${fmt(m.totalRentValue || m.value)}
-          </div>
-        </span>`;
+        let badge;
+        if (m.usesBiltCash) {
+          
+          const spendPct = m.monthlyOnBilt > 0 && rent > 0 ? ((m.monthlyOnBilt / rent) * 100).toFixed(0) : 0;
+          const cashUsedPct = m.biltCashNeeded > 0 ? ((m.biltCashUsed / m.biltCashNeeded) * 100).toFixed(0) : 0;
+          
+          let strategyText = '';
+          if (m.strategy === 'keep_cash') {
+            strategyText = '• Strategy: Keep Bilt Cash as cash (better value)<br/>';
+          } else if (m.strategy === 'convert_to_rent') {
+            strategyText = `• Bilt Cash used: $${m.biltCashUsed.toFixed(2)} of $${m.biltCashNeeded.toFixed(2)} needed (${cashUsedPct}%)<br/>`;
+          }
+          
+          badge = `<span class="bilt-qualify ok">
+            <span class="dot"></span> ${fmt(m.monthlyOnBilt)}/mo on Bilt (${spendPct}% of rent) → $${m.monthlyBiltCash.toFixed(2)} Bilt Cash/mo
+            <div style="font-size:10px;margin-top:4px;line-height:1.6">
+              ${strategyText}• Rent points: ${rentPtsFormatted} pts/yr (Option 2: Bilt Cash)<br/>
+              • Total rent value: ${fmt(m.totalRentValue || m.value)}
+            </div>
+          </span>`;
+        } else {
+          
+          const tierPct = (m.tier * 100).toFixed(0);
+          const spendPct = m.monthlyOnBilt > 0 && rent > 0 ? ((m.monthlyOnBilt / rent) * 100).toFixed(0) : 0;
+          
+          badge = `<span class="bilt-qualify ok">
+            <span class="dot"></span> ${fmt(m.monthlyOnBilt)}/mo on Bilt (${spendPct}% of rent) → ${tierPct}% rent multiplier
+            <div style="font-size:10px;margin-top:4px;line-height:1.6">
+              • Rent points: ${rentPtsFormatted} pts/yr (1x on ${tierPct}% of rent)<br/>
+              • Total rent value: ${fmt(m.totalRentValue || m.value)}
+            </div>
+          </span>`;
+        }
         detailRows += `<tr><td>Rent ${badge}</td><td>${cardName}</td><td>${fmt(v.value)}</td></tr>`;
       } else {
         
@@ -1184,7 +1398,13 @@ function renderResults(results) {
     r.combo.forEach(id => {
       const card = CARDS.find(c=>c.id===id);
       const net = getNetFee(id);
-      feeRows += `<tr><td>${card.name} (AF $${card.annualFee} − $${feeOffsets[id]} benefits)</td><td></td><td style="color:var(--red)">−${fmt(net)}</td></tr>`;
+      if (net >= 0) {
+        
+        feeRows += `<tr><td>${card.name} (AF $${card.annualFee} − $${feeOffsets[id]} benefits)</td><td></td><td style="color:var(--red)">−${fmt(net)}</td></tr>`;
+      } else {
+        
+        feeRows += `<tr><td>${card.name} (AF $${card.annualFee} − $${feeOffsets[id]} benefits)</td><td></td><td style="color:var(--green)">+${fmt(Math.abs(net))}</td></tr>`;
+      }
     });
     
     
