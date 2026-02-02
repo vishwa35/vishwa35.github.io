@@ -1119,9 +1119,10 @@ function calcBiltRentValue(monthlyNonRentSpend, monthlyRent, card) {
 
 function calcBiltCashRentValue(totalBiltCash, monthlyRent, biltCard) {
   // Option 2: Calculate rent value using Bilt Cash
-  // We need to compare two strategies:
+  // We need to compare THREE strategies:
   // 1. Use Bilt Cash directly (valued at Bilt Cash cpp)
-  // 2. Convert Bilt Cash to rent points ($3 Bilt Cash = 100 Bilt Points)
+  // 2. Convert Bilt Cash to rent points ($30 Bilt Cash = 1,000 Bilt Points via rent)
+  // 3. Convert Bilt Cash directly to Bilt Points ($30 Bilt Cash = 1,000 Bilt Points, no rent needed)
   
   const biltPtsCpp = pointValues[biltCard.currency] / 100;
   const biltCashCpp = pointValues['bilt_cash'] / 100;
@@ -1129,42 +1130,68 @@ function calcBiltCashRentValue(totalBiltCash, monthlyRent, biltCard) {
   // Strategy 1: Keep all Bilt Cash as Bilt Cash
   const valueIfKeptAsCash = totalBiltCash * biltCashCpp * 12; // annual value
   
-  // Strategy 2: Convert Bilt Cash to rent points
+  // Strategy 2: Convert Bilt Cash to rent points (requires rent payment)
   // Maximum Bilt Cash we can use is 3% of monthly rent
-  const maxBiltCashUsable = monthlyRent * 0.03;
-  const biltCashToConvert = Math.min(totalBiltCash, maxBiltCashUsable);
+  const maxBiltCashUsableForRent = monthlyRent * 0.03;
+  const biltCashToConvertForRent = Math.min(totalBiltCash, maxBiltCashUsableForRent);
   
   // Each $3 in Bilt Cash unlocks 100 Bilt Points
-  const pointsUnlocked = (biltCashToConvert / 3) * 100;
-  const annualRentPoints = pointsUnlocked * 12;
+  const pointsUnlockedViaRent = (biltCashToConvertForRent / 3) * 100;
+  const annualRentPoints = pointsUnlockedViaRent * 12;
   const rentPointsValue = annualRentPoints * biltPtsCpp;
   
   // Value of leftover Bilt Cash not used for rent
-  const biltCashLeftover = totalBiltCash - biltCashToConvert;
-  const leftoverValue = biltCashLeftover * biltCashCpp * 12;
+  const biltCashLeftoverFromRent = totalBiltCash - biltCashToConvertForRent;
+  const leftoverValueFromRent = biltCashLeftoverFromRent * biltCashCpp * 12;
   
-  const valueIfConvertedToRent = rentPointsValue + leftoverValue;
+  const valueIfConvertedToRent = rentPointsValue + leftoverValueFromRent;
   
-  // Choose the better strategy
-  if (valueIfKeptAsCash >= valueIfConvertedToRent) {
+  // Strategy 3: Convert all Bilt Cash directly to Bilt Points ($30 = 1,000 pts)
+  // This doesn't require rent at all
+  const pointsFromDirectConversion = (totalBiltCash / 30) * 1000;
+  const annualPointsFromDirect = pointsFromDirectConversion * 12;
+  const valueIfConvertedDirectly = annualPointsFromDirect * biltPtsCpp;
+  
+  // Choose the best strategy
+  const strategies = [
+    { name: 'keep_cash', value: valueIfKeptAsCash, rentPoints: 0, cashUsed: 0 },
+    { name: 'convert_to_rent', value: valueIfConvertedToRent, rentPoints: annualRentPoints, cashUsed: biltCashToConvertForRent },
+    { name: 'convert_direct', value: valueIfConvertedDirectly, rentPoints: annualPointsFromDirect, cashUsed: totalBiltCash }
+  ];
+  
+  // Sort by value descending
+  strategies.sort((a, b) => b.value - a.value);
+  const best = strategies[0];
+  
+  if (best.name === 'keep_cash') {
     // Better to keep Bilt Cash as Bilt Cash
     return {
       value: 0, // No rent value added (Bilt Cash value already in category earnings)
       annualRentPoints: 0,
       biltCashUsed: 0,
-      biltCashNeeded: maxBiltCashUsable,
+      biltCashNeeded: maxBiltCashUsableForRent,
       strategy: 'keep_cash',
       biltCashValue: valueIfKeptAsCash
     };
-  } else {
+  } else if (best.name === 'convert_to_rent') {
     // Better to convert to rent points
     return {
       value: rentPointsValue, // Rent points value
       annualRentPoints,
-      biltCashUsed: biltCashToConvert,
-      biltCashNeeded: maxBiltCashUsable,
+      biltCashUsed: biltCashToConvertForRent,
+      biltCashNeeded: maxBiltCashUsableForRent,
       strategy: 'convert_to_rent',
-      biltCashValue: leftoverValue
+      biltCashValue: leftoverValueFromRent
+    };
+  } else {
+    // Better to convert directly to Bilt Points
+    return {
+      value: valueIfConvertedDirectly, // Direct conversion value
+      annualRentPoints: annualPointsFromDirect,
+      biltCashUsed: totalBiltCash,
+      biltCashNeeded: maxBiltCashUsableForRent,
+      strategy: 'convert_direct',
+      biltCashValue: 0 // All cash converted
     };
   }
 }
@@ -1420,7 +1447,9 @@ function renderResults(results) {
           if (m.strategy === 'keep_cash') {
             strategyText = '• Strategy: Keep Bilt Cash as cash (better value)<br/>';
           } else if (m.strategy === 'convert_to_rent') {
-            strategyText = `• Bilt Cash used: $${m.biltCashUsed.toFixed(2)} of $${m.biltCashNeeded.toFixed(2)} needed (${cashUsedPct}%)<br/>`;
+            strategyText = `• Strategy: Convert to rent points<br/>• Bilt Cash used: $${m.biltCashUsed.toFixed(2)} of $${m.biltCashNeeded.toFixed(2)} needed (${cashUsedPct}%)<br/>`;
+          } else if (m.strategy === 'convert_direct') {
+            strategyText = `• Strategy: Convert directly to Bilt Points ($30 = 1,000 pts)<br/>• Bilt Cash used: $${m.biltCashUsed.toFixed(2)} (all converted)<br/>`;
           }
           
           badge = `<span class="bilt-qualify ok">
