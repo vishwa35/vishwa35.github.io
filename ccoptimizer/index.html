@@ -1123,6 +1123,7 @@ function calcBiltCashRentValue(totalBiltCash, monthlyRent, biltCard) {
   
   
   
+  
   const biltPtsCpp = pointValues[biltCard.currency] / 100;
   const biltCashCpp = pointValues['bilt_cash'] / 100;
   
@@ -1131,40 +1132,66 @@ function calcBiltCashRentValue(totalBiltCash, monthlyRent, biltCard) {
   
   
   
-  const maxBiltCashUsable = monthlyRent * 0.03;
-  const biltCashToConvert = Math.min(totalBiltCash, maxBiltCashUsable);
+  const maxBiltCashUsableForRent = monthlyRent * 0.03;
+  const biltCashToConvertForRent = Math.min(totalBiltCash, maxBiltCashUsableForRent);
   
   
-  const pointsUnlocked = (biltCashToConvert / 3) * 100;
-  const annualRentPoints = pointsUnlocked * 12;
+  const pointsUnlockedViaRent = (biltCashToConvertForRent / 3) * 100;
+  const annualRentPoints = pointsUnlockedViaRent * 12;
   const rentPointsValue = annualRentPoints * biltPtsCpp;
   
   
-  const biltCashLeftover = totalBiltCash - biltCashToConvert;
-  const leftoverValue = biltCashLeftover * biltCashCpp * 12;
+  const biltCashLeftoverFromRent = totalBiltCash - biltCashToConvertForRent;
+  const leftoverValueFromRent = biltCashLeftoverFromRent * biltCashCpp * 12;
   
-  const valueIfConvertedToRent = rentPointsValue + leftoverValue;
+  const valueIfConvertedToRent = rentPointsValue + leftoverValueFromRent;
   
   
-  if (valueIfKeptAsCash >= valueIfConvertedToRent) {
+  
+  const pointsFromDirectConversion = (totalBiltCash / 30) * 1000;
+  const annualPointsFromDirect = pointsFromDirectConversion * 12;
+  const valueIfConvertedDirectly = annualPointsFromDirect * biltPtsCpp;
+  
+  
+  const strategies = [
+    { name: 'keep_cash', value: valueIfKeptAsCash, rentPoints: 0, cashUsed: 0 },
+    { name: 'convert_to_rent', value: valueIfConvertedToRent, rentPoints: annualRentPoints, cashUsed: biltCashToConvertForRent },
+    { name: 'convert_direct', value: valueIfConvertedDirectly, rentPoints: annualPointsFromDirect, cashUsed: totalBiltCash }
+  ];
+  
+  
+  strategies.sort((a, b) => b.value - a.value);
+  const best = strategies[0];
+  
+  if (best.name === 'keep_cash') {
     
     return {
       value: 0, 
       annualRentPoints: 0,
       biltCashUsed: 0,
-      biltCashNeeded: maxBiltCashUsable,
+      biltCashNeeded: maxBiltCashUsableForRent,
       strategy: 'keep_cash',
       biltCashValue: valueIfKeptAsCash
     };
-  } else {
+  } else if (best.name === 'convert_to_rent') {
     
     return {
       value: rentPointsValue, 
       annualRentPoints,
-      biltCashUsed: biltCashToConvert,
-      biltCashNeeded: maxBiltCashUsable,
+      biltCashUsed: biltCashToConvertForRent,
+      biltCashNeeded: maxBiltCashUsableForRent,
       strategy: 'convert_to_rent',
-      biltCashValue: leftoverValue
+      biltCashValue: leftoverValueFromRent
+    };
+  } else {
+    
+    return {
+      value: valueIfConvertedDirectly, 
+      annualRentPoints: annualPointsFromDirect,
+      biltCashUsed: totalBiltCash,
+      biltCashNeeded: maxBiltCashUsableForRent,
+      strategy: 'convert_direct',
+      biltCashValue: 0 
     };
   }
 }
@@ -1420,7 +1447,9 @@ function renderResults(results) {
           if (m.strategy === 'keep_cash') {
             strategyText = '• Strategy: Keep Bilt Cash as cash (better value)<br/>';
           } else if (m.strategy === 'convert_to_rent') {
-            strategyText = `• Bilt Cash used: $${m.biltCashUsed.toFixed(2)} of $${m.biltCashNeeded.toFixed(2)} needed (${cashUsedPct}%)<br/>`;
+            strategyText = `• Strategy: Convert to rent points<br/>• Bilt Cash used: $${m.biltCashUsed.toFixed(2)} of $${m.biltCashNeeded.toFixed(2)} needed (${cashUsedPct}%)<br/>`;
+          } else if (m.strategy === 'convert_direct') {
+            strategyText = `• Strategy: Convert directly to Bilt Points ($30 = 1,000 pts)<br/>• Bilt Cash used: $${m.biltCashUsed.toFixed(2)} (all converted)<br/>`;
           }
           
           badge = `<span class="bilt-qualify ok">
