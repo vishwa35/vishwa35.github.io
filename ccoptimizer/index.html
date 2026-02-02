@@ -387,6 +387,85 @@
 
   
   <div class="panel">
+    <div class="panel-header">
+      <h2>Custom Cards</h2>
+      <button class="btn" onclick="showCustomCardForm()" style="margin-left:auto;padding:6px 12px;font-size:12px;">+ Add Custom Card</button>
+    </div>
+    <div class="panel-body">
+      <div id="customCardsList" style="display:flex;flex-direction:column;gap:8px;"></div>
+      
+      
+      <div id="customCardForm" style="display:none;margin-top:16px;padding:16px;background:var(--surface2);border-radius:8px;border:1px solid var(--border);">
+        <h3 style="margin:0 0 16px 0;font-size:14px;font-weight:600;">Add Custom Card</h3>
+        
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+          <div>
+            <label style="display:block;font-size:11px;font-weight:600;margin-bottom:4px;color:var(--text-dim);">Card Name</label>
+            <input type="text" id="customCardName" placeholder="e.g., Custom Cashback Card" style="width:100%;padding:8px;background:var(--surface1);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;" />
+          </div>
+          
+          <div>
+            <label style="display:block;font-size:11px;font-weight:600;margin-bottom:4px;color:var(--text-dim);">Annual Fee ($)</label>
+            <input type="number" id="customCardFee" value="0" min="0" style="width:100%;padding:8px;background:var(--surface1);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;" />
+          </div>
+          
+          <div>
+            <label style="display:block;font-size:11px;font-weight:600;margin-bottom:4px;color:var(--text-dim);">Currency/Points Type</label>
+            <select id="customCardCurrency" onchange="toggleCustomCurrencyInput()" style="width:100%;padding:8px;background:var(--surface1);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;">
+              <option value="amex_mr">Amex MR</option>
+              <option value="chase_ur">Chase UR</option>
+              <option value="cap1_miles">Capital One Miles</option>
+              <option value="bilt">Bilt Points</option>
+              <option value="custom">Custom (specify value)</option>
+            </select>
+          </div>
+          
+          <div id="customCurrencyValueDiv" style="display:none;">
+            <label style="display:block;font-size:11px;font-weight:600;margin-bottom:4px;color:var(--text-dim);">Custom Point Value (¢/pt)</label>
+            <input type="number" id="customCardCurrencyValue" value="1.0" min="0" step="0.01" style="width:100%;padding:8px;background:var(--surface1);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;" />
+          </div>
+        </div>
+        
+        <div style="margin-top:16px;">
+          <label style="display:block;font-size:11px;font-weight:600;margin-bottom:8px;color:var(--text-dim);">Earning Rates (points per dollar)</label>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;">
+            <div>
+              <label style="font-size:10px;color:var(--text-dim);">Travel</label>
+              <input type="number" id="customCardRateTravel" value="1" min="0" step="0.5" style="width:100%;padding:6px;background:var(--surface1);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:12px;" />
+            </div>
+            <div>
+              <label style="font-size:10px;color:var(--text-dim);">Dining</label>
+              <input type="number" id="customCardRateDining" value="1" min="0" step="0.5" style="width:100%;padding:6px;background:var(--surface1);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:12px;" />
+            </div>
+            <div>
+              <label style="font-size:10px;color:var(--text-dim);">Groceries</label>
+              <input type="number" id="customCardRateGroceries" value="1" min="0" step="0.5" style="width:100%;padding:6px;background:var(--surface1);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:12px;" />
+            </div>
+            <div>
+              <label style="font-size:10px;color:var(--text-dim);">Entertainment</label>
+              <input type="number" id="customCardRateEntertainment" value="1" min="0" step="0.5" style="width:100%;padding:6px;background:var(--surface1);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:12px;" />
+            </div>
+            <div>
+              <label style="font-size:10px;color:var(--text-dim);">Streaming</label>
+              <input type="number" id="customCardRateStreaming" value="1" min="0" step="0.5" style="width:100%;padding:6px;background:var(--surface1);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:12px;" />
+            </div>
+            <div>
+              <label style="font-size:10px;color:var(--text-dim);">Other</label>
+              <input type="number" id="customCardRateOther" value="1" min="0" step="0.5" style="width:100%;padding:6px;background:var(--surface1);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:12px;" />
+            </div>
+          </div>
+        </div>
+        
+        <div style="display:flex;gap:8px;margin-top:16px;">
+          <button class="btn" onclick="addCustomCard()" style="padding:8px 16px;font-size:13px;">Add Card</button>
+          <button class="btn" onclick="cancelCustomCard()" style="padding:8px 16px;font-size:13px;background:var(--surface1);">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="panel">
     <div class="panel-header"><h2>Annual Fee & Benefits</h2></div>
     <div class="panel-body">
       <div class="fee-grid" id="feeGrid"></div>
@@ -630,6 +709,9 @@ CARDS.forEach(c => { feeOffsets[c.id] = 0; });
 let signupBonuses = {}; 
 CARDS.forEach(c => { signupBonuses[c.id] = c.signupBonus || 0; });
 
+let customCards = []; 
+let customCardCounter = 1; 
+
 let includeFilters = new Set(); 
 let excludeFilters = new Set(); 
 let allResults = []; 
@@ -646,7 +728,7 @@ function buildFilterCheckboxes() {
   includeDiv.innerHTML = '';
   excludeDiv.innerHTML = '';
   
-  CARDS.forEach(card => {
+  getAllCards().forEach(card => {
     
     const incLabel = document.createElement('label');
     incLabel.style.cssText = 'display:flex;align-items:center;gap:8px;font-size:12px;cursor:pointer;';
@@ -834,7 +916,7 @@ function buildPointValues() {
 function buildFeeCards() {
   const grid = document.getElementById('feeGrid');
   grid.innerHTML = '';
-  CARDS.forEach(card => {
+  getAllCards().forEach(card => {
     grid.innerHTML += `
       <div class="fee-card" data-card="${card.id}">
         <div class="fee-card-header">
@@ -867,7 +949,7 @@ function buildFeeCards() {
 }
 
 function updateNetCost(id) {
-  const card = CARDS.find(c => c.id === id);
+  const card = getAllCards().find(c => c.id === id);
   const net = card.annualFee - feeOffsets[id];
   const el = document.querySelector(`.net-cost[data-card="${id}"]`);
   el.className = 'net-cost' + (net <= 0 ? ' positive' : '');
@@ -882,7 +964,7 @@ function updateNetCost(id) {
 
 function calcCardValue(cardId) {
   
-  const card = CARDS.find(c => c.id === cardId);
+  const card = getAllCards().find(c => c.id === cardId);
   const cpp = pointValues[card.currency] / 100; 
   const rent = parseFloat(document.getElementById('rentInput').value) || 0;
   const annualSpend = {}; 
@@ -925,14 +1007,13 @@ function calcCardValue(cardId) {
 }
 
 function getNetFee(cardId) {
-  const card = CARDS.find(c => c.id === cardId);
+  const card = getAllCards().find(c => c.id === cardId);
   return card.annualFee - feeOffsets[cardId];
 }
 
 function generateCombinations() {
   
-  
-  const ids = CARDS.map(c => c.id);
+  const ids = getAllCards().map(c => c.id);
   const combos = [];
   
   ids.forEach(a => combos.push([a]));
@@ -1095,7 +1176,7 @@ function evalCombo(combo) {
   const annualSpend = {};
   CATEGORIES.forEach(cat => { annualSpend[cat] = spending[cat].reduce((a,b)=>a+b,0); });
 
-  const cards = combo.map(id => CARDS.find(c => c.id === id));
+  const cards = combo.map(id => getAllCards().find(c => c.id === id));
   const biltCard = cards.find(c => c.canEarnRent) || null;
   const biltObsCard = cards.find(c => c.has3xChoice) || null;
 
@@ -1122,7 +1203,7 @@ function evalCombo(combo) {
 
 function evalComboWithBiltChoice(combo, annualSpend, rent, biltObs3xCat) {
   
-  const cards = combo.map(id => CARDS.find(c => c.id === id));
+  const cards = combo.map(id => getAllCards().find(c => c.id === id));
   const biltCard = cards.find(c => c.canEarnRent) || null;
 
   
@@ -1315,7 +1396,7 @@ function renderResults(results) {
 
   list.innerHTML = '';
   results.forEach((r, idx) => {
-    const names = r.combo.map(id => CARDS.find(c=>c.id===id).name).join(' + ');
+    const names = r.combo.map(id => getAllCards().find(c=>c.id===id).name).join(' + ');
     
     let detailRows = '';
     const allCats = ['Travel','Dining','Groceries','Entertainment','Streaming','Other','Rent'];
@@ -1368,7 +1449,7 @@ function renderResults(results) {
         let multiplier = '';
         let detailNote = '';
         if (v.card) {
-          const card = CARDS.find(c => c.id === v.card);
+          const card = getAllCards().find(c => c.id === v.card);
           const catKey = cat.toLowerCase();
           let rate = card.rates[catKey];
           
@@ -1396,7 +1477,7 @@ function renderResults(results) {
     
     let feeRows = '';
     r.combo.forEach(id => {
-      const card = CARDS.find(c=>c.id===id);
+      const card = getAllCards().find(c=>c.id===id);
       const net = getNetFee(id);
       if (net >= 0) {
         
@@ -1454,18 +1535,19 @@ function fmt(n) {
 
 function buildPayload() {
   return {
-    _version: 1,
+    _version: 2,  
     rent: parseFloat(document.getElementById('rentInput').value) || 0,
     biltObsChoice: document.getElementById('biltObsChoice').value,
     spending: spending,
     pointValues: pointValues,
     feeOffsets: feeOffsets,
-    signupBonuses: signupBonuses
+    signupBonuses: signupBonuses,
+    customCards: customCards
   };
 }
 
 function applyPayload(data) {
-  if (!data || data._version !== 1) { showIoStatus('Invalid data format.'); return; }
+  if (!data || (data._version !== 1 && data._version !== 2)) { showIoStatus('Invalid data format.'); return; }
 
   
   document.getElementById('rentInput').value = data.rent || 0;
@@ -1500,17 +1582,43 @@ function applyPayload(data) {
   }
 
   
+  if (data.customCards && Array.isArray(data.customCards)) {
+    customCards = data.customCards;
+    
+    customCards.forEach(c => {
+      if (feeOffsets[c.id] == null) feeOffsets[c.id] = 0;
+      if (signupBonuses[c.id] == null) signupBonuses[c.id] = 0;
+      
+      if (c.customCpp && c.currency) {
+        pointValues[c.currency] = c.customCpp;
+      }
+    });
+    
+    const maxId = Math.max(0, ...customCards.map(c => {
+      const match = c.id.match(/^custom_(\d+)$/);
+      return match ? parseInt(match[1]) : 0;
+    }));
+    customCardCounter = maxId + 1;
+  } else {
+    customCards = [];
+    customCardCounter = 1;
+  }
+  renderCustomCards();
+  buildFeeCards();
+  buildFilterCheckboxes();
+
+  
   if (data.feeOffsets) {
-    CARDS.forEach(c => {
+    getAllCards().forEach(c => {
       if (data.feeOffsets[c.id] != null) feeOffsets[c.id] = data.feeOffsets[c.id];
     });
     rebuildFeeInputs();
-    CARDS.forEach(c => updateNetCost(c.id));
+    getAllCards().forEach(c => updateNetCost(c.id));
   }
   
   
   if (data.signupBonuses) {
-    CARDS.forEach(c => {
+    getAllCards().forEach(c => {
       if (data.signupBonuses[c.id] != null) signupBonuses[c.id] = data.signupBonuses[c.id];
     });
     rebuildBonusInputs();
@@ -1535,18 +1643,165 @@ function rebuildPointInputs() {
 }
 
 function rebuildFeeInputs() {
-  CARDS.forEach(c => {
+  getAllCards().forEach(c => {
     const el = document.querySelector(`.fee-row input[data-card="${c.id}"][data-type="benefit"]`);
     if (el) el.value = feeOffsets[c.id];
   });
 }
 
 function rebuildBonusInputs() {
-  CARDS.forEach(c => {
+  getAllCards().forEach(c => {
     const el = document.querySelector(`.fee-row input[data-card="${c.id}"][data-type="bonus"]`);
     if (el) el.value = signupBonuses[c.id];
   });
 }
+
+
+
+
+
+function getAllCards() {
+  
+  return [...CARDS, ...customCards];
+}
+
+function toggleCustomCurrencyInput() {
+  const select = document.getElementById('customCardCurrency');
+  const customDiv = document.getElementById('customCurrencyValueDiv');
+  if (select.value === 'custom') {
+    customDiv.style.display = 'block';
+  } else {
+    customDiv.style.display = 'none';
+  }
+}
+
+function showCustomCardForm() {
+  document.getElementById('customCardForm').style.display = 'block';
+}
+
+function cancelCustomCard() {
+  document.getElementById('customCardForm').style.display = 'none';
+  
+  document.getElementById('customCardName').value = '';
+  document.getElementById('customCardFee').value = '0';
+  document.getElementById('customCardCurrency').value = 'amex_mr';
+  document.getElementById('customCardCurrencyValue').value = '1.0';
+  document.getElementById('customCurrencyValueDiv').style.display = 'none';
+  document.getElementById('customCardRateTravel').value = '1';
+  document.getElementById('customCardRateDining').value = '1';
+  document.getElementById('customCardRateGroceries').value = '1';
+  document.getElementById('customCardRateEntertainment').value = '1';
+  document.getElementById('customCardRateStreaming').value = '1';
+  document.getElementById('customCardRateOther').value = '1';
+}
+
+function addCustomCard() {
+  const name = document.getElementById('customCardName').value.trim();
+  if (!name) {
+    alert('Please enter a card name');
+    return;
+  }
+  
+  const currencyType = document.getElementById('customCardCurrency').value;
+  let currency;
+  let customCpp = null;
+  
+  if (currencyType === 'custom') {
+    
+    currency = `custom_currency_${customCardCounter}`;
+    customCpp = parseFloat(document.getElementById('customCardCurrencyValue').value) || 1.0;
+    
+    pointValues[currency] = customCpp;
+  } else {
+    currency = currencyType;
+  }
+  
+  const card = {
+    id: `custom_${customCardCounter++}`,
+    name: name,
+    annualFee: parseFloat(document.getElementById('customCardFee').value) || 0,
+    currency: currency,
+    customCpp: customCpp, 
+    rates: {
+      travel: parseFloat(document.getElementById('customCardRateTravel').value) || 1,
+      dining: parseFloat(document.getElementById('customCardRateDining').value) || 1,
+      groceries: parseFloat(document.getElementById('customCardRateGroceries').value) || 1,
+      entertainment: parseFloat(document.getElementById('customCardRateEntertainment').value) || 1,
+      streaming: parseFloat(document.getElementById('customCardRateStreaming').value) || 1,
+      other: parseFloat(document.getElementById('customCardRateOther').value) || 1
+    },
+    caps: {},
+    notes: 'Custom card',
+    signupBonus: 0,
+    isCustom: true
+  };
+  
+  customCards.push(card);
+  feeOffsets[card.id] = 0;
+  signupBonuses[card.id] = 0;
+  
+  renderCustomCards();
+  buildFeeCards();
+  buildFilterCheckboxes();
+  cancelCustomCard();
+}
+
+function deleteCustomCard(cardId) {
+  const idx = customCards.findIndex(c => c.id === cardId);
+  if (idx >= 0) {
+    const card = customCards[idx];
+    
+    if (card.customCpp && card.currency.startsWith('custom_currency_')) {
+      delete pointValues[card.currency];
+    }
+    
+    customCards.splice(idx, 1);
+    delete feeOffsets[cardId];
+    delete signupBonuses[cardId];
+    
+    renderCustomCards();
+    buildFeeCards();
+    buildFilterCheckboxes();
+  }
+}
+
+function renderCustomCards() {
+  const list = document.getElementById('customCardsList');
+  if (customCards.length === 0) {
+    list.innerHTML = '<div style="color:var(--text-dim);font-size:12px;font-style:italic;">No custom cards added yet.</div>';
+    return;
+  }
+  
+  list.innerHTML = '';
+  customCards.forEach(card => {
+    const ratesSummary = `${card.rates.travel}x travel, ${card.rates.dining}x dining, ${card.rates.groceries}x groceries, ${card.rates.entertainment}x ent, ${card.rates.streaming}x stream, ${card.rates.other}x other`;
+    
+    
+    let currencyInfo;
+    if (card.customCpp) {
+      currencyInfo = `Custom @ ${card.customCpp.toFixed(2)}¢/pt`;
+    } else {
+      currencyInfo = CURRENCIES[card.currency] ? CURRENCIES[card.currency].label : card.currency;
+    }
+    
+    const div = document.createElement('div');
+    div.style.cssText = 'padding:12px;background:var(--surface1);border-radius:6px;border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;';
+    div.innerHTML = `
+      <div>
+        <div style="font-weight:600;font-size:13px;">${card.name}</div>
+        <div style="font-size:11px;color:var(--text-dim);margin-top:2px;">
+          AF: $${card.annualFee} | ${currencyInfo} | ${ratesSummary}
+        </div>
+      </div>
+      <button class="btn" onclick="deleteCustomCard('${card.id}')" style="padding:6px 12px;font-size:11px;background:var(--red);color:white;">Delete</button>
+    `;
+    list.appendChild(div);
+  });
+}
+
+
+
+
 
 function showIoStatus(msg) {
   const el = document.getElementById('ioStatus');
@@ -1626,9 +1881,10 @@ document.getElementById('pasteBtn').addEventListener('click', async () => {
 buildSpendTable();
 updateTotals();
 buildPointValues();
+renderCustomCards();
 buildFeeCards();
 buildFilterCheckboxes();
-CARDS.forEach(c => updateNetCost(c.id));
+getAllCards().forEach(c => updateNetCost(c.id));
 
 document.getElementById('calcBtn').addEventListener('click', calculate);
 
