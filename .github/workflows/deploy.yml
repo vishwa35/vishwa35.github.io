@@ -1,12 +1,17 @@
 name: Deploy Hugo Site
 
 on:
+  pull_request:
+    types: [closed]
+    branches:
+      - master
   push:
     branches:
       - master
 
 jobs:
   deploy:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
     runs-on: ubuntu-latest
 
     steps:
@@ -25,11 +30,20 @@ jobs:
       - name: Build site
         run: hugo -t hugo-theme-codex
 
+      - name: Determine commit message
+        id: commit_msg
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "msg=${{ github.event.pull_request.title }}" >> $GITHUB_OUTPUT
+          else
+            echo "msg=rebuilding site $(date)" >> $GITHUB_OUTPUT
+          fi
+
       - name: Deploy to GitHub Pages
         working-directory: ./public
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add .
-          git commit -m "rebuilding site $(date)" || echo "No changes to commit"
+          git commit -m "${{ steps.commit_msg.outputs.msg }}" || echo "No changes to commit"
           git push origin master
