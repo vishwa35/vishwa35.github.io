@@ -2,7 +2,7 @@ name: Deploy Hugo Site
 
 on:
   pull_request:
-    types: [closed]
+    types: [opened, synchronize]
     branches:
       - master
   push:
@@ -10,8 +10,47 @@ on:
       - master
 
 jobs:
-  deploy:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+  deploy-preview:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build preview site
+        run: hugo -t hugo-theme-codex --baseURL "https://vishwashah.me/preview/" -d public_preview
+
+      - name: Checkout GitHub Pages repo
+        uses: actions/checkout@v4
+        with:
+          repository: vishwa35/vishwa35.github.io
+          path: pages_repo
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy preview to GitHub Pages
+        run: |
+          rm -rf pages_repo/preview
+          mkdir -p pages_repo/preview
+          cp -r public_preview/* pages_repo/preview/
+          cd pages_repo
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add preview/
+          git commit -m "Preview for PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}" || echo "No changes to commit"
+          git push origin master
+
+  deploy-production:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:
@@ -30,20 +69,11 @@ jobs:
       - name: Build site
         run: hugo -t hugo-theme-codex
 
-      - name: Determine commit message
-        id: commit_msg
-        run: |
-          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            echo "msg=${{ github.event.pull_request.title }}" >> $GITHUB_OUTPUT
-          else
-            echo "msg=rebuilding site $(date)" >> $GITHUB_OUTPUT
-          fi
-
       - name: Deploy to GitHub Pages
         working-directory: ./public
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add .
-          git commit -m "${{ steps.commit_msg.outputs.msg }}" || echo "No changes to commit"
+          git commit -m "rebuilding site $(date)" || echo "No changes to commit"
           git push origin master
