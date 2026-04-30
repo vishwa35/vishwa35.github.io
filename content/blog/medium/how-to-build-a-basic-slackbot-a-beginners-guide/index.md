@@ -22,9 +22,6 @@ images:
 
 aliases:
     - "/how-to-build-a-basic-slackbot-a-beginners-guide-6b40507db5c5"
-
-tags: [programming, bot, api, slack, hack, github]
-keywords: [programming, bot, api, slack, hack, github]
 ---
 
 #### Let’s try and automate something [in python]
