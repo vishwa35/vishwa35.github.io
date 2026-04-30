@@ -28,7 +28,7 @@ jobs:
           extended: true
 
       - name: Build preview site
-        run: hugo -t hugo-theme-codex --baseURL "https://vishwashah.me/preview/" -d public_preview
+        run: hugo -t hugo-theme-codex --baseURL "https://vishwashah.com/preview/" -d public_preview
 
       - name: Checkout GitHub Pages repo
         uses: actions/checkout@v4
