@@ -1,1 +1,4 @@
 resources/_gen/*
+public/
+public_preview/
+.hugo_build.lock

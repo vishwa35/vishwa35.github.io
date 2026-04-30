@@ -18,8 +18,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          submodules: 'recursive'
-          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -38,24 +37,12 @@ jobs:
       - name: Build preview site
         run: hugo -t hugo-theme-codex --baseURL "https://vishwashah.com/preview/" -d public_preview
 
-      - name: Checkout GitHub Pages repo
-        uses: actions/checkout@v4
+      - name: Deploy preview to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          repository: vishwa35/vishwa35.github.io
-          path: pages_repo
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Deploy preview to GitHub Pages
-        run: |
-          rm -rf pages_repo/preview
-          mkdir -p pages_repo/preview
-          cp -r public_preview/* pages_repo/preview/
-          cd pages_repo
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add preview/
-          git commit -m "Preview for PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}" || echo "No changes to commit"
-          git push origin master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public_preview
+          destination_dir: preview
 
   deploy-production:
     if: github.event_name == 'push'
@@ -65,8 +52,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          submodules: 'recursive'
-          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -85,11 +71,8 @@ jobs:
       - name: Build site
         run: hugo -t hugo-theme-codex
 
-      - name: Deploy to GitHub Pages
-        working-directory: ./public
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add .
-          git commit -m "rebuilding site $(date)" || echo "No changes to commit"
-          git push origin master
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
