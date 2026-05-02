@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spelling Bee Master</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            max-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #5a67d8;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f7fafc;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 14px;
+            font-weight: 600;
+            color: #718096;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab.active {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            margin-bottom: -2px;
+        }
+
+        .nav-tab:hover {
+            color: #667eea;
+            background: #edf2f7;
+        }
+
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Bee Section */
+        .current-player {
+            background: #edf2f7;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .current-player-name {
+            font-size: 14px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .current-player-name span {
+            font-size: 28px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .word-display {
+            background: white;
+            border: 3px dashed #667eea;
+            padding: 30px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .word-display.loading {
+            opacity: 0.6;
+        }
+
+        .word-label {
+            font-size: 12px;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .word {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2d3748;
+            word-break: break-word;
+        }
+
+        .spell-active {
+            background: #fed7d7;
+            border-color: #fc8181;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .spell-active-label {
+            font-size: 12px;
+            color: #c53030;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .spell-active-text {
+            font-size: 18px;
+            color: #742a2a;
+            font-weight: 600;
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .button-group.full {
+            grid-template-columns: 1fr;
+        }
+
+        button {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .btn-success {
+            background: #48bb78;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #38a169;
+        }
+
+        .btn-danger {
+            background: #f56565;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #e53e3e;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5a67d8;
+        }
+
+        .btn-secondary {
+            background: #cbd5e0;
+            color: #2d3748;
+        }
+
+        .btn-secondary:hover {
+            background: #a0aec0;
+        }
+
+        .btn-warning {
+            background: #ed8936;
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background: #dd6b20;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .stat-card {
+            background: #edf2f7;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        /* Settings Section */
+        .settings-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .info-text {
+            font-size: 12px;
+            color: #718096;
+            margin-top: 8px;
+        }
+
+        /* Scores Section */
+        .scores-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .score-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .score-name {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .score-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        /* Bank Section */
+        .bank-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .bank-word {
+            padding: 12px;
+            background: #edf2f7;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bank-word-text {
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .bank-word-status {
+            font-size: 12px;
+            color: #718096;
+        }
+
+        .bank-word.used {
+            opacity: 0.6;
+            background: #cbd5e0;
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 40px 20px;
+            color: #a0aec0;
+            font-style: italic;
+        }
+
+        .spell-input-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .spell-input-group input {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .spell-input-group button {
+            padding: 10px 20px;
+            min-width: 100px;
+        }
+
+        .spells-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .spell-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #edf2f7;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .spell-item-text {
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .spell-item button {
+            padding: 6px 12px;
+            font-size: 12px;
+            min-width: auto;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 90%;
+            width: 400px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .modal-buttons button {
+            flex: 1;
+        }
+
+        .word-count {
+            font-size: 12px;
+            color: #718096;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .word {
+                font-size: 28px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐝 Spelling Bee Master</h1>
+            <p>Round-robin spelling with magical twists</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-tab="bee">Bee</button>
+            <button class="nav-tab" data-tab="scores">Scores</button>
+            <button class="nav-tab" data-tab="bank">Bank</button>
+            <button class="nav-tab" data-tab="settings">Settings</button>
+        </div>
+
+        <div class="content">
+            <!-- BEE SECTION -->
+            <div class="section active" id="bee">
+                <div class="current-player">
+                    <div class="current-player-name">Current Speller</div>
+                    <div class="current-player-name"><span id="currentPlayer">-</span></div>
+                </div>
+
+                <div id="spellActive" class="spell-active" style="display: none;">
+                    <div class="spell-active-label">⚡ Spell Cast!</div>
+                    <div class="spell-active-text" id="spellText"></div>
+                </div>
+
+                <div class="word-display" id="wordDisplay">
+                    <div class="word-label">Word to spell</div>
+                    <div class="word" id="wordText">-</div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn-success" onclick="markCorrect()">✓ Correct</button>
+                    <button class="btn-danger" onclick="markIncorrect()">✗ Incorrect</button>
+                </div>
+
+                <div class="button-group full">
+                    <button class="btn-warning" onclick="castSpell()">⚡ Cast Spell</button>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-label">Words Used</div>
+                        <div class="stat-value" id="wordsUsed">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Remaining</div>
+                        <div class="stat-value" id="wordsRemaining">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCORES SECTION -->
+            <div class="section" id="scores">
+                <div id="scoresList" class="scores-list"></div>
+                <div style="margin-top: 20px;">
+                    <button class="btn-secondary" onclick="resetScores()" style="width: 100%;">Reset Scores</button>
+                </div>
+            </div>
+
+            <!-- BANK SECTION -->
+            <div class="section" id="bank">
+                <div id="bankList" class="bank-list"></div>
+                <div style="margin-top: 20px;">
+                    <button class="btn-secondary" onclick="resetBank()" style="width: 100%;">Reset Bank</button>
+                </div>
+            </div>
+
+            <!-- SETTINGS SECTION -->
+            <div class="section" id="settings">
+                <div class="settings-form">
+                    <div class="form-group">
+                        <label>Participant Names</label>
+                        <textarea id="participantsInput" placeholder="One name per line&#10;John&#10;Jane&#10;Bob"></textarea>
+                        <div class="info-text">Enter names separated by line breaks</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Word Bank</label>
+                        <textarea id="wordBankInput" placeholder="One word per line&#10;Eloquent&#10;Melancholy&#10;Serendipity"></textarea>
+                        <div class="word-count"><span id="wordCount">0</span> words loaded</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Spells/Twists</label>
+                        <div class="spell-input-group">
+                            <input type="text" id="spellInput" placeholder="e.g., Spell backwards">
+                            <button class="btn-primary" onclick="addSpell()">Add</button>
+                        </div>
+                        <div class="spells-list" id="spellsList"></div>
+                    </div>
+
+                    <button class="btn-primary" onclick="saveSettings()" style="width: 100%; margin-top: 20px;">Save Settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spell Cast Modal -->
+    <div class="modal" id="spellModal">
+        <div class="modal-content">
+            <div class="modal-title">⚡ Cast a Spell</div>
+            <div id="spellOptions"></div>
+            <div class="modal-buttons">
+                <button class="btn-secondary" onclick="closeSpellModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const app = {
+            participants: [],
+            wordBank: [],
+            usedWords: [],
+            scores: {},
+            spells: [],
+            currentPlayerIndex: 0,
+            activeSpell: null,
+
+            init() {
+                this.loadSettings();
+                this.setupEventListeners();
+                this.updateUI();
+                if (this.participants.length > 0 && this.wordBank.length > 0) {
+                    this.nextWord();
+                }
+            },
+
+            loadSettings() {
+                const saved = localStorage.getItem('spellingBeeSettings');
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    this.participants = data.participants || [];
+                    this.wordBank = data.wordBank || [];
+                    this.usedWords = data.usedWords || [];
+                    this.scores = data.scores || {};
+                    this.spells = data.spells || [];
+                    this.activeSpell = data.activeSpell || null;
+                    this.currentPlayerIndex = data.currentPlayerIndex || 0;
+
+                    document.getElementById('participantsInput').value = this.participants.join('\n');
+                    document.getElementById('wordBankInput').value = this.wordBank.join('\n');
+                    this.renderSpells();
+                }
+            },
+
+            setupEventListeners() {
+                document.querySelectorAll('.nav-tab').forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        this.switchTab(e.target.dataset.tab);
+                    });
+                });
+
+                document.getElementById('spellInput').addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.addSpell();
+                    }
+                });
+            },
+
+            switchTab(tabName) {
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.getElementById(tabName).classList.add('active');
+                document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+            },
+
+            saveSettings() {
+                this.participants = document.getElementById('participantsInput').value
+                    .split('\n')
+                    .map(n => n.trim())
+                    .filter(n => n);
+
+                this.wordBank = document.getElementById('wordBankInput').value
+                    .split('\n')
+                    .map(w => w.trim())
+                    .filter(w => w);
+
+                // Initialize scores for new participants
+                this.participants.forEach(p => {
+                    if (!(p in this.scores)) {
+                        this.scores[p] = 0;
+                    }
+                });
+
+                this.persistData();
+                this.updateUI();
+                alert('Settings saved!');
+            },
+
+            addSpell() {
+                const input = document.getElementById('spellInput');
+                const spell = input.value.trim();
+                if (spell && !this.spells.includes(spell)) {
+                    this.spells.push(spell);
+                    input.value = '';
+                    this.renderSpells();
+                    this.persistData();
+                }
+            },
+
+            removeSpell(index) {
+                this.spells.splice(index, 1);
+                this.renderSpells();
+                this.persistData();
+            },
+
+            renderSpells() {
+                const list = document.getElementById('spellsList');
+                list.innerHTML = this.spells.map((spell, i) => `
+                    <div class="spell-item">
+                        <div class="spell-item-text">${spell}</div>
+                        <button class="btn-danger" onclick="app.removeSpell(${i})">Remove</button>
+                    </div>
+                `).join('');
+            },
+
+            nextWord() {
+                if (this.wordBank.length === 0) {
+                    alert('No words in bank!');
+                    return;
+                }
+
+                const available = this.wordBank.filter(w => !this.usedWords.includes(w));
+
+                if (available.length === 0) {
+                    if (confirm('All words used! Reset bank?')) {
+                        this.resetBank();
+                    }
+                    return;
+                }
+
+                const word = available[Math.floor(Math.random() * available.length)];
+                this.currentWord = word;
+                this.activeSpell = null;
+                this.updateUI();
+            },
+
+            markCorrect() {
+                if (this.usedWords.includes(this.currentWord)) {
+                    this.nextWord();
+                    return;
+                }
+
+                this.usedWords.push(this.currentWord);
+                const player = this.participants[this.currentPlayerIndex];
+                this.scores[player]++;
+                this.advance();
+            },
+
+            markIncorrect() {
+                this.advance();
+            },
+
+            advance() {
+                this.currentPlayerIndex = (this.currentPlayerIndex + 1) % this.participants.length;
+                this.nextWord();
+            },
+
+            castSpell() {
+                if (this.spells.length === 0) {
+                    alert('No spells configured! Add some in Settings.');
+                    return;
+                }
+
+                const modal = document.getElementById('spellModal');
+                const optionsDiv = document.getElementById('spellOptions');
+                optionsDiv.innerHTML = this.spells.map((spell, i) => `
+                    <button class="btn-primary" onclick="app.applySpell(${i})" style="width: 100%; margin-bottom: 10px;">${spell}</button>
+                `).join('');
+                modal.classList.add('active');
+            },
+
+            applySpell(index) {
+                this.activeSpell = this.spells[index];
+                this.closeSpellModal();
+                this.updateUI();
+            },
+
+            closeSpellModal() {
+                document.getElementById('spellModal').classList.remove('active');
+            },
+
+            resetBank() {
+                this.usedWords = [];
+                this.persistData();
+                this.updateUI();
+            },
+
+            resetScores() {
+                this.participants.forEach(p => {
+                    this.scores[p] = 0;
+                });
+                this.persistData();
+                this.updateUI();
+            },
+
+            updateUI() {
+                // Update bee section
+                document.getElementById('currentPlayer').textContent =
+                    this.participants[this.currentPlayerIndex] || '-';
+                document.getElementById('wordText').textContent = this.currentWord || '-';
+
+                const spellActive = document.getElementById('spellActive');
+                if (this.activeSpell) {
+                    spellActive.style.display = 'block';
+                    document.getElementById('spellText').textContent = this.activeSpell;
+                } else {
+                    spellActive.style.display = 'none';
+                }
+
+                // Update stats
+                document.getElementById('wordsUsed').textContent = this.usedWords.length;
+                document.getElementById('wordsRemaining').textContent = this.wordBank.length - this.usedWords.length;
+
+                // Update scores
+                const scoresList = document.getElementById('scoresList');
+                if (this.participants.length === 0) {
+                    scoresList.innerHTML = '<div class="empty-message">No participants yet. Add them in Settings!</div>';
+                } else {
+                    scoresList.innerHTML = this.participants.map(p => `
+                        <div class="score-row">
+                            <div class="score-name">${p}</div>
+                            <div class="score-value">${this.scores[p] || 0}</div>
+                        </div>
+                    `).join('');
+                }
+
+                // Update bank
+                const bankList = document.getElementById('bankList');
+                if (this.wordBank.length === 0) {
+                    bankList.innerHTML = '<div class="empty-message">No words in bank yet. Add them in Settings!</div>';
+                } else {
+                    bankList.innerHTML = this.wordBank.map(w => `
+                        <div class="bank-word ${this.usedWords.includes(w) ? 'used' : ''}">
+                            <div class="bank-word-text">${w}</div>
+                            <div class="bank-word-status">${this.usedWords.includes(w) ? '✓ Used' : 'Available'}</div>
+                        </div>
+                    `).join('');
+                }
+
+                // Update word count
+                document.getElementById('wordCount').textContent = this.wordBank.length;
+
+                this.persistData();
+            },
+
+            persistData() {
+                const data = {
+                    participants: this.participants,
+                    wordBank: this.wordBank,
+                    usedWords: this.usedWords,
+                    scores: this.scores,
+                    spells: this.spells,
+                    activeSpell: this.activeSpell,
+                    currentPlayerIndex: this.currentPlayerIndex
+                };
+                localStorage.setItem('spellingBeeSettings', JSON.stringify(data));
+            }
+        };
+
+        // Global functions for onclick handlers
+        function markCorrect() { app.markCorrect(); }
+        function markIncorrect() { app.markIncorrect(); }
+        function castSpell() { app.castSpell(); }
+        function closeSpellModal() { app.closeSpellModal(); }
+        function resetScores() { app.resetScores(); }
+        function resetBank() { app.resetBank(); }
+        function saveSettings() { app.saveSettings(); }
+        function addSpell() { app.addSpell(); }
+
+        // Initialize
+        app.init();
+    </script>
+</body>
+</html>
