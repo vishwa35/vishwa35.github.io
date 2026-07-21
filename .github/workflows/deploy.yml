@@ -33,7 +33,7 @@ jobs:
             ${{ runner.os }}-hugo-
 
       - name: Build preview site
-        run: hugo -t hugo-theme-codex --baseURL "https://vishwashah.com/preview/" -d public_preview
+        run: hugo -t hugo-theme-codex --baseURL "/preview/" -d public_preview
 
       - name: Deploy preview to gh-pages
         uses: peaceiris/actions-gh-pages@v4
@@ -65,7 +65,7 @@ jobs:
             ${{ runner.os }}-hugo-
 
       - name: Build site
-        run: hugo -t hugo-theme-codex
+        run: hugo -t hugo-theme-codex --baseURL "/"
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
