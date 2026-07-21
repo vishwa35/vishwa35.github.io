@@ -1,11 +1,4 @@
-[submodule "public"]
-	path = public
-	url = git@github.com:vishwa35/vishwa35.github.io.git
-	branch = master
 [submodule "themes/hugo-theme-codex"]
 	path = themes/hugo-theme-codex
 	url = https://github.com/vishwa35/hugo-theme-codex.git
 	branch = vish/current
-[submodule "themes/coder"]
-	path = themes/coder
-	url = https://github.com/luizdepra/hugo-coder.git
