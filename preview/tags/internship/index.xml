@@ -14,7 +14,7 @@
       <link>https://vishwashah.com/preview/blog/medium/across-the-pond/</link>
       <pubDate>Wed, 28 Aug 2019 00:13:52 +0000</pubDate>
       <guid>https://vishwashah.com/preview/blog/medium/across-the-pond/</guid>
-      <description>This summer was filled with unknowns.&#xA;London, a city I knew no one in, on a continent in which I’d never left an airport. Palantir, where I’d intern as a forward deployed software engineer — I knew it’d be something different, but not exactly how.&#xA;These unknowns led to quite a bit of discovery. I was able to reflect on my place in the world and interface with people of all kinds of backgrounds and attitudes on life, careers, and politics.</description>
+      <description>This summer was filled with unknowns.&#xA;London, a city I knew no one in, on a continent in which I’d never left an airport. Palantir , where I’d intern as a forward deployed software engineer — I knew it’d be something different, but not exactly how.&#xA;These unknowns led to quite a bit of discovery. I was able to reflect on my place in the world and interface with people of all kinds of backgrounds and attitudes on life, careers, and politics.</description>
     </item>
     <item>
       <title>Graduating? Me? Not yet.</title>
@@ -35,7 +35,7 @@
       <link>https://vishwashah.com/preview/blog/medium/debugging-a-series-of-miscalculations-in-osquery/</link>
       <pubDate>Fri, 18 Aug 2017 18:59:37 +0000</pubDate>
       <guid>https://vishwashah.com/preview/blog/medium/debugging-a-series-of-miscalculations-in-osquery/</guid>
-      <description>Heads up, we’ve moved! If you’d like to continue keeping up with the latest technical content from Square please visit us at our new home https://developer.squareup.com/blog&#xA;What is osquery? osquery is an an open source tool by Facebook that provides a SQL interface for system information.&#xA;Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.</description>
+      <description>Heads up, we’ve moved! If you’d like to continue keeping up with the latest technical content from Square please visit us at our new home https://developer.squareup.com/blog What is osquery ? osquery is an an open source tool by Facebook that provides a SQL interface for system information.&#xA;Over the course of the summer I’ve been working on integrating osquery results into our internal asset tracker for automation/validation purposes. It’s been incredibly useful for monitoring various stats, and the SQL interface makes it easy to use.</description>
     </item>
   </channel>
 </rss>
