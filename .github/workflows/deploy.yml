@@ -17,8 +17,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -35,7 +33,7 @@ jobs:
             ${{ runner.os }}-hugo-
 
       - name: Build preview site
-        run: hugo -t hugo-theme-codex --baseURL "/preview/" -d public_preview
+        run: hugo -t hugo-theme-codex --baseURL "https://vishwashah.com/preview/" -d public_preview
 
       - name: Deploy preview to gh-pages
         uses: peaceiris/actions-gh-pages@v4
@@ -51,8 +49,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -69,7 +65,7 @@ jobs:
             ${{ runner.os }}-hugo-
 
       - name: Build site
-        run: hugo -t hugo-theme-codex --baseURL "/"
+        run: hugo -t hugo-theme-codex
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
