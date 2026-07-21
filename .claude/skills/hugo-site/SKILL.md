@@ -69,11 +69,12 @@ hugo -t hugo-theme-codex
 
 ## Deployment
 
-There are two GitHub Actions workflows in `.github/workflows/`, and they overlap:
-- `hugo.yml` — builds and deploys to GitHub Pages proper (the `actions/deploy-pages` flow) on push to `master`.
-- `deploy.yml` — builds and pushes to a `gh-pages` branch (via `peaceiris/actions-gh-pages`), plus a PR preview under `/preview/`.
+GitHub Actions workflow `hugo.yml` handles all deployment on push to `master`:
+- Installs Hugo + Dart Sass, checks out submodules, builds the site with Hugo.
+- Uploads the built artifact and deploys to GitHub Pages via the native `actions/deploy-pages` flow.
+- Runs on push to `master` and can be triggered manually via the Actions tab.
 
-Check which one is actually live in the repo's Pages settings before assuming both are needed — having both active can cause confusing double-deploys. `deploy.sh` at the repo root is an older manual/local deploy script (builds with `hugo -t hugo-theme-codex` and pushes `public/` as its own git repo) — likely superseded by the Actions workflows.
+This is the only active deployment method; manual `deploy.sh` and the older `deploy.yml` workflow have been removed.
 
 ## Adding content
 
