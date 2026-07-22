@@ -161,10 +161,18 @@
   </url><url>
     <loc>/preview/itineraries/</loc>
   </url><url>
+    <loc>/preview/itineraries/london/</loc>
+  </url><url>
+    <loc>/preview/itineraries/acadia/</loc>
+  </url><url>
     <loc>/preview/ongoing-projects/</loc>
   </url><url>
     <loc>/preview/reading-list/</loc>
   </url><url>
     <loc>/preview/resume/</loc>
+  </url><url>
+    <loc>/preview/itineraries/san-francisco/</loc>
+  </url><url>
+    <loc>/preview/itineraries/seattle/</loc>
   </url>
 </urlset>

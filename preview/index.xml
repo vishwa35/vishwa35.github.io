@@ -136,11 +136,18 @@
       <description></description>
     </item>
     <item>
-      <title>Itineraries</title>
-      <link>/preview/itineraries/</link>
+      <title>London</title>
+      <link>/preview/itineraries/london/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/preview/itineraries/</guid>
-      <description>A collection of travel guides and itineraries for places I&amp;rsquo;ve explored. Each guide includes highlights, recommendations, and practical tips.&#xA;Trips NYC → Acadia - A scenic drive up the Northeast coast with detailed trail recommendations and stops along the way. London - Food recommendations, attractions, and neighborhood guides for exploring London. San Francisco - Coming soon&amp;hellip; Seattle - Coming soon&amp;hellip; </description>
+      <guid>/preview/itineraries/london/</guid>
+      <description>Food Homeslice for pizza (try the pomegranate tahini cauliflower chickpea pizza) Inamo - Japanese food The Kati Roll Company Dishoom - overrated but worth trying once Nandos - gotta go once at least DUM Biryani House Crosstown Doughnuts Roti Chai - Indian street food Tibits and Soho vegan market (all veg/vegan menus, vegan options widely available) Hoppers - Amazing Sri Lankan food Ping Pong - Japanese Pachamama - Peruvian Places to Go Oxford Street - shopping hub Picadilly Circus Hyde Park Regents Park Tower Bridge Thames River Cruise Walk along the Thames Anchor Shakespeare&amp;rsquo;s Globe Shard London Eye Borough Market - cool to walk around Camden Market - lots of good food Old Spitalfields - nice shopping and food Brick Lane - Banglatown, less posh with great food (look for Chai Bros) Imperial War Museum Mr.</description>
+    </item>
+    <item>
+      <title>NYC → Acadia</title>
+      <link>/preview/itineraries/acadia/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/preview/itineraries/acadia/</guid>
+      <description>Highlights Cliffs along Ocean Path Trail or drive along the coast with parking lots and scenic stops Highlights: Otter Cliffs and Thunder Hole Sand Beach Nice and cold water, north side of Ocean Path starts here Note: Northmost part of the trail is less exciting Cadillac Mountain Highest peak, hike or drive up Sunrise is beautiful, sometimes the first in the US to see it Permit required during summer to drive up: https://recreation.</description>
     </item>
     <item>
       <title>Ongoing Projects</title>
@@ -162,6 +169,20 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/preview/resume/</guid>
       <description>Education Georgia Institute of Technology Aug 2016 – Dec 2019 | Atlanta, GA&#xA;B.S. Computer Science, concentrations: Intelligence + Information Internetworks Affiliations: Alpha Kappa Psi (Business Fraternity), Ramblin’ Raas (Nationally Competitive Dance Team) Relevant Coursework: Software / Design Theory / Maths Artificial Intelligence Objects &amp; Design (CS 1331) Data Structures &amp; Algorithms (CS 1332) Software Design (CS 2340) Computer Organization &amp; Programming (CS 2110) Computer Systems and Networks (CS 2200) Computer Networking (CS 3251) Databases (CS 4400) Multivariable Calculus (MATH 2550) Linear Algebra (MATH 1554) Discrete Mathematics (CS 2051) Applied Combinatorics (MATH 3012) Probability and Statistics (MATH 3215) Design &amp; Analysis of Algorithms (CS 3510) Automata &amp; Complexity (CS 4510) Introduction to AI (CS 3600) Robotics &amp; Perception (CS 3630) Computer Vision (CS 4776) Machine Learning (CS 4641) Computing &amp; Ethics (CS 4001) Social Computing (CS 4803) Computational Linguistics (CS 4803/LING 4813) Intro to Linguistics (LING 2100) Experience Palantir Software Engineer June 2020 - Present | New York, NY</description>
+    </item>
+    <item>
+      <title>San Francisco</title>
+      <link>/preview/itineraries/san-francisco/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/preview/itineraries/san-francisco/</guid>
+      <description>Coming soon&amp;hellip;</description>
+    </item>
+    <item>
+      <title>Seattle</title>
+      <link>/preview/itineraries/seattle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/preview/itineraries/seattle/</guid>
+      <description>Coming soon&amp;hellip;</description>
     </item>
   </channel>
 </rss>
