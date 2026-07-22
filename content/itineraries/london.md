@@ -5,8 +5,7 @@ layout: "static-page"
 type: "static-page"
 ---
 
-<details class="itinerary-section" open>
-<summary class="itinerary-title">Food</summary>
+## Food
 
 - Homeslice for pizza (try the pomegranate tahini cauliflower chickpea pizza)
 - Inamo - Japanese food
@@ -21,10 +20,7 @@ type: "static-page"
 - Ping Pong - Japanese
 - Pachamama - Peruvian
 
-</details>
-
-<details class="itinerary-section">
-<summary class="itinerary-title">Places to Go</summary>
+## Places to Go
 
 - Oxford Street - shopping hub
 - Picadilly Circus
@@ -44,10 +40,7 @@ type: "static-page"
 - Imperial War Museum
 - Mr. Foggs Society - themed bars, really fun
 
-</details>
-
-<details class="itinerary-section">
-<summary class="itinerary-title">Boroughs</summary>
+## Boroughs
 
 - Marylebone / Mayfair
 - Kensington
@@ -67,5 +60,3 @@ type: "static-page"
 - Get an Oyster Card for the tube (great for central London)
 - Figure out frequency of use (weekly pass may not be worth it since the city is very walkable)
 - Oyster Card has fare capping - you'll only be charged max amount per day/week
-
-</details>

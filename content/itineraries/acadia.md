@@ -5,8 +5,7 @@ layout: "static-page"
 type: "static-page"
 ---
 
-<details class="itinerary-section" open>
-<summary class="itinerary-title">Highlights</summary>
+## Highlights
 
 - **Cliffs along Ocean Path**
   - Trail or drive along the coast with parking lots and scenic stops
@@ -25,10 +24,7 @@ type: "static-page"
 - **Eagle Lake and Echo Lake**
   - Internal water viewpoints, less time spent here
 
-</details>
-
-<details class="itinerary-section">
-<summary class="itinerary-title">Trails</summary>
+## Trails
 
 - **Bubbles Trail**
   - Moderate to hard, rock scrambling
@@ -50,10 +46,7 @@ type: "static-page"
 - [Beehive, The Bowl, Gorham Mountain, Ocean Drive Loop](https://www.alltrails.com/trail/us/maine/beehive-the-bowl-gorham-mountain-ocean-drive-loop)
 - [Bubbles Divide via Jordans Pond Path](https://www.alltrails.com/trail/us/maine/bubbles-divide-via-jordans-pond-path)
 
-</details>
-
-<details class="itinerary-section">
-<summary class="itinerary-title">Along the Way</summary>
+## Along the Way
 
 - **New Haven, CT**
   - Stopped for coffee, Yale University nearby
@@ -74,5 +67,3 @@ type: "static-page"
   - Outlets for outdoor gear stores, nice place to stretch legs
 - **Bangor, ME**
   - Surprisingly nice town, Chimera Coffee and main area walk
-
-</details>
