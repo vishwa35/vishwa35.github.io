@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projtags on Vishwa Shah</title>
+    <link>/preview/projtags/</link>
+    <description>Recent content in Projtags on Vishwa Shah</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2020</copyright>
+    <lastBuildDate>Wed, 31 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/preview/projtags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Computervision</title>
+      <link>/preview/projtags/computervision/</link>
+      <pubDate>Wed, 31 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>/preview/projtags/computervision/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>/preview/projtags/python/</link>
+      <pubDate>Wed, 31 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>/preview/projtags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Slackbot</title>
+      <link>/preview/projtags/slackbot/</link>
+      <pubDate>Wed, 06 Jun 2018 01:03:29 -0700</pubDate>
+      <guid>/preview/projtags/slackbot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>D3</title>
+      <link>/preview/projtags/d3/</link>
+      <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>/preview/projtags/d3/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Flask</title>
+      <link>/preview/projtags/flask/</link>
+      <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>/preview/projtags/flask/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Twitter</title>
+      <link>/preview/projtags/twitter/</link>
+      <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>/preview/projtags/twitter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Heroku</title>
+      <link>/preview/projtags/heroku/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/preview/projtags/heroku/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Javascript</title>
+      <link>/preview/projtags/javascript/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/preview/projtags/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rails</title>
+      <link>/preview/projtags/rails/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/preview/projtags/rails/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ruby</title>
+      <link>/preview/projtags/ruby/</link>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/preview/projtags/ruby/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jain</title>
+      <link>/preview/projtags/jain/</link>
+      <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>/preview/projtags/jain/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Csharp</title>
+      <link>/preview/projtags/csharp/</link>
+      <pubDate>Fri, 02 Dec 2016 00:00:00 +0000</pubDate>
+      <guid>/preview/projtags/csharp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>VR</title>
+      <link>/preview/projtags/vr/</link>
+      <pubDate>Fri, 02 Dec 2016 00:00:00 +0000</pubDate>
+      <guid>/preview/projtags/vr/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
