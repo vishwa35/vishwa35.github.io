@@ -93,6 +93,12 @@ theme = "hugo-theme-codex"
   title = "Reading List"
   url = "/reading-list"
 
+[[menu.main]]
+  identifier = "burrito grocery list"
+  name = "🌯 burrito list"
+  title = "Burrito Grocery List"
+  url = "/burrito-grocery-list"
+
 [taxonomies]
   category = "categories"
   tag = "tags"
