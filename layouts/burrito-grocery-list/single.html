@@ -400,6 +400,27 @@
 
             if (typeof qty !== 'string') return qty;
 
+            // Handle "or" cases by processing each alternative
+            if (qty.includes(' or ')) {
+                const parts = qty.split(' or ');
+                return parts.map(part => multiplyQuantity(part.trim(), multiplier)).join(' or ');
+            }
+
+            // Handle range cases like "2-3 tbsp"
+            if (qty.includes('-') && qty.match(/\d+-\d/)) {
+                const rangeParts = qty.match(/^([0-9.]+)-([0-9.]+)/);
+                if (rangeParts) {
+                    const start = parseFloat(rangeParts[1]);
+                    const end = parseFloat(rangeParts[2]);
+                    const newStart = start * multiplier / 2;
+                    const newEnd = end * multiplier / 2;
+                    const rest = qty.substring(rangeParts[0].length);
+
+                    const formatNum = (n) => n === Math.floor(n) ? Math.floor(n) : n.toFixed(2).replace(/\.?0+$/, '');
+                    return formatNum(newStart) + '-' + formatNum(newEnd) + rest;
+                }
+            }
+
             const parsed = parseQuantity(qty);
             if (!parsed) return qty;
 
