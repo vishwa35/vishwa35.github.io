@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakfast Burrito Grocery List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .multiplier-group {
+            display: flex;
+            gap: 5px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .multiplier-btn {
+            padding: 10px 14px;
+            border: none;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .multiplier-btn:hover {
+            background: #e8e8e8;
+        }
+
+        .multiplier-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .multiplier-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            margin-right: 5px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .stats {
+            padding: 15px 20px;
+            background: #f0f7ff;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            font-size: 18px;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .sections {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+
+        .item:hover {
+            background: #f0f0f0;
+        }
+
+        .item.have {
+            background: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+
+        .item.need {
+            background: #fff3e0;
+            border-left-color: #ff9800;
+        }
+
+        .item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            margin-right: 12px;
+            accent-color: #667eea;
+        }
+
+        .item-text {
+            flex: 1;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .item.have .item-text {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .item-quantity {
+            font-size: 12px;
+            color: #999;
+            background: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .footer {
+            padding: 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+            font-size: 12px;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .stats {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌯 Breakfast Burrito Shopping List</h1>
+            <p>Tofu Scramble & Smokey Black Bean Burritos (<span id="multiplierLabel">Doubled</span> Recipe)</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-value" id="totalItems">0</span>
+                <span class="stat-label">Total Items</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="haveItems">0</span>
+                <span class="stat-label">✓ Have</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="needItems">0</span>
+                <span class="stat-label">✗ Need</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="progress">0%</span>
+                <span class="stat-label">Complete</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <span class="multiplier-label">Recipe Multiplier:</span>
+            <div class="multiplier-group">
+                <button class="multiplier-btn" onclick="setMultiplier(1)">1X</button>
+                <button class="multiplier-btn active" onclick="setMultiplier(2)">2X</button>
+                <button class="multiplier-btn" onclick="setMultiplier(3)">3X</button>
+                <button class="multiplier-btn" onclick="setMultiplier(4)">4X</button>
+            </div>
+            <button class="btn btn-primary" onclick="markAllDone()">✓ Mark All As Have</button>
+            <button class="btn btn-secondary" onclick="clearAll()">Clear All</button>
+            <button class="btn btn-secondary" onclick="resetList()">Reset List</button>
+        </div>
+
+        <div class="sections" id="sections"></div>
+
+        <div class="footer">
+            💾 Your selections are automatically saved to browser cookies<br><br>
+            <strong>TVP Recipe Source:</strong> <a href="https://shaneandsimple.com/tvp-taco-meat-recipe/" target="_blank" style="color: #667eea; text-decoration: none;">Shane and Simple - TVP Taco Meat Recipe</a>
+        </div>
+    </div>
+
+    <script>
+        const COOKIE_NAME = 'burrito_grocery_list';
+        const MULTIPLIER_COOKIE = 'burrito_multiplier';
+        const COOKIE_EXPIRY_DAYS = 30;
+
+        const groceryData = {
+            'Scrambled Tofu': [
+                { name: 'Extra firm tofu (drained & crumbled)', qty: '4 × 350g blocks' },
+                { name: 'Field Roast slices', qty: '20 slices' },
+                { name: 'Extra virgin olive oil', qty: '4 tbsp' },
+                { name: 'Vegan butter', qty: '4 tbsp' },
+                { name: 'Asafoetida (hing)', qty: '1 tsp' },
+                { name: 'Cumin powder', qty: '1 tsp' },
+                { name: 'Turmeric powder', qty: '1 tsp' },
+                { name: 'Chilli flakes', qty: '1 tsp' },
+                { name: 'Curry leaves (fresh or dry)', qty: '16 leaves' },
+                { name: 'Red bell peppers', qty: '2 large' },
+                { name: 'Plum tomatoes or 1 can diced tomatoes', qty: '4 or 1 can' },
+                { name: 'Liquid Aminos or soy sauce', qty: '3 tbsp' },
+                { name: 'Kala namak (black salt)', qty: '½ tsp' },
+                { name: 'Nutritional yeast', qty: '4 tbsp' },
+                { name: 'Tahini paste', qty: '2 tbsp' },
+                { name: 'Maple syrup', qty: '2 tsp' },
+                { name: 'Fresh baby spinach', qty: '3 cups' },
+                { name: 'Lemon', qty: '1' },
+                { name: 'Fresh coriander (chopped)', qty: '½ cup' },
+                { name: 'Salt & pepper', qty: 'to taste' },
+                { name: 'Vegan cream cheese (normally skip)', qty: '½ cup' }
+            ],
+            'Smokey Black Beans': [
+                { name: 'Canned black beans', qty: '4 cans (400mL each)' },
+                { name: 'TVP (textured vegetable protein) - prepare first', qty: '200 g dry' },
+                { name: 'Asafoetida (hing)', qty: '1 tsp' },
+                { name: 'Ground cumin', qty: '2 tsp' },
+                { name: 'Smoked paprika', qty: '2 tsp' },
+                { name: 'Dried thyme', qty: '2 tsp' },
+                { name: 'Salsa (any flavor)', qty: '1.5 cups' },
+                { name: 'Protein tortilla wraps', qty: '16' },
+                { name: 'Vegan cheddar cheese', qty: '1 cup' }
+            ],
+            'Lime Coriander Crema': [
+                { name: 'Extra virgin olive oil', qty: '2 tbsp' },
+                { name: 'Vegan coconut yogurt or sour cream', qty: '2 cups' },
+                { name: 'Limes', qty: '2' },
+                { name: 'Maple syrup', qty: '5 tsp' },
+                { name: 'Asafoetida (hing)', qty: '1 tsp' },
+                { name: 'Fresh coriander leaves', qty: '2 large handfuls' },
+                { name: 'Jalapeño (seeded, optional)', qty: '1' },
+                { name: 'Salt & pepper', qty: 'to taste' }
+            ],
+            'Optional Toppings': [
+                { name: 'Pickled jalapeños', qty: 'to taste' },
+                { name: 'Avocado slices', qty: 'to taste' },
+                { name: 'Extra salsa', qty: 'to taste' }
+            ],
+            'TVP Preparation (Ground Meat - for 200g TVP)': [
+                { name: 'TVP (textured vegetable protein)', qty: '200g (~2.25 cups)' },
+                { name: 'Nutritional yeast', qty: '⅓ cup' },
+                { name: 'Chili powder', qty: '2-3 tbsp' },
+                { name: 'Smoked paprika', qty: '1-1.5 tbsp' },
+                { name: 'Cumin', qty: '2-2.5 tsp' },
+                { name: 'Asafoetida (hing)', qty: '0.75 tsp' },
+                { name: 'Low-sodium vegetable broth', qty: '3.5-4 cups' },
+                { name: 'Low-sodium soy sauce', qty: '⅔ cup' },
+                { name: 'Tomato paste', qty: '3-4 tbsp' }
+            ]
+        };
+
+        function parseQuantity(qty) {
+            if (typeof qty !== 'string') return null;
+
+            const fractionMap = {
+                '½': 0.5, '⅓': 1/3, '⅔': 2/3, '¼': 0.25, '¾': 0.75, '⅕': 0.2, '⅖': 0.4, '⅗': 0.6, '⅘': 0.8
+            };
+
+            let match = qty.match(/^([0-9]+(?:\s*[\/÷]\s*[0-9]+)?|\d+\.?\d*|[½⅓⅔¼¾⅕⅖⅗⅘])/);
+            if (!match) return null;
+
+            let numStr = match[1].trim();
+            let num;
+
+            if (fractionMap[numStr]) {
+                num = fractionMap[numStr];
+            } else if (numStr.includes('/')) {
+                const parts = numStr.split(/\s*[\/÷]\s*/);
+                num = parseFloat(parts[0]) / parseFloat(parts[1]);
+            } else {
+                num = parseFloat(numStr);
+            }
+
+            if (isNaN(num)) return null;
+            return { number: num, originalMatch: match[1] };
+        }
+
+        function multiplyQuantity(qty, multiplier) {
+            if (multiplier === 2) return qty; 
+
+            if (typeof qty !== 'string') return qty;
+
+            
+            if (qty.includes(' or ')) {
+                const parts = qty.split(' or ');
+                return parts.map(part => multiplyQuantity(part.trim(), multiplier)).join(' or ');
+            }
+
+            
+            if (qty.includes('-') && qty.match(/\d+-\d/)) {
+                const rangeParts = qty.match(/^([0-9.]+)-([0-9.]+)/);
+                if (rangeParts) {
+                    const start = parseFloat(rangeParts[1]);
+                    const end = parseFloat(rangeParts[2]);
+                    const newStart = start * multiplier / 2;
+                    const newEnd = end * multiplier / 2;
+                    const rest = qty.substring(rangeParts[0].length);
+
+                    const formatNum = (n) => n === Math.floor(n) ? Math.floor(n) : n.toFixed(2).replace(/\.?0+$/, '');
+                    return formatNum(newStart) + '-' + formatNum(newEnd) + rest;
+                }
+            }
+
+            const parsed = parseQuantity(qty);
+            if (!parsed) return qty;
+
+            const newNumber = parsed.number * multiplier / 2; 
+            const rest = qty.substring(parsed.originalMatch.length);
+
+            if (newNumber === Math.floor(newNumber)) {
+                return Math.floor(newNumber) + rest;
+            } else {
+                return newNumber.toFixed(2).replace(/\.?0+$/, '') + rest;
+            }
+        }
+
+        function setMultiplier(mult) {
+            window.currentMultiplier = mult;
+            saveMultiplierToCookie();
+            updateMultiplierButtons();
+            render();
+        }
+
+        function updateMultiplierButtons() {
+            document.querySelectorAll('.multiplier-btn').forEach((btn, idx) => {
+                const btnMultiplier = [1, 2, 3, 4][idx];
+                btn.classList.toggle('active', btnMultiplier === window.currentMultiplier);
+            });
+
+            const labels = ['Single', 'Doubled', 'Tripled', 'Quadrupled'];
+            document.getElementById('multiplierLabel').textContent = labels[window.currentMultiplier - 1];
+        }
+
+        function saveMultiplierToCookie() {
+            const date = new Date();
+            date.setTime(date.getTime() + (COOKIE_EXPIRY_DAYS * 24 * 60 * 60 * 1000));
+            const expires = 'expires=' + date.toUTCString();
+            document.cookie = `${MULTIPLIER_COOKIE}=${window.currentMultiplier};${expires};path=/`;
+        }
+
+        function loadMultiplierFromCookie() {
+            const nameEQ = MULTIPLIER_COOKIE + '=';
+            const cookies = document.cookie.split(';');
+
+            for (let cookie of cookies) {
+                cookie = cookie.trim();
+                if (cookie.indexOf(nameEQ) === 0) {
+                    window.currentMultiplier = parseInt(cookie.substring(nameEQ.length));
+                    return;
+                }
+            }
+            window.currentMultiplier = 2; 
+        }
+
+        
+        function init() {
+            loadMultiplierFromCookie();
+            loadFromCookie();
+            updateMultiplierButtons();
+            render();
+        }
+
+        function render() {
+            const sectionsDiv = document.getElementById('sections');
+            sectionsDiv.innerHTML = '';
+
+            let totalItems = 0;
+            let haveItems = 0;
+
+            for (const [section, items] of Object.entries(groceryData)) {
+                const sectionDiv = document.createElement('div');
+                sectionDiv.className = 'section';
+
+                const titleDiv = document.createElement('div');
+                titleDiv.className = 'section-title';
+                titleDiv.textContent = section;
+                sectionDiv.appendChild(titleDiv);
+
+                const itemsDiv = document.createElement('div');
+                itemsDiv.className = 'items-list';
+
+                items.forEach((item, idx) => {
+                    const itemKey = `${section}_${idx}`;
+                    const isChecked = window.groceryState?.[itemKey] || false;
+
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = `item ${isChecked ? 'have' : 'need'}`;
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.checked = isChecked;
+                    checkbox.onchange = () => {
+                        window.groceryState[itemKey] = checkbox.checked;
+                        saveToCookie();
+                        render();
+                    };
+
+                    const text = document.createElement('span');
+                    text.className = 'item-text';
+                    text.textContent = item.name;
+
+                    const qty = document.createElement('span');
+                    qty.className = 'item-quantity';
+                    qty.textContent = multiplyQuantity(item.qty, window.currentMultiplier);
+
+                    itemDiv.appendChild(checkbox);
+                    itemDiv.appendChild(text);
+                    itemDiv.appendChild(qty);
+                    itemsDiv.appendChild(itemDiv);
+
+                    totalItems++;
+                    if (isChecked) haveItems++;
+                });
+
+                sectionDiv.appendChild(itemsDiv);
+                sectionsDiv.appendChild(sectionDiv);
+            }
+
+            
+            const needItems = totalItems - haveItems;
+            const progress = Math.round((haveItems / totalItems) * 100);
+
+            document.getElementById('totalItems').textContent = totalItems;
+            document.getElementById('haveItems').textContent = haveItems;
+            document.getElementById('needItems').textContent = needItems;
+            document.getElementById('progress').textContent = progress + '%';
+        }
+
+        function saveToCookie() {
+            const data = JSON.stringify(window.groceryState);
+            const date = new Date();
+            date.setTime(date.getTime() + (COOKIE_EXPIRY_DAYS * 24 * 60 * 60 * 1000));
+            const expires = 'expires=' + date.toUTCString();
+            document.cookie = `${COOKIE_NAME}=${data};${expires};path=/`;
+        }
+
+        function loadFromCookie() {
+            const nameEQ = COOKIE_NAME + '=';
+            const cookies = document.cookie.split(';');
+
+            window.groceryState = {};
+
+            for (let cookie of cookies) {
+                cookie = cookie.trim();
+                if (cookie.indexOf(nameEQ) === 0) {
+                    try {
+                        window.groceryState = JSON.parse(cookie.substring(nameEQ.length));
+                    } catch (e) {
+                        console.log('Could not parse cookie');
+                    }
+                    return;
+                }
+            }
+        }
+
+        function markAllDone() {
+            for (const [section, items] of Object.entries(groceryData)) {
+                items.forEach((_, idx) => {
+                    window.groceryState[`${section}_${idx}`] = true;
+                });
+            }
+            saveToCookie();
+            render();
+        }
+
+        function clearAll() {
+            for (const [section, items] of Object.entries(groceryData)) {
+                items.forEach((_, idx) => {
+                    window.groceryState[`${section}_${idx}`] = false;
+                });
+            }
+            saveToCookie();
+            render();
+        }
+
+        function resetList() {
+            document.cookie = `${COOKIE_NAME}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
+            window.groceryState = {};
+            render();
+        }
+
+        
+        init();
+    </script>
+</body>
+</html>
