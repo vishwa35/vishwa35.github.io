@@ -51,6 +51,42 @@
             background: #f8f9fa;
             border-bottom: 1px solid #e0e0e0;
             flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .multiplier-group {
+            display: flex;
+            gap: 5px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .multiplier-btn {
+            padding: 10px 14px;
+            border: none;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .multiplier-btn:hover {
+            background: #e8e8e8;
+        }
+
+        .multiplier-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .multiplier-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            margin-right: 5px;
         }
 
         .btn {
@@ -222,7 +258,7 @@
     <div class="container">
         <div class="header">
             <h1>🌯 Breakfast Burrito Shopping List</h1>
-            <p>Tofu Scramble & Smokey Black Bean Burritos (Doubled Recipe)</p>
+            <p>Tofu Scramble & Smokey Black Bean Burritos (<span id="multiplierLabel">Doubled</span> Recipe)</p>
         </div>
 
         <div class="stats">
@@ -245,6 +281,13 @@
         </div>
 
         <div class="controls">
+            <span class="multiplier-label">Recipe Multiplier:</span>
+            <div class="multiplier-group">
+                <button class="multiplier-btn" onclick="setMultiplier(1)">1X</button>
+                <button class="multiplier-btn active" onclick="setMultiplier(2)">2X</button>
+                <button class="multiplier-btn" onclick="setMultiplier(3)">3X</button>
+                <button class="multiplier-btn" onclick="setMultiplier(4)">4X</button>
+            </div>
             <button class="btn btn-primary" onclick="markAllDone()">✓ Mark All As Have</button>
             <button class="btn btn-secondary" onclick="clearAll()">Clear All</button>
             <button class="btn btn-secondary" onclick="resetList()">Reset List</button>
@@ -260,6 +303,7 @@
 
     <script>
         const COOKIE_NAME = 'burrito_grocery_list';
+        const MULTIPLIER_COOKIE = 'burrito_multiplier';
         const COOKIE_EXPIRY_DAYS = 30;
 
         const groceryData = {
@@ -325,9 +369,114 @@
             ]
         };
 
+        function parseQuantity(qty) {
+            if (typeof qty !== 'string') return null;
+
+            const fractionMap = {
+                '½': 0.5, '⅓': 1/3, '⅔': 2/3, '¼': 0.25, '¾': 0.75, '⅕': 0.2, '⅖': 0.4, '⅗': 0.6, '⅘': 0.8
+            };
+
+            let match = qty.match(/^([0-9]+(?:\s*[\/÷]\s*[0-9]+)?|\d+\.?\d*|[½⅓⅔¼¾⅕⅖⅗⅘])/);
+            if (!match) return null;
+
+            let numStr = match[1].trim();
+            let num;
+
+            if (fractionMap[numStr]) {
+                num = fractionMap[numStr];
+            } else if (numStr.includes('/')) {
+                const parts = numStr.split(/\s*[\/÷]\s*/);
+                num = parseFloat(parts[0]) / parseFloat(parts[1]);
+            } else {
+                num = parseFloat(numStr);
+            }
+
+            if (isNaN(num)) return null;
+            return { number: num, originalMatch: match[1] };
+        }
+
+        function multiplyQuantity(qty, multiplier) {
+            if (multiplier === 2) return qty; // Default is 2X, no change needed
+
+            if (typeof qty !== 'string') return qty;
+
+            // Handle "or" cases by processing each alternative
+            if (qty.includes(' or ')) {
+                const parts = qty.split(' or ');
+                return parts.map(part => multiplyQuantity(part.trim(), multiplier)).join(' or ');
+            }
+
+            // Handle range cases like "2-3 tbsp"
+            if (qty.includes('-') && qty.match(/\d+-\d/)) {
+                const rangeParts = qty.match(/^([0-9.]+)-([0-9.]+)/);
+                if (rangeParts) {
+                    const start = parseFloat(rangeParts[1]);
+                    const end = parseFloat(rangeParts[2]);
+                    const newStart = start * multiplier / 2;
+                    const newEnd = end * multiplier / 2;
+                    const rest = qty.substring(rangeParts[0].length);
+
+                    const formatNum = (n) => n === Math.floor(n) ? Math.floor(n) : n.toFixed(2).replace(/\.?0+$/, '');
+                    return formatNum(newStart) + '-' + formatNum(newEnd) + rest;
+                }
+            }
+
+            const parsed = parseQuantity(qty);
+            if (!parsed) return qty;
+
+            const newNumber = parsed.number * multiplier / 2; // Divide by 2 since base is 2X
+            const rest = qty.substring(parsed.originalMatch.length);
+
+            if (newNumber === Math.floor(newNumber)) {
+                return Math.floor(newNumber) + rest;
+            } else {
+                return newNumber.toFixed(2).replace(/\.?0+$/, '') + rest;
+            }
+        }
+
+        function setMultiplier(mult) {
+            window.currentMultiplier = mult;
+            saveMultiplierToCookie();
+            updateMultiplierButtons();
+            render();
+        }
+
+        function updateMultiplierButtons() {
+            document.querySelectorAll('.multiplier-btn').forEach((btn, idx) => {
+                const btnMultiplier = [1, 2, 3, 4][idx];
+                btn.classList.toggle('active', btnMultiplier === window.currentMultiplier);
+            });
+
+            const labels = ['Single', 'Doubled', 'Tripled', 'Quadrupled'];
+            document.getElementById('multiplierLabel').textContent = labels[window.currentMultiplier - 1];
+        }
+
+        function saveMultiplierToCookie() {
+            const date = new Date();
+            date.setTime(date.getTime() + (COOKIE_EXPIRY_DAYS * 24 * 60 * 60 * 1000));
+            const expires = 'expires=' + date.toUTCString();
+            document.cookie = `${MULTIPLIER_COOKIE}=${window.currentMultiplier};${expires};path=/`;
+        }
+
+        function loadMultiplierFromCookie() {
+            const nameEQ = MULTIPLIER_COOKIE + '=';
+            const cookies = document.cookie.split(';');
+
+            for (let cookie of cookies) {
+                cookie = cookie.trim();
+                if (cookie.indexOf(nameEQ) === 0) {
+                    window.currentMultiplier = parseInt(cookie.substring(nameEQ.length));
+                    return;
+                }
+            }
+            window.currentMultiplier = 2; // Default to 2X
+        }
+
         // Initialize and render
         function init() {
+            loadMultiplierFromCookie();
             loadFromCookie();
+            updateMultiplierButtons();
             render();
         }
 
@@ -372,7 +521,7 @@
 
                     const qty = document.createElement('span');
                     qty.className = 'item-quantity';
-                    qty.textContent = item.qty;
+                    qty.textContent = multiplyQuantity(item.qty, window.currentMultiplier);
 
                     itemDiv.appendChild(checkbox);
                     itemDiv.appendChild(text);
