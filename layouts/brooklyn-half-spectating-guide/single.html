@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ .Title }}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap');
+
+    :root {
+      --bg: #f8f6f3;
+      --surface: #ffffff;
+      --text: #1a1512;
+      --text-dim: #6b5f54;
+      --accent-hot: #ff5584;
+      --accent-teal: #00d9a3;
+      --accent-gold: #ffd60a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 20px 16px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .container { max-width: 600px; margin: 0 auto; }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+      padding: 24px 16px;
+      background: linear-gradient(135deg, rgba(255, 85, 132, 0.1) 0%, rgba(0, 217, 163, 0.1) 100%);
+      border-radius: 16px;
+    }
+
+    .header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--accent-hot) 0%, var(--accent-teal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header p { color: var(--text-dim); font-size: 14px; }
+
+    /* BIG LINK BUTTON */
+    .quick-link {
+      display: block;
+      padding: 20px;
+      margin-bottom: 16px;
+      background: var(--surface);
+      border: 3px solid var(--text);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .quick-link:active,
+    .quick-link:focus {
+      transform: scale(0.98);
+      background: var(--accent-gold);
+    }
+
+    .quick-link.primary {
+      background: var(--accent-hot);
+      color: white;
+      border-color: var(--accent-hot);
+    }
+
+    .quick-link.secondary {
+      background: var(--accent-teal);
+      color: white;
+      border-color: var(--accent-teal);
+    }
+
+    /* SECTION */
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .section h2 .emoji { margin-right: 8px; }
+
+    /* CARD */
+    .card {
+      background: var(--surface);
+      border: 2px solid #e8e0d8;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      color: var(--accent-hot);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      color: var(--text-dim);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .card-distance {
+      color: var(--accent-teal);
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .card a {
+      color: var(--accent-hot);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .card a:active {
+      opacity: 0.8;
+    }
+
+    /* BIB INPUT */
+    .bib-box {
+      background: linear-gradient(135deg, rgba(255, 85, 132, 0.08), rgba(0, 217, 163, 0.08));
+      border: 2px solid var(--accent-gold);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .bib-box p {
+      color: var(--text-dim);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .bib-box .bib-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+
+    /* FAQ ITEM */
+    .faq {
+      background: var(--surface);
+      border: 2px solid #e8e0d8;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 14px 16px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+
+    .faq-question:active {
+      background: var(--accent-gold);
+    }
+
+    .faq-question h4 {
+      font-size: 14px;
+      font-weight: 600;
+      flex: 1;
+    }
+
+    .faq-toggle {
+      color: var(--accent-hot);
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .faq.open .faq-toggle {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 14px 16px;
+      color: var(--text-dim);
+      font-size: 14px;
+      border-top: 2px solid #e8e0d8;
+      background: #fafaf8;
+    }
+
+    .faq.open .faq-answer {
+      display: block;
+    }
+
+    /* HIGHLIGHT */
+    .highlight {
+      background: var(--accent-gold);
+      color: var(--text);
+      padding: 14px 16px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 2px solid #e8e0d8;
+      color: var(--text-dim);
+      font-size: 13px;
+      margin-top: 32px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1><span class="emoji">🏃</span> Brooklyn Half</h1>
+    <p>Your quick guide to cheering me on!</p>
+  </div>
+
+  <!-- QUICK ACCESS -->
+  <div class="section">
+    <a href="https://www.nyrr.org/run/rbc-brooklyn-half" class="quick-link primary">📍 Course Map (Official)</a>
+    <a href="#tracker" class="quick-link secondary">📊 Track My Progress</a>
+  </div>
+
+  <!-- BIB NUMBER -->
+  <div class="bib-box">
+    <p>My Race Bib Number:</p>
+    <div class="bib-number">TBA</div>
+    <p style="margin-top: 8px; font-size: 12px;">Use this to track me during the race!</p>
+  </div>
+
+  <!-- SPECTATING SPOTS -->
+  <div class="section">
+    <h2><span class="emoji">📍</span> Best Spots to Cheer</h2>
+
+    <div class="card">
+      <div class="card-distance">Mile 1.5</div>
+      <h3>Grand Army Plaza Loop</h3>
+      <p>The race kicks off here! Tons of energy, good crowd. Early runners come through fast.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-distance">Mile 7</div>
+      <h3>Fort Hamilton Parkway Station</h3>
+      <p>Great mid-race spot. Runners are settled in, good steady pace. Easy parking in the area.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-distance">Miles 7–12</div>
+      <h3>Ocean Parkway (All along here!)</h3>
+      <p><strong>This is where I recommend you go.</strong> Long stretch, less crowded than start/finish, great views. Runners are powered but not exhausted yet.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-distance">Mile 13.1</div>
+      <h3>Coney Island Boardwalk (Finish)</h3>
+      <p>The payoff moment! Super crowded but incredibly emotional. Come if you want the celebration energy.</p>
+    </div>
+  </div>
+
+  <!-- WHAT TO DO -->
+  <div class="section">
+    <h2><span class="emoji">✅</span> Day-Of Checklist</h2>
+
+    <div class="faq" onclick="toggleFAQ(this)">
+      <div class="faq-question">
+        <h4>What should I bring?</h4>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">
+        Water, snacks, phone charger, comfortable shoes, weather-appropriate layers, and a fun sign or noise maker!
+      </div>
+    </div>
+
+    <div class="faq" onclick="toggleFAQ(this)">
+      <div class="faq-question">
+        <h4>How early should I arrive?</h4>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">
+        For Ocean Parkway: 30 mins before my expected time. For the finish: 1-2 hours early for a good spot.
+      </div>
+    </div>
+
+    <div class="faq" onclick="toggleFAQ(this)">
+      <div class="faq-question">
+        <h4>How will I know when I'm coming?</h4>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">
+        Use the tracker link above with my bib number. Or text me and I'll let you know my pace!
+      </div>
+    </div>
+
+    <div class="faq" onclick="toggleFAQ(this)">
+      <div class="faq-question">
+        <h4>Worried about crowds?</h4>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">
+        Stick to Ocean Parkway (miles 7-12). Still plenty of energy but way less chaotic than start/finish lines.
+      </div>
+    </div>
+
+    <div class="faq" onclick="toggleFAQ(this)">
+      <div class="faq-question">
+        <h4>Is parking terrible?</h4>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">
+        Yes. Use the subway! Get off at the stop nearest your spectating spot and walk from there.
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="highlight">
+    Questions? Text me! I'm just as nervous as you are 😄
+  </div>
+
+  <div class="footer">
+    <p>Thanks for coming to cheer! This is going to be amazing.</p>
+  </div>
+
+</div>
+
+<script>
+  function toggleFAQ(element) {
+    element.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
