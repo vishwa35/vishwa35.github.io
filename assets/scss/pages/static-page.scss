@@ -32,3 +32,53 @@ a.grey {
   }
 
 }
+
+/* Itinerary collapsible sections */
+.itinerary-section {
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  @include theme() {
+    border: 1px solid neutralize(theme-get('bg'), 15);
+    background-color: neutralize(theme-get('bg'), 3);
+  }
+
+  &[open] {
+    @include theme() {
+      background-color: neutralize(theme-get('bg'), 5);
+    }
+  }
+}
+
+.itinerary-title {
+  padding: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s ease;
+  border-radius: 0.5rem;
+  @include theme() {
+    color: theme-get('text');
+  }
+
+  &:hover {
+    @include theme() {
+      background-color: neutralize(theme-get('bg'), 8);
+    }
+  }
+
+  &::-webkit-details-marker {
+    margin-right: 0.5rem;
+  }
+}
+
+.itinerary-section[open] .itinerary-title {
+  @include theme() {
+    border-bottom: 1px solid neutralize(theme-get('bg'), 15);
+  }
+}
+
+.itinerary-section > :not(summary) {
+  padding: 0 1rem 1rem 1rem;
+}
